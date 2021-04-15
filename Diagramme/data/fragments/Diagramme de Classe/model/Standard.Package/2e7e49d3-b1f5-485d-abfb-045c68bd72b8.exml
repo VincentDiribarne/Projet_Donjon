@@ -12,6 +12,16 @@
       <ATT name="Name"><![CDATA[diagramme de classe]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
-    <DEPENDENCIES></DEPENDENCIES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Personne" mc="Standard.Class" uid="099361b3-fdef-430e-8a0a-01aa508265ad"/>
+        <COMPID name="Monstre" mc="Standard.Class" uid="2a89e9f4-c0d3-4fdc-a41e-745e435086ce"/>
+        <COMPID name="Humain" mc="Standard.Class" uid="4b50a69c-6664-4043-a93e-a82562bb4389"/>
+        <COMPID name="Joueur" mc="Standard.Class" uid="0616be5f-6c3f-4c9a-a842-5e59052b8d92"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de classe diagramme de classe" mc="Standard.ClassDiagram" uid="0d968bdb-d060-4af1-8669-2f5c9a7ace29"/>
+      </COMP>
+    </DEPENDENCIES>
   </OBJECT>
 </EXT>
