@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Méchant" version="4">
+  <OBJECT>
+    <ID name="Méchant" mc="Standard.Interface" uid="abe9d8db-0a28-4641-87aa-5200f23b45cf"/>
+    <PID name="diagramme de classe" mc="Standard.Package" uid="2e7e49d3-b1f5-485d-abfb-045c68bd72b8"/>
+    <ATTRIBUTES>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">true</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Méchant]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -18,6 +18,17 @@
         <COMPID name="Monstre" mc="Standard.Class" uid="2a89e9f4-c0d3-4fdc-a41e-745e435086ce"/>
         <COMPID name="Humain" mc="Standard.Class" uid="4b50a69c-6664-4043-a93e-a82562bb4389"/>
         <COMPID name="Joueur" mc="Standard.Class" uid="0616be5f-6c3f-4c9a-a842-5e59052b8d92"/>
+        <COMPID name="Object" mc="Standard.Class" uid="05855ab8-d340-47ef-af24-724c1b22b234"/>
+        <COMPID name="Arme" mc="Standard.Class" uid="50d41cf7-6652-4c11-b2bb-77bbddfa9576"/>
+        <COMPID name="Armure" mc="Standard.Class" uid="18c9cb75-cab7-4e22-bc7c-11c360ef1c8b"/>
+        <COMPID name="Potion" mc="Standard.Class" uid="8e1ba540-5db2-4376-b5f1-f64f22c2c227"/>
+        <COMPID name="PotionVie" mc="Standard.Class" uid="abf36276-3340-4374-9ab1-812e315fa5dc"/>
+        <COMPID name="PotionDegat" mc="Standard.Class" uid="3cef2697-dd95-408f-9080-011af988fd92"/>
+        <COMPID name="Donjon" mc="Standard.Class" uid="62c19fad-9e80-4bfa-b4b2-446306f9a3a1"/>
+        <COMPID name="Salle" mc="Standard.Class" uid="5c7f3964-e2d1-44a5-82e8-da2f78148920"/>
+        <COMPID name="Histoire" mc="Standard.Class" uid="facefb19-0241-42fb-849d-5802a2493a16"/>
+        <COMPID name="Méchant" mc="Standard.Interface" uid="abe9d8db-0a28-4641-87aa-5200f23b45cf"/>
+        <COMPID name="Porte" mc="Standard.Class" uid="60f48c3d-3fdf-467c-b8ac-db185bc279a7"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Diagramme de classe diagramme de classe" mc="Standard.ClassDiagram" uid="0d968bdb-d060-4af1-8669-2f5c9a7ace29"/>

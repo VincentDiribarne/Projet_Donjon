@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Joueur" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="PotionDegat" version="4">
   <OBJECT>
-    <ID name="Joueur" mc="Standard.Class" uid="0616be5f-6c3f-4c9a-a842-5e59052b8d92"/>
+    <ID name="PotionDegat" mc="Standard.Class" uid="3cef2697-dd95-408f-9080-011af988fd92"/>
     <PID name="diagramme de classe" mc="Standard.Package" uid="2e7e49d3-b1f5-485d-abfb-045c68bd72b8"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,13 +11,13 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Joueur]]></ATT>
+      <ATT name="Name"><![CDATA[PotionDegat]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="Parent">
         <OBJECT>
-          <ID name="Generalization" mc="Standard.Generalization" uid="da88183e-8af6-44e2-8b66-ac5d394a569a"/>
+          <ID name="Generalization" mc="Standard.Generalization" uid="fe6c559e-baba-4d79-810e-bbf8ab8f4f92"/>
           <ATTRIBUTES>
             <ATT name="Discriminator"></ATT>
             <ATT name="Name"><![CDATA[Generalization]]></ATT>
@@ -25,7 +25,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="SuperType">
-              <ID name="Personne" mc="Standard.Class" uid="099361b3-fdef-430e-8a0a-01aa508265ad"/>
+              <ID name="Potion" mc="Standard.Class" uid="8e1ba540-5db2-4376-b5f1-f64f22c2c227"/>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>
