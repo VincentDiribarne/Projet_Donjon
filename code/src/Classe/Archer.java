@@ -1,6 +1,9 @@
 package Classe;
 
-public class Archer {
+public class Archer extends Metier {
 
 
+    public Archer(String nom) {
+        super(nom);
+    }
 }

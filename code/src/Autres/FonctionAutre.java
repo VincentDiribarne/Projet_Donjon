@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class FonctionAutre {
 
-    Scanner clavier = new Scanner(System.in);
-    public int LectureInt() {
+    public static Scanner clavier = new Scanner(System.in);
+    public static int LectureInt() {
         int reponse = clavier.nextInt();
         return reponse;
     }
 
-    public String LectureString() {
+    public static String LectureString() {
         String reponse = clavier.nextLine();
         return reponse;
     }
 
-    public  void temps(int temps) {
+    public static void temps(int temps) {
         try {
             Thread.sleep(temps);
         } catch (InterruptedException e) {

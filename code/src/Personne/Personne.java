@@ -1,8 +1,14 @@
+/*
+*Created By Vincent
+*
+*/
 package Personne;
 
 import Autres.Calcul;
 import Autres.*;
+import Classe.Archer;
 import Classe.Metier;
+import Donjon.Salle;
 
 import java.util.ArrayList;
 
@@ -18,14 +24,10 @@ public class Personne {
     private int niveau;
     private String nom;
     private Metier metier;
+    private Salle salleActuelle;
 
-    private String salleActuelle;                                                       //Changer en type salle
-    ArrayList<Integer> tirages = new ArrayList<>();
-
-    //Declaration
-    int reponse = 0;
-    FonctionAutre fA = new FonctionAutre();
-    Metier m = new Metier();
+    //Changer en type salle
+    private ArrayList<Integer> tirages = new ArrayList<>();
 
     public void Personne(String nom) {
         this.nom=nom;
@@ -49,7 +51,7 @@ public class Personne {
 
     public void creationPersonnage() {
         System.out.println("Choisissez votre Race parmi les suivantes : ");
-        fA.temps(1000);
+        FonctionAutre.temps(1000);
         System.out.println("Ecrivez le nom complet sans accent et sans fautes, sinon vous ne pourrez pas choisir la race !");
         System.out.println(
                 "Races Pur Sang : \n" +
@@ -69,7 +71,10 @@ public class Personne {
     }
 
     public void choixClasse() {
-       String StringReponse = fA.LectureString();
+       String StringReponse = FonctionAutre.LectureString();
+
+        metier = new Archer("Archer");
+
 
     }
 
@@ -85,37 +90,37 @@ public class Personne {
         tirages.add(Calcul.genererInt(8,18));
 
         System.out.println("\nLes tirages vont suivre vont determiner la suite de votre aventure, consultez les règles pour en apprendre plus sur la création d'un personnage");
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         System.out.println("\nChaque tirage correspond à un nombre, pensez écrire donc à entrer un nombre !");
         System.out.println("Si vous voulez prendre le tirage 1, notez 1, ainsi de suite");
-        fA.temps(1000);
+        FonctionAutre.temps(1000);
         System.out.println("\nVous pouvez attribuer vos tirages sur la Force, la Constitution, la Dexterité, l'Intelligence");
 
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         afficheTirage();
 
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Force : ");
         force = attributionAttribut();
 
 
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Constitution : ");
         constitution = attributionAttribut();
 
 
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Dextérité : ");
         dexterité = attributionAttribut();
 
 
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         intelligence = tirages.get(0);
         System.out.print("\nVous attribuer donc " +intelligence+ " pour l'intelligence.");
 
 
 
-        fA.temps(2000);
+        FonctionAutre.temps(2000);
         System.out.println("\nVoici le récapitulatif de vos attributs : ");
         System.out.println("\t - Force : " +force);
         System.out.println("\t - Constitution : " +constitution);
@@ -125,10 +130,11 @@ public class Personne {
 
     public int attributionAttribut() {
         int attribut;
-        reponse = fA.LectureInt();
+        int reponse;
+        reponse = FonctionAutre.LectureInt();
         while (reponse > tirages.size()) {
             System.out.println("Erreur, recommencez !");
-            reponse = fA.LectureInt();
+            reponse = FonctionAutre.LectureInt();
         }
         attribut = tirages.get(reponse - 1);
         tirages.remove(reponse - 1);
@@ -139,7 +145,7 @@ public class Personne {
     }
 
     public void afficheTirage() {
-        fA.temps(1500);
+        FonctionAutre.temps(1500);
         System.out.println("\nVoici les statistiques que vous pouvez attribuer");
         for (int i = 0; i < tirages.size(); i++) {
             System.out.println("\t - Tirage " +(i + 1)+ " - " +tirages.get(i));
