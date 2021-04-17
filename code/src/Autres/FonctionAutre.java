@@ -10,17 +10,9 @@ public class FonctionAutre {
         return reponse;
     }
 
-    public static void temps2000() {
+    public static void temps(int temps) {
         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void temps1500() {
-        try {
-            Thread.sleep(1500);
+            Thread.sleep(temps);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

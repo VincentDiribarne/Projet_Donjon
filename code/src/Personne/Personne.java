@@ -17,7 +17,7 @@ public class Personne {
     private int niveau;
     private String nom;
     private String salleActuelle;                                                       //Changer en type salle
-    ArrayList<Integer> tirages = new ArrayList<Integer>();
+    ArrayList<Integer> tirages = new ArrayList<>();
 
     public void Personne(String nom) {
         this.nom=nom;
@@ -40,41 +40,57 @@ public class Personne {
     }*/
 
     public void creationPersonnage() {
-        int tirage1, tirage2, tirage3, tirage4;
+        creationRace();
+        creationClasse();
+        creationTirages();
 
+    }
+
+    public void creationClasse() {
+
+    }
+
+    public void creationRace() {
+
+    }
+
+    public void creationTirages() {
         tirages.add(Calcul.genererInt(8,18));
         tirages.add(Calcul.genererInt(8,18));
         tirages.add(Calcul.genererInt(8,18));
         tirages.add(Calcul.genererInt(8,18));
 
         afficheTirage();
-        FonctionAutre.temps1500();
+        FonctionAutre.temps(2000);
 
         System.out.println("\nCes tirages vont determiner la suite de votre aventure, consultez les règles pour en apprendre plus sur la création d'un personnage");
-        FonctionAutre.temps2000();
+        FonctionAutre.temps(2000);
         System.out.println("Chaque tirage correspond à un nombre, pensez écrire donc à entrer un nombre !");
+        System.out.println("Si vous voulez prendre le tirage 1, notez 1, ainsi de suite");
+        FonctionAutre.temps(500);
+        System.out.println("Vous pouvez attribuer vos tirages sur la Force, la Constitution, la Dexterité, l'Intelligence");
 
-        FonctionAutre.temps2000();
+        FonctionAutre.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Force : ");
         force = attributionAttribut();
 
 
-        FonctionAutre.temps2000();
+        FonctionAutre.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Constitution : ");
         constitution = attributionAttribut();
 
 
-        FonctionAutre.temps2000();
+        FonctionAutre.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Dextérité : ");
         dexterité = attributionAttribut();
 
 
-        FonctionAutre.temps2000();
-        System.out.print("\nVous attribuez donc le dernier tirage automatiquement !");
+        FonctionAutre.temps(2000);
+        System.out.print("\nVoici le ");
         intelligence = tirages.get(0);
 
 
-        FonctionAutre.temps2000();
+        FonctionAutre.temps(2000);
         System.out.println("\nVoici le récapitulatif de vos attributs : ");
         System.out.println("\t - Force : " +force);
         System.out.println("\t - Constitution : " +constitution);
@@ -84,7 +100,6 @@ public class Personne {
 
     public int attributionAttribut() {
         int reponse, attribut;
-
         reponse = FonctionAutre.Lecture();
         while (reponse > tirages.size()) {
             System.out.println("Erreur, recommencez !");
@@ -99,11 +114,29 @@ public class Personne {
     }
 
     public void afficheTirage() {
-        FonctionAutre.temps1500();
+        FonctionAutre.temps(1500);
         System.out.println("Voici les statistiques que vous pouvez attribuer");
         for (int i = 0; i < tirages.size(); i++) {
             System.out.println("\t - Tirage " +(i + 1)+ " - " +tirages.get(i));
         }
+    }
+
+    public int bonus(int valeur) {
+        int bonus;
+        if (valeur >= 8 && valeur < 10) {
+            bonus = -1;
+        } else if(valeur >= 10 && valeur < 12) {
+            bonus = 0;
+        } else if(valeur >= 12 && valeur < 14) {
+            bonus = 1;
+        } else if (valeur >= 14 && valeur < 16) {
+            bonus = 2;
+        } else if (valeur >= 16 && valeur < 18) {
+            bonus = 3;
+        } else {
+            bonus = 4;
+        }
+        return bonus;
     }
 
     //Getters

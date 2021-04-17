@@ -1,6 +1,4 @@
-package donjon;
-
-import java.util.ArrayList;
+package Donjon;
 
 public class Salle {
     private Porte porteNord = null;
