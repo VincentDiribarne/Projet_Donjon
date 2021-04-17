@@ -1,4 +1,4 @@
-package donjon;
+package Donjon;
 
 public class Porte {
     private boolean verouillé = false;
