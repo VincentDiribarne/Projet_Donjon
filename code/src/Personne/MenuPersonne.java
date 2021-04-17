@@ -2,7 +2,7 @@ package Personne;
 
 import Autres.Regles;
 
-public class menuPersonne {
+public class MenuPersonne {
 
     public void choixMenu(int a) {
         Regles r = new Regles();

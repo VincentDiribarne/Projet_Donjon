@@ -4,8 +4,8 @@ public class Metier {
 
     private String nom;
 
-    public Metier() {
-        this.nom= nom;
+    public Metier(String nom) {
+        this.nom= this.nom;
     }
 
     public String getNom() {
