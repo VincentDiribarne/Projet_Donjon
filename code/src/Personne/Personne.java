@@ -2,6 +2,7 @@ package Personne;
 
 import Autres.Calcul;
 import Autres.*;
+import Classe.Metier;
 
 import java.util.ArrayList;
 
@@ -16,12 +17,15 @@ public class Personne {
     private int intelligence;
     private int niveau;
     private String nom;
+    private Metier metier;
+
     private String salleActuelle;                                                       //Changer en type salle
     ArrayList<Integer> tirages = new ArrayList<>();
 
     //Declaration
     int reponse = 0;
     FonctionAutre fA = new FonctionAutre();
+    Metier m = new Metier();
 
     public void Personne(String nom) {
         this.nom=nom;
