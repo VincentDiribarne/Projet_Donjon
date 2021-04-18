@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class FonctionAutre {
 
+    //Remplacer par une fonction clavier
     public static Scanner clavier = new Scanner(System.in);
     public static int LectureInt() {
         int reponse = clavier.nextInt();
@@ -15,6 +16,7 @@ public class FonctionAutre {
         return reponse;
     }
 
+    //Creer un classe temps
     public static void temps(int temps) {
         try {
             Thread.sleep(temps);

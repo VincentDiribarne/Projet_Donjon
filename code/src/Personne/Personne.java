@@ -52,7 +52,8 @@ public class Personne {
     public void creationPersonnage() {
         System.out.println("Choisissez votre Race parmi les suivantes : ");
         FonctionAutre.temps(1000);
-        System.out.println("Ecrivez le nom complet sans accent et sans fautes, sinon vous ne pourrez pas choisir la race !");
+        System.out.println("Ecrivez le nom complet sans accent et sans fautes et sans le tiret, sinon vous ne pourrez pas choisir la race !");
+        System.out.println("Si vous ecrivez, le nom, ne vous inquietez pas, cela vous donnera les caractéristiques de la race selectionnée, avant de vous demander une confirmation");
         System.out.println(
                 "Races Pur Sang : \n" +
                 "\t - Halfelin \n" +
@@ -79,7 +80,30 @@ public class Personne {
     }
 
     public void choixRace() {
+        String StringReponse = FonctionAutre.LectureString();
 
+        if (StringReponse == "Halfelin") {
+            System.out.println("Vous avez choisi un Halfelin");
+            System.out.println("Les halfelins vivent dans un monde rempli de personne plus grande qu'eux. Il mesure 90 centimètres maximum, il paraissent inoffensifs");
+            System.out.println("Les bonus et les malus de l'Halphelin");
+            System.out.println( "\t - Si vous obtenez 1 lord d'un tirage de dés, vous pouvez le relancer une seconde fois. (Ne marche qu'une seule fois par combat)\n" +
+                                "\t - Votre dextérité augmente de 2 \n" +
+                                "\t - Votre Constitution augmente de 1 si votre taille depasse les 80 centimètres"
+            );
+
+            System.out.println("Voulez-vous choisir un Halfelin (Y) ou changer de race (N)");
+            confirmation(FonctionAutre.LectureString());
+        }
+    }
+
+    public String confirmation(String StringReponse) {
+        if (StringReponse == "Y") {
+            
+        } else if (StringReponse == "N") {
+
+        } else {
+            System.out.println("Erreur");
+        }
     }
 
     public void creationTirages() {
