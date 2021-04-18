@@ -16,8 +16,6 @@ public class Histoire {
         //donjon.creationDesSalles();
         //donjon.getSalleDepart().afficherSalle();
         //donjon.getSalleFin().afficherSalle();
-        //Personne p = new Personne();
-        //p.creationTirages();
 
         System.out.println("Bonjour et bienvenue dans notre Donjon Textuel.");
         System.out.println("Le menu va apparaitre, entrez un nombre qui correspond.");

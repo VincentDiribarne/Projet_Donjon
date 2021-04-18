@@ -4,6 +4,7 @@ import Autres.Regles;
 
 public class MenuPersonne {
 
+    //A mettre dans Menu pour veiter de l'appeler en boucle
     public void choixMenu(int a) {
         Regles r = new Regles();
         Personne p = new Personne();

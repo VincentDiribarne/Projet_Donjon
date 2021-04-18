@@ -38,6 +38,4 @@ public class Menu {
         reponse = fA.LectureInt();
         return reponse;
     }
-
-
 }
