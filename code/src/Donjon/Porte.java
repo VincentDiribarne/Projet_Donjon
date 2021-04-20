@@ -35,7 +35,6 @@ public class Porte {
                 return "S";
             default:
                 return "";
-
         }
     }
 }

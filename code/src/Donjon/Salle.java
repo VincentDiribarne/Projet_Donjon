@@ -65,7 +65,7 @@ public class Salle {
 
 
 
-    //Accesseur
+    //Accesseurs
 
     public Porte getPorteNord() {
         return porteNord;
