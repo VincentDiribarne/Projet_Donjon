@@ -1,4 +1,4 @@
-package Classe;
+package model.Classe;
 
 public class Mage extends Metier {
     public Mage(String nom) {

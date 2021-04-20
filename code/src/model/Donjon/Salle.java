@@ -1,4 +1,4 @@
-package Donjon;
+package model.Donjon;
 
 public class Salle {
     private Porte porteNord = null;

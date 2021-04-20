@@ -1,4 +1,4 @@
-package Classe;
+package model.Classe;
 
 public class Sorcier extends Metier {
 

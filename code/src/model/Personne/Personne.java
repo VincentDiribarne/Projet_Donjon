@@ -2,13 +2,13 @@
 *Created By Vincent
 *
 */
-package Personne;
+package model.Personne;
 
 import Autres.Calcul;
-import Autres.*;
-import Classe.Archer;
-import Classe.Metier;
-import Donjon.Salle;
+import model.Classe.Archer;
+import model.Classe.Metier;
+import model.Donjon.Salle;
+import view.FonctionAutre;
 
 import java.util.ArrayList;
 
