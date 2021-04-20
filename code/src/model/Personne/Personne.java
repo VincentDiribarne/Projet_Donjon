@@ -4,8 +4,8 @@
 */
 package model.Personne;
 
-import model.Classe.Metier;
 import model.Donjon.Salle;
+import model.Metier.Metier;
 
 public class Personne {
 
@@ -17,9 +17,14 @@ public class Personne {
     private int force;
     private int intelligence;
     private int niveau;
+    private Metier classe;
+
+
+
     private String nom;
-    private Metier metier;
+    private String race;
     private Salle salleActuelle;
+
 
 
     public void Personne(String nom) {
@@ -43,13 +48,37 @@ public class Personne {
         return PV;
     }*/
 
-
-
     //Getters
     public String getNom() {
         return nom;
     }
 
+
+
+
+
+    public int getPointAttaque() {
+        return pointAttaque;
+    }
+
+    //PV
+    public int getPV() {
+        return PV;
+    }
+
+    public void setPV(int PV) {
+        this.PV = PV;
+    }
+
+    //Race
+    public String getRace() {
+        return race;
+    }
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    //Tirages
     public int getDexterité() {
         return dexterité;
     }
@@ -62,22 +91,9 @@ public class Personne {
         return intelligence;
     }
 
-    public int getPointAttaque() {
-        return pointAttaque;
-    }
-
-    public int getPV() {
-        return PV;
-    }
-
-    public void setMetier(Metier metier) {
-        this.metier = metier;
-    }
-
     public void setForce(int force) {
         this.force = force;
     }
-
 
     public void setConstitution(int constitution) {
         this.constitution = constitution;
@@ -94,6 +110,4 @@ public class Personne {
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
-
-
 }
