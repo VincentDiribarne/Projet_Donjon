@@ -1,7 +1,6 @@
 package controller;
 
 import model.Des;
-import model.Metier.Rodeur;
 import model.Personne.Joueur;
 import model.Personne.Personne;
 import view.Clavier;
@@ -83,19 +82,19 @@ public class JoueurController {
         Temps.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Force : ");
         p.setForce(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
+        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Force.");
 
 
         Temps.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Constitution : ");
         p.setConstitution(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
+        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Constitution.");
 
 
         Temps.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Dextérité : ");
         p.setDexterité(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
+        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Dextérité.");
 
 
 
