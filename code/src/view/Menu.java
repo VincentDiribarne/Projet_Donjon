@@ -1,15 +1,16 @@
 package view;
 
-import view.FonctionAutre;
+import controller.JoueurController;
+import model.Personne.Personne;
 
 public class Menu {
 
-    FonctionAutre fA = new FonctionAutre();
+    Clavier clavier = new Clavier();
+    JoueurController joueurController = new JoueurController();
 
-    public int Menu() {
-        int reponse;
+    public void Menu() {
         System.out.println( "\t+------------------------------+\n" +
-                            "\t|        model.Donjon Textuel        |\n" +
+                            "\t|        Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
                             "\t| 1 - Création d'un personnage |\n" +
                             "\t| 2 - Charger un personnage    |\n" +
@@ -20,14 +21,13 @@ public class Menu {
                             "\n" +
                             "Votre Choix ?"
         );
-        reponse = fA.LectureInt();
-        return reponse;
+        choixMenu(clavier.LectureInt());
     }
 
-    public int Menu2() {
-        int reponse;
+    public void Menu2() {
+
         System.out.println( "\t+------------------------------+\n" +
-                            "\t|        model.Donjon Textuel        |\n" +
+                            "\t|        Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
                             "\t| 1 - Lancer la partie         |\n" +
                             "\t| 2 - Éditer la carte          |\n" +
@@ -37,7 +37,30 @@ public class Menu {
                             "\n" +
                             "Votre Choix ?"
         );
-        reponse = fA.LectureInt();
-        return reponse;
+        choixMenu(clavier.LectureInt());
+    }
+
+    public void choixMenu(int a) {
+        Regles r = new Regles();
+
+        if (a == 1) {
+            joueurController.creationPersonnage();
+        }
+
+        if (a == 2) {
+            //chargerunPerso();
+        }
+
+        if (a == 3) {
+            //changerlaCarte()
+        }
+
+        if (a == 4) {
+            r.Regles();
+        }
+
+        if (a == 5) {
+            System.exit(1);
+        }
     }
 }

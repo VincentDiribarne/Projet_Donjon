@@ -1,10 +1,10 @@
 package controller;
 
 import model.Personne.Personne;
-import view.FonctionAutre;
+import view.Clavier;
 import view.Menu;
 import model.Donjon.Donjon;
-import model.Personne.MenuPersonne;
+import view.Temps;
 
 public class Histoire {
 
@@ -12,10 +12,8 @@ public class Histoire {
     public static void main(String args[]){
         //Declaration
         Menu m = new Menu();
-        MenuPersonne mP = new MenuPersonne();
         Donjon donjon = new Donjon();
-        Personne p = new Personne();
-        JoueurController joueurController = new JoueurController(p);
+        JoueurController joueurController = new JoueurController();
 
 
         //controller.Histoire
@@ -25,8 +23,9 @@ public class Histoire {
 
         System.out.println("Bonjour et bienvenue dans notre model.Donjon Textuel.");
         System.out.println("Le menu va apparaitre, entrez un nombre qui correspond.");
-        FonctionAutre.temps(1000);
-        mP.choixMenu(m.Menu());
+        Temps.temps(1000);
+        joueurController.creationPersonnage();
+
     }
 
 

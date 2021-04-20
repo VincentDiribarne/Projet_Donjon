@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public class De {
+public class Des {
     private static int nb20 = 20;
     private static int nb12 = 12;
     private static int nb10 = 10;
