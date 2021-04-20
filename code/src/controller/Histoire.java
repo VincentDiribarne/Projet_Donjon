@@ -1,7 +1,9 @@
-import Autres.FonctionAutre;
-import Autres.Menu;
-import Donjon.Donjon;
-import Personne.MenuPersonne;
+package controller;
+
+import view.FonctionAutre;
+import view.Menu;
+import model.Donjon.Donjon;
+import model.Personne.MenuPersonne;
 
 public class Histoire {
 
@@ -12,12 +14,12 @@ public class Histoire {
         Donjon donjon = new Donjon();
 
 
-        //Histoire
+        //controller.Histoire
         //donjon.creationDesSalles();
         //donjon.getSalleDepart().afficherSalle();
         //donjon.getSalleFin().afficherSalle();
 
-        System.out.println("Bonjour et bienvenue dans notre Donjon Textuel.");
+        System.out.println("Bonjour et bienvenue dans notre model.Donjon Textuel.");
         System.out.println("Le menu va apparaitre, entrez un nombre qui correspond.");
         FonctionAutre.temps(1000);
         mP.choixMenu(m.Menu());

@@ -1,4 +1,4 @@
-package Autres;
+package view;
 
 public class Regles {
 

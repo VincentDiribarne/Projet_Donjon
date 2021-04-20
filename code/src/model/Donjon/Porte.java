@@ -1,4 +1,4 @@
-package Donjon;
+package model.Donjon;
 
 public class Porte {
     private boolean verouillé = false;
@@ -35,7 +35,6 @@ public class Porte {
                 return "S";
             default:
                 return "";
-
         }
     }
 }

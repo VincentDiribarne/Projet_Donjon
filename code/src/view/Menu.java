@@ -1,4 +1,6 @@
-package Autres;
+package view;
+
+import view.FonctionAutre;
 
 public class Menu {
 
@@ -7,7 +9,7 @@ public class Menu {
     public int Menu() {
         int reponse;
         System.out.println( "\t+------------------------------+\n" +
-                            "\t|        Donjon Textuel        |\n" +
+                            "\t|        model.Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
                             "\t| 1 - Création d'un personnage |\n" +
                             "\t| 2 - Charger un personnage    |\n" +
@@ -25,7 +27,7 @@ public class Menu {
     public int Menu2() {
         int reponse;
         System.out.println( "\t+------------------------------+\n" +
-                            "\t|        Donjon Textuel        |\n" +
+                            "\t|        model.Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
                             "\t| 1 - Lancer la partie         |\n" +
                             "\t| 2 - Éditer la carte          |\n" +

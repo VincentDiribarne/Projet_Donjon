@@ -1,6 +1,6 @@
-package Personne;
+package model.Personne;
 
-import Autres.Regles;
+import view.Regles;
 
 public class MenuPersonne {
 
