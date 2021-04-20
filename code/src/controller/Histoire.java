@@ -1,5 +1,6 @@
 package controller;
 
+import model.Personne.Personne;
 import view.FonctionAutre;
 import view.Menu;
 import model.Donjon.Donjon;
@@ -7,11 +8,14 @@ import model.Personne.MenuPersonne;
 
 public class Histoire {
 
+
     public static void main(String args[]){
         //Declaration
         Menu m = new Menu();
         MenuPersonne mP = new MenuPersonne();
         Donjon donjon = new Donjon();
+        Personne p = new Personne();
+        JoueurController joueurController = new JoueurController(p);
 
 
         //controller.Histoire
@@ -24,6 +28,12 @@ public class Histoire {
         FonctionAutre.temps(1000);
         mP.choixMenu(m.Menu());
     }
+
+
+
+
+
+
 
 
 

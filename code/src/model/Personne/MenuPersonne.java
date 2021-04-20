@@ -9,7 +9,7 @@ public class MenuPersonne {
         Regles r = new Regles();
         Personne p = new Personne();
         if (a == 1) {
-            p.creationPersonnage();
+            //p.creationPersonnage();
         }
 
         if (a == 2) {
