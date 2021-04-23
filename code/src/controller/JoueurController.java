@@ -3,6 +3,7 @@ package controller;
 import model.Des;
 import model.Personne.Joueur;
 import model.Personne.Personne;
+import model.Race.Race;
 import view.Clavier;
 import view.CreationPersonnageView;
 import view.Temps;
@@ -32,32 +33,11 @@ public class JoueurController {
     }
 
     public void choixRace() {
-        String choixRace = creationPersoview.choixRace();
-
+        Race choixRace = creationPersoview.choixRace();
         p.setRace(choixRace);
     }
 
-    public void attributionBonusRace() {
-        int bonusDexterité;
 
-        switch (p.getRace()) {
-            case "Halfelin" :
-                bonusDexterité = 2;
-        }
-    }
-
-
-
-    public String confirmation(String StringReponse) {
-        if (StringReponse == "Y") {
-
-        } else if (StringReponse == "N") {
-
-        } else {
-            System.out.println("Erreur");
-        }
-        return null;
-    }
 
     public void creationTirages() {
         ArrayList<Integer> tirages = new ArrayList<>();
