@@ -6,6 +6,7 @@ package model.Personne;
 
 import model.Donjon.Salle;
 import model.Metier.Metier;
+import model.Race.Race;
 
 public class Personne {
 
@@ -18,11 +19,9 @@ public class Personne {
     private int intelligence;
     private int niveau;
     private Metier classe;
-
-
+    private Race race;
 
     private String nom;
-    private String race;
     private Salle salleActuelle;
 
 
@@ -71,10 +70,10 @@ public class Personne {
     }
 
     //Race
-    public String getRace() {
+    public Race getRace() {
         return race;
     }
-    public void setRace(String race) {
+    public void setRace(Race race) {
         this.race = race;
     }
 

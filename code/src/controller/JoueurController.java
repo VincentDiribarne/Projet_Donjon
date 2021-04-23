@@ -1,9 +1,9 @@
 package controller;
 
 import model.Des;
-import model.Metier.Rodeur;
 import model.Personne.Joueur;
 import model.Personne.Personne;
+import model.Race.Race;
 import view.Clavier;
 import view.CreationPersonnageView;
 import view.Temps;
@@ -33,32 +33,11 @@ public class JoueurController {
     }
 
     public void choixRace() {
-        String choixRace = creationPersoview.choixRace();
-
+        Race choixRace = creationPersoview.choixRace();
         p.setRace(choixRace);
     }
 
-    public void attributionBonusRace() {
-        int bonusDexterité;
 
-        switch (p.getRace()) {
-            case "Halfelin" :
-                bonusDexterité = 2;
-        }
-    }
-
-
-
-    public String confirmation(String StringReponse) {
-        if (StringReponse == "Y") {
-
-        } else if (StringReponse == "N") {
-
-        } else {
-            System.out.println("Erreur");
-        }
-        return null;
-    }
 
     public void creationTirages() {
         ArrayList<Integer> tirages = new ArrayList<>();
@@ -83,19 +62,19 @@ public class JoueurController {
         Temps.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Force : ");
         p.setForce(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
+        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Force.");
 
 
         Temps.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Constitution : ");
         p.setConstitution(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
+        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Constitution.");
 
 
         Temps.temps(2000);
         System.out.print("\nAttribuez un tirage pour la Dextérité : ");
         p.setDexterité(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
+        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Dextérité.");
 
 
 

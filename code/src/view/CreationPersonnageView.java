@@ -1,5 +1,8 @@
 package view;
 
+import model.Race.Halfelin;
+import model.Race.*;
+
 public class CreationPersonnageView {
 
     public void affichageRace() {
@@ -10,10 +13,10 @@ public class CreationPersonnageView {
         Temps.temps(1000);
         Console.ecrire(
                 "Races Pur Sang : \n" +
+                        "\t - Humain \n" +
                         "\t - Halfelin \n" +
                         "\t - Gnome \n" +
                         "\t - Nain \n" +
-                        "\t - Humain \n" +
                         "\t - Elfe \n" +
 
                         "\nRaces Sang-Melées : \n" +
@@ -23,23 +26,46 @@ public class CreationPersonnageView {
         Temps.temps(2000);
     }
 
-    public String choixRace() {
+    public Race choixRace() {
         String StringReponse = Clavier.LectureString();
 
+        Console.ecrire("Vous avez choisi un " +StringReponse);
+        Temps.temps(1000);
         switch (StringReponse) {
+
+            case "Humain" :
+
+
+
             case "Halfelin" :
-                Console.ecrire("Vous avez choisi un Halfelin");
                 Console.ecrire("Les halfelins vivent dans un monde rempli de personne plus grande qu'eux. Il mesure 90 centimètres maximum, il paraissent inoffensifs");
                 Console.ecrire("Les bonus et les malus de l'Halphelin");
                 Console.ecrire("\t - Si vous obtenez 1 lord d'un tirage de dés, vous pouvez le relancer une seconde fois. (Ne marche qu'une seule fois par combat)\n" +
                         "\t - Votre dextérité augmente de 2 \n" +
                         "\t - Votre Constitution augmente de 1 si votre taille depasse les 80 centimètres."
                 );
+                if (confirmation()) {
+                    return new Halfelin();
+                }
 
-                break;
+            case "Gnome" :
+
         }
-        return StringReponse;
+        affichageRace();
+        return choixRace();
     }
 
-    //public
+    public Boolean confirmation() {
+        String StringReponse = Clavier.LectureString();
+        switch (StringReponse) {
+            case "Y" :
+                return true;
+            case "N" :
+                return false;
+            default:
+                Console.ecrire("Erreur");
+                confirmation();
+        }
+        return false;
+    }
 }
