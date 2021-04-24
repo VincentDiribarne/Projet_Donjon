@@ -50,6 +50,18 @@ public class CreationPersonnageView {
 
             case "Gnome" :
 
+
+            case "Nain" :
+
+
+            case "Elfe" :
+
+
+            case "Demi-Orque" :
+
+
+            case "Demi-Elfe" :
+
         }
         affichageRace();
         return choixRace();
