@@ -35,9 +35,6 @@ public class Salle {
 
     }
 
-
-
-
     /**
      * Fonction qui crée un lien entre deux salles en créant une porte. La direction prend comme referentiel la salle qui appelle la méthode.
      * @param salle2
@@ -82,9 +79,6 @@ public class Salle {
                 return null;
         }
     }
-
-
-
 
     //Accesseurs
 

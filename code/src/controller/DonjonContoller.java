@@ -23,6 +23,5 @@ public class DonjonContoller {
             joueur.setSalleActuelle(salleActuelle.getPorte(direction).emprunterPorte(salleActuelle));
         }
         Console.ecrire("Vous avez gagné ! ");
-
     }
 }

@@ -1,120 +1,69 @@
 package controller;
 
-import model.Des;
+import model.Metier.Metier;
 import model.Personne.Joueur;
 import model.Personne.Personne;
 import model.Race.Race;
-import view.Clavier;
+import view.Console;
 import view.CreationPersonnageView;
 import view.Temps;
 
-import java.util.ArrayList;
-
 public class JoueurController {
 
-    private Personne p;
     private CreationPersonnageView creationPersoview;
+    public static Personne p = new Joueur();
 
     public JoueurController(){
         creationPersoview = new CreationPersonnageView();
-        p = new Joueur();
     }
 
     public void creationPersonnage() {
-        creationPersoview.affichageRace();
-        choixRace();
-        //creationPersoview.affichageClasse();
-        choixClasse();
-        creationTirages();
-    }
+        p.setNom(creationPersoview.Debutscript());
+        Temps.temps(2000);
 
-    public void choixClasse() {
-        String StringReponse = Clavier.LectureString();
-    }
+        creationPersoview.Mj();
+        Temps.temps(2000);
 
-    public void choixRace() {
+        Console.ecrire("\n\tBienvenue dans le choix des races !");
+        Temps.temps(1000);
+
+        creationPersoview.affichage();
         Race choixRace = creationPersoview.choixRace();
         p.setRace(choixRace);
-    }
 
+        Temps.temps(3000);
 
-
-    public void creationTirages() {
-        ArrayList<Integer> tirages = new ArrayList<>();
-
-        tirages.add(Des.genererInt(8,18));
-        tirages.add(Des.genererInt(8,18));
-        tirages.add(Des.genererInt(8,18));
-        tirages.add(Des.genererInt(8,18));
-
-        System.out.println("\nLes tirages vont suivre vont determiner la suite de votre aventure, consultez les règles pour en apprendre plus sur la création d'un personnage");
-        Temps.temps(2000);
-        System.out.println("\nChaque tirage correspond à un nombre, pensez écrire donc à entrer un nombre !");
-        System.out.println("Si vous voulez prendre le tirage 1, notez 1, ainsi de suite");
+        Console.ecrire("\n\tBienvenue dans le choix des classes");
         Temps.temps(1000);
-        System.out.println("\nVous pouvez attribuer vos tirages sur la Force, la Constitution, la Dexterité, l'Intelligence");
+        creationPersoview.affichage();
+        Metier metier = creationPersoview.choixClasse();
+        p.setClasse(metier);
 
-        Temps.temps(2000);
+        Temps.temps(3000);
 
-        //VIEW
-        afficheTirage(tirages);
+        Console.ecrire("\n\tBienvenue dans le choix de vos caractéritiques");
+        Temps.temps(1000);
+        creationPersoview.tirages(p);
+        p.setBonusConst(bonus(p.getConstitution()));
+        p.setBonusDex(bonus(p.getDexterité()));
+        p.setBonusForce(bonus(p.getForce()));
+        p.setBonusInt(bonus(p.getIntelligence()));
+        PV();
 
-        Temps.temps(2000);
-        System.out.print("\nAttribuez un tirage pour la Force : ");
-        p.setForce(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Force.");
+        Temps.temps(3000);
 
-
-        Temps.temps(2000);
-        System.out.print("\nAttribuez un tirage pour la Constitution : ");
-        p.setConstitution(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Constitution.");
-
-
-        Temps.temps(2000);
-        System.out.print("\nAttribuez un tirage pour la Dextérité : ");
-        p.setDexterité(attributionAttribut(tirages));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour la Dextérité.");
-
-
-
-        Temps.temps(2000);
-        p.setIntelligence(tirages.get(0));
-        System.out.print("\nVous attribuer donc " + p.getIntelligence() + " pour l'intelligence.");
-
-
-
-        Temps.temps(2000);
-        System.out.println("\nVoici le récapitulatif de vos attributs : ");
-        System.out.println("\t - Force : " + p.getForce());
-        System.out.println("\t - Constitution : " + p.getConstitution());
-        System.out.println("\t - Dexterité : " + p.getDexterité());
-        System.out.println("\t - Intelligence : " + p.getIntelligence());
+        creationPersoview.finScript();
     }
 
-    public int attributionAttribut(ArrayList<Integer> tirages) {
-        int attribut;
-        int reponse;
-        reponse = Clavier.LectureInt();
-        while (reponse > tirages.size()) {
-            System.out.println("Erreur, recommencez !");
-            reponse = Clavier.LectureInt();
-        }
-        attribut = tirages.get(reponse - 1);
-        tirages.remove(reponse - 1);
-        if (tirages.size() > 1) {
-            afficheTirage(tirages);
-        }
-        return attribut;
+    public void PV() {
+        p.setPV(p.getClasse().getPVdeBase() + p.getRace().getBonusConst() + p.getBonusConst());
     }
 
-    public void afficheTirage(ArrayList<Integer> tirages) {
-        Temps.temps(1500);
-        System.out.println("\nVoici les statistiques que vous pouvez attribuer");
-        for (int i = 0; i < tirages.size(); i++) {
-            System.out.println("\t - Tirage " +(i + 1)+ " - " +tirages.get(i));
-        }
-    }
+    /**
+     *
+     * @param valeur
+     * @return int
+     */
 
     public int bonus(int valeur) {
         int bonus;
@@ -134,3 +83,4 @@ public class JoueurController {
         return bonus;
     }
 }
+

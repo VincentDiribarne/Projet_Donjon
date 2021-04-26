@@ -1,7 +1,8 @@
 package model.Personne;
 
-public class Joueur extends Personne{
+import model.Metier.Metier;
 
+public class Joueur extends Personne {
 
 
     private void seDeplacer(String direction){
@@ -20,5 +21,7 @@ public class Joueur extends Personne{
                 break;
         }
     }
+
+    //Metier
 
 }
