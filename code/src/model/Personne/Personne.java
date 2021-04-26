@@ -22,7 +22,7 @@ public class Personne {
     private Race race;
 
     private String nom;
-    private Salle salleActuelle;
+    protected Salle salleActuelle;
 
 
 
@@ -108,5 +108,14 @@ public class Personne {
 
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+    }
+
+
+    public void setSalleActuelle(Salle salleActuelle) {
+        this.salleActuelle = salleActuelle;
+    }
+
+    public Salle getSalleActuelle() {
+        return salleActuelle;
     }
 }

@@ -1,5 +1,9 @@
 package model.Donjon;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Salle {
     private Porte porteNord = null;
     private Porte porteSud = null;
@@ -13,21 +17,23 @@ public class Salle {
         this.nom = nom;
     }
 
-
-    public void afficherSalle(){
-        voirSallePorte(porteOuest);
-        voirSallePorte(porteNord);
-        voirSallePorte(porteEst);
-        voirSallePorte(porteSud);
-
-    }
-
-    public void voirSallePorte(Porte porte){
-        if (porte != null){
-            System.out.println("Vous pouvez prendre la porte " +porte.getDirection(this)+ " vers la salle " + porte.emprunterPorte(this).getNom());;
+    public ArrayList porteDisponible(){
+        ArrayList<Porte> porteDisponible = new ArrayList<>();
+        if (porteNord != null){
+            porteDisponible.add(porteNord);
         }
-    }
+        if (porteSud != null){
+            porteDisponible.add(porteSud);
+        }
+        if (porteEst != null){
+            porteDisponible.add(porteEst);
+        }
+        if (porteOuest != null){
+            porteDisponible.add(porteOuest);
+        }
+        return porteDisponible;
 
+    }
 
 
 
@@ -59,6 +65,21 @@ public class Salle {
             default:
                 System.out.println("Erreur lors de la création de la salle");
                 break;
+        }
+    }
+
+    public Porte getPorte(String direction){
+        switch (direction){
+            case "O":
+                return porteOuest;
+            case "E":
+                return porteEst;
+            case "N":
+                return porteNord;
+            case "S":
+                return porteSud;
+            default:
+                return null;
         }
     }
 
