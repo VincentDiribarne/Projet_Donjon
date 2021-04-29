@@ -8,16 +8,16 @@ import java.util.ArrayList;
 public class DonjonView {
 
     public String choixSalle(ArrayList<Porte> sallesDisponibles, Salle salleJoueur){
-        ArrayList<String> choixDisponible = new ArrayList<String>();
+        ArrayList<String> choixDisponibles = new ArrayList<String>();
         Console.ecrire("Vous êtes dans la salle "+ salleJoueur.getNom());
         Console.ecrire("Vous pouvez maintenant vous déplacer : ");
         for (Porte p: sallesDisponibles) {
             voirSallePorte(p,salleJoueur);
             if (p != null){
-                choixDisponible.add(p.getDirection(salleJoueur));
+                choixDisponibles.add(p.getDirection(salleJoueur));
             }
         }
-        return choixSalleJoueur(choixDisponible);
+        return choixSalleJoueur(choixDisponibles);
 
 
     }
