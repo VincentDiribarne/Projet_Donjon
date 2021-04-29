@@ -1,7 +1,9 @@
 package model.Metier;
 
-import model.Personne.Personne;
-
 public class Guerrier extends Metier {
 
+    public Guerrier() {
+        name = "Guerrier";
+        PVdeBase = 10;
+    }
 }

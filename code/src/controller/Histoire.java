@@ -1,6 +1,7 @@
 package controller;
 
 import model.Personne.Personne;
+import model.Race.DemiOrque;
 import view.Clavier;
 import view.Menu;
 import model.Donjon.Donjon;
@@ -21,11 +22,9 @@ public class Histoire {
         //donjon.getSalleDepart().afficherSalle();
         //donjon.getSalleFin().afficherSalle();
 
-        System.out.println("Bonjour et bienvenue dans notre model.Donjon Textuel.");
-        System.out.println("Le menu va apparaitre, entrez un nombre qui correspond.");
-        Temps.temps(1000);
-        joueurController.creationPersonnage();
-
+        System.out.println("Bonjour et bienvenue dans notre Donjon Textuel.");
+        System.out.println("Le menu va apparaitre, entrez un nombre qui correspond.\n");
+        m.Menu();
     }
 
 

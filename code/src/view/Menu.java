@@ -9,6 +9,7 @@ public class Menu {
     JoueurController joueurController = new JoueurController();
 
     public void Menu() {
+        Temps.temps(1000);
         System.out.println( "\t+------------------------------+\n" +
                             "\t|        Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
@@ -17,22 +18,6 @@ public class Menu {
                             "\t| 3 - Éditer la carte          |\n" +
                             "\t| 4 - Afficher les règles      |\n" +
                             "\t| 5 - Quitter                  |\n" +
-                            "\t+------------------------------+\n" +
-                            "\n" +
-                            "Votre Choix ?"
-        );
-        choixMenu(clavier.LectureInt());
-    }
-
-    public void Menu2() {
-
-        System.out.println( "\t+------------------------------+\n" +
-                            "\t|        Donjon Textuel        |\n" +
-                            "\t+------------------------------+\n" +
-                            "\t| 1 - Lancer la partie         |\n" +
-                            "\t| 2 - Éditer la carte          |\n" +
-                            "\t| 3 - Afficher les règles      |\n" +
-                            "\t| 4 - Quitter                  |\n" +
                             "\t+------------------------------+\n" +
                             "\n" +
                             "Votre Choix ?"
@@ -62,5 +47,20 @@ public class Menu {
         if (a == 5) {
             System.exit(1);
         }
+    }
+
+    public void Menu2() {
+
+        System.out.println( "\t+------------------------------+\n" +
+                "\t|        Donjon Textuel        |\n" +
+                "\t+------------------------------+\n" +
+                "\t| 1 - Lancer la partie         |\n" +
+                "\t| 2 - Éditer la carte          |\n" +
+                "\t| 3 - Afficher les règles      |\n" +
+                "\t| 4 - Quitter                  |\n" +
+                "\t+------------------------------+\n" +
+                "\n" +
+                "Votre Choix ?"
+        );
     }
 }
