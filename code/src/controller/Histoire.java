@@ -24,6 +24,7 @@ public class Histoire {
 
         System.out.println("Bonjour et bienvenue dans notre Donjon Textuel.");
         System.out.println("Le menu va apparaitre, entrez un nombre qui correspond.\n");
+        System.out.println("test");
         m.Menu();
     }
 
