@@ -2,12 +2,21 @@ package model.Race;
 
 public class Race {
     protected String name;
+
+    //Attaque corps a corps
     protected int bonusForce = 0;
+
+
+    //Initiative, qui commence le combat enter le monstre et le joueur ....
     protected int bonusDex = 0;
+
+    //Sert pour les sorts
     protected int bonusInt = 0;
+
+    //Point de vie
     protected int bonusConst = 0;
     protected String classePrédi;
-    public static final String CLASSE_PREDI_DEFAUT = "Aucune";
+    public final String CLASSE_PREDI_DEFAUT = "Aucune";
 
     public Race() {
         super();
@@ -27,6 +36,10 @@ public class Race {
         return bonusInt;
     }
 
+    public int getBonusForce() {
+        return bonusForce;
+    }
+
     //Autres
     public String getName() {
         return name;
@@ -35,4 +48,6 @@ public class Race {
     public String getClassePrédi() {
         return classePrédi;
     }
+
+
 }
