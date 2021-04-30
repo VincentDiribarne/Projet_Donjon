@@ -11,7 +11,7 @@ public class Histoire {
 
 
     public static void main(String args[]){
-        //Declaration
+        //Declaration test
         Menu m = new Menu();
         Donjon donjon = new Donjon();
         JoueurController joueurController = new JoueurController();

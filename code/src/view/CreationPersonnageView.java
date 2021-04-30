@@ -1,8 +1,9 @@
 package view;
 
 import controller.JoueurController;
-import model.Des;
+import model.De;
 import model.Metier.*;
+import model.Personne.Joueur;
 import model.Personne.Personne;
 import model.Race.Halfelin;
 import model.Race.*;
@@ -295,7 +296,7 @@ public class CreationPersonnageView {
                 Console.ecrire("Attention, les pretres ne lancent pas de sorts offensifs\n");
 
                 if (confirmation()) {
-                    Console.ecrire("Vous venez de choisir Halfelin");
+                    Console.ecrire("Vous venez de choisir Pretre");
                     return new Pretre();
                 }
                 break;
@@ -382,13 +383,13 @@ public class CreationPersonnageView {
 
 
     //Tirages
-    public void tirages(Personne p) {
+    public void tirages(Joueur p) {
     ArrayList<Integer> tirages = new ArrayList<>();
 
-        tirages.add(Des.genererInt(8,18));
-        tirages.add(Des.genererInt(8,18));
-        tirages.add(Des.genererInt(8,18));
-        tirages.add(Des.genererInt(8,18));
+        tirages.add(De.genererInt(8,18));
+        tirages.add(De.genererInt(8,18));
+        tirages.add(De.genererInt(8,18));
+        tirages.add(De.genererInt(8,18));
 
         Console.ecrire("\nLes tirages vont suivre vont determiner la suite de votre aventure, consultez les règles pour en apprendre plus sur la création d'un personnage");
         Temps.temps(2000);
