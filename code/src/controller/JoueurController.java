@@ -11,7 +11,7 @@ import view.Temps;
 public class JoueurController {
 
     private CreationPersonnageView creationPersoview;
-    public static Personne p = new Joueur();
+    public static Joueur p = new Joueur();
 
     public JoueurController(){
         creationPersoview = new CreationPersonnageView();
@@ -44,27 +44,27 @@ public class JoueurController {
         Console.ecrire("\n\tBienvenue dans le choix de vos caractéritiques");
         Temps.temps(1000);
         creationPersoview.tirages(p);
+
+
         p.setBonusConst(bonus(p.getConstitution()));
         p.setBonusDex(bonus(p.getDexterité()));
         p.setBonusForce(bonus(p.getForce()));
         p.setBonusInt(bonus(p.getIntelligence()));
-        PV();
+        p.setPV(p.getClasse().getPVdeBase() + p.getBonusConst());
+        p.setClasseArmure(p.getClasseArmure() + p.getBonusDex());
+
 
         Temps.temps(3000);
-
         creationPersoview.finScript();
     }
 
-    public void PV() {
-        p.setPV(p.getClasse().getPVdeBase() + p.getRace().getBonusConst() + p.getBonusConst());
-    }
+
 
     /**
-     *
+     * Find bonus from a value
      * @param valeur
      * @return int
      */
-
     public int bonus(int valeur) {
         int bonus;
         if (valeur >= 8 && valeur < 10) {

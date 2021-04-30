@@ -5,8 +5,8 @@ import model.Personne.Personne;
 
 public class Menu {
 
-    Clavier clavier = new Clavier();
-    JoueurController joueurController = new JoueurController();
+    private Clavier clavier = new Clavier();
+    private JoueurController joueurController = new JoueurController();
 
     public void Menu() {
         Temps.temps(1000);
@@ -28,25 +28,28 @@ public class Menu {
     public void choixMenu(int a) {
         Regles r = new Regles();
 
-        if (a == 1) {
-            joueurController.creationPersonnage();
+        switch (a){
+            case 1:
+                joueurController.creationPersonnage();
+                break;
+            case 2:
+                //chargerunPerso();
+                break;
+            case 3:
+                //changerlaCarte()
+                break;
+            case 4:
+                r.Regles();
+                break;
+            case 5:
+                System.exit(1);
+                break;
+            default:
+                Menu();
+                break;
+
         }
 
-        if (a == 2) {
-            //chargerunPerso();
-        }
-
-        if (a == 3) {
-            //changerlaCarte()
-        }
-
-        if (a == 4) {
-            r.Regles();
-        }
-
-        if (a == 5) {
-            System.exit(1);
-        }
     }
 
     public void Menu2() {
