@@ -1,8 +1,9 @@
 package controller;
 
+import model.Donjon.Donjon;
+import model.Donjon.Salle;
 import model.Metier.Metier;
 import model.Personne.Joueur;
-import model.Personne.Personne;
 import model.Race.Race;
 import view.Console;
 import view.CreationPersonnageView;
@@ -11,14 +12,14 @@ import view.Temps;
 public class JoueurController {
 
     private CreationPersonnageView creationPersoview;
-    public static Joueur p = new Joueur();
+    public static Joueur joueur = new Joueur();
 
     public JoueurController(){
         creationPersoview = new CreationPersonnageView();
     }
 
     public void creationPersonnage() {
-        p.setNom(creationPersoview.Debutscript());
+        joueur.setNom(creationPersoview.Debutscript());
         Temps.temps(2000);
 
         creationPersoview.Mj();
@@ -29,7 +30,7 @@ public class JoueurController {
 
         creationPersoview.affichage();
         Race choixRace = creationPersoview.choixRace();
-        p.setRace(choixRace);
+        joueur.setRace(choixRace);
 
         Temps.temps(3000);
 
@@ -37,25 +38,40 @@ public class JoueurController {
         Temps.temps(1000);
         creationPersoview.affichage();
         Metier metier = creationPersoview.choixClasse();
-        p.setClasse(metier);
+        joueur.setClasse(metier);
 
         Temps.temps(3000);
 
         Console.ecrire("\n\tBienvenue dans le choix de vos caractéritiques");
         Temps.temps(1000);
-        creationPersoview.tirages(p);
+        creationPersoview.tirages();
 
 
-        p.setBonusConst(bonus(p.getConstitution()));
-        p.setBonusDex(bonus(p.getDexterité()));
-        p.setBonusForce(bonus(p.getForce()));
-        p.setBonusInt(bonus(p.getIntelligence()));
-        p.setPV(p.getClasse().getPVdeBase() + p.getBonusConst());
-        p.setClasseArmure(p.getClasseArmure() + p.getBonusDex());
+        joueur.setBonusConst(bonus(joueur.getConstitution()));
+        joueur.setBonusDex(bonus(joueur.getDexterité()));
+        joueur.setBonusForce(bonus(joueur.getForce()));
+        joueur.setBonusInt(bonus(joueur.getIntelligence()));
+        joueur.setPV(joueur.getClasse().getPVdeBase() + joueur.getBonusConst());
+        joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
 
 
         Temps.temps(3000);
         creationPersoview.finScript();
+    }
+
+
+    public void DemarrerLaPartie(){
+
+        Joueur joueur = JoueurController.joueur;
+        Donjon donjon = DonjonController.donjon;
+
+        System.out.println("Debut de la partie");
+        while (joueur.getSalleActuelle() != donjon.getSalleFin()){
+            Salle salleActuelle = joueur.getSalleActuelle();
+            String direction = DonjonController.donjonView.choixSalle(salleActuelle.porteDisponible(), salleActuelle);
+            joueur.seDeplacer(direction);
+        }
+        System.out.println("victore");
     }
 
 

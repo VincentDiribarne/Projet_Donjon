@@ -1,12 +1,15 @@
 package view;
 
+import controller.DonjonController;
+import controller.Histoire;
 import controller.JoueurController;
 import model.Personne.Personne;
 
 public class Menu {
 
     private Clavier clavier = new Clavier();
-    private JoueurController joueurController = new JoueurController();
+    private JoueurController joueurController = Histoire.joueurController;
+    private DonjonController donjonController = Histoire.donjonController;
 
     public void Menu() {
         Temps.temps(1000);
@@ -65,5 +68,31 @@ public class Menu {
                 "\n" +
                 "Votre Choix ?"
         );
+        choixMenu2(clavier.LectureInt());
+    }
+
+    public void choixMenu2(int a) {
+        Regles r = new Regles();
+
+        switch (a){
+            case 1:
+                donjonController.creationDonjon();
+                joueurController.DemarrerLaPartie();
+
+                break;
+            case 2:
+                //editter la carte();
+                break;
+            case 3:
+                r.Regles();
+                break;
+            case 4:
+                System.exit(1);
+                break;
+            default:
+                Menu2();
+                break;
+        }
+
     }
 }
