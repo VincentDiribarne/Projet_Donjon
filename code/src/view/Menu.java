@@ -13,7 +13,7 @@ public class Menu {
 
     public void Menu() {
         Temps.temps(1000);
-        System.out.println( "\t+------------------------------+\n" +
+        System.out.println("\t+------------------------------+\n" +
                             "\t|        Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
                             "\t| 1 - Création d'un personnage |\n" +
@@ -30,7 +30,6 @@ public class Menu {
 
     public void choixMenu(int a) {
         Regles r = new Regles();
-
         switch (a){
             case 1:
                 joueurController.creationPersonnage();
@@ -50,14 +49,11 @@ public class Menu {
             default:
                 Menu();
                 break;
-
         }
-
     }
 
     public void Menu2() {
-
-        System.out.println( "\t+------------------------------+\n" +
+        System.out.println("\t+------------------------------+\n" +
                 "\t|        Donjon Textuel        |\n" +
                 "\t+------------------------------+\n" +
                 "\t| 1 - Lancer la partie         |\n" +
