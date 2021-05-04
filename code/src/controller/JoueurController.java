@@ -1,9 +1,13 @@
 package controller;
 
+import model.De;
 import model.Donjon.Donjon;
 import model.Donjon.Salle;
+import model.Inventaire.Arme;
 import model.Metier.Metier;
 import model.Personne.Joueur;
+import model.Personne.Monstre;
+import model.Personne.Personne;
 import model.Race.Race;
 import view.Console;
 import view.CreationPersonnageView;
@@ -14,7 +18,7 @@ public class JoueurController {
     private CreationPersonnageView creationPersoview;
     public static Joueur joueur = new Joueur();
 
-    public JoueurController(){
+    public JoueurController() {
         creationPersoview = new CreationPersonnageView();
     }
 
@@ -38,7 +42,7 @@ public class JoueurController {
         Temps.temps(1000);
         creationPersoview.affichage();
         Metier metier = creationPersoview.choixClasse();
-        joueur.setClasse(metier);
+        joueur.setMetier(metier);
 
         Temps.temps(3000);
 
@@ -51,30 +55,53 @@ public class JoueurController {
         joueur.setBonusDex(bonus(joueur.getDexterité()));
         joueur.setBonusForce(bonus(joueur.getForce()));
         joueur.setBonusInt(bonus(joueur.getIntelligence()));
-        joueur.setPV(joueur.getClasse().getPVdeBase() + joueur.getBonusConst());
+        joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
 
 
         Temps.temps(3000);
         creationPersoview.finScript();
+        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
+        joueur.setArme(mainNue);
     }
 
-    public void DemarrerLaPartie(){
+    public void DemarrerLaPartie() {
 
         Joueur joueur = JoueurController.joueur;
         Donjon donjon = DonjonController.donjon;
 
         System.out.println("Debut de la partie");
-        while (joueur.getSalleActuelle() != donjon.getSalleFin()){
+        while (joueur.getSalleActuelle() != donjon.getSalleFin() && joueur.getPv() > 0) {
+            //Inventaire
+            //SeReposeer
             Salle salleActuelle = joueur.getSalleActuelle();
             String direction = DonjonController.donjonView.choixSalle(salleActuelle.porteDisponible(), salleActuelle);
             joueur.seDeplacer(direction);
+
+            Monstre monstre = joueur.getSalleActuelle().getMonstre();
+            if (monstre != null && monstre.getPv() > 0) {
+                Histoire.combatController.rencontreMonstre(salleActuelle);
+            }
+            if (joueur.getPv() > 0){
+                //Continuer ....
+                //Ouvrir coffre
+            }
+
         }
-        System.out.println("Victoire !");
+        if (joueur.getPv() <= 0){
+            System.out.println("Le joueur est mort");
+            //TODO Game OVer
+        }
+        else {
+            System.out.println("Victoire !");
+        }
+
     }
+
 
     /**
      * Find bonus from a value
+     *
      * @param valeur
      * @return int
      */
@@ -82,9 +109,9 @@ public class JoueurController {
         int bonus;
         if (valeur >= 8 && valeur < 10) {
             bonus = -1;
-        } else if(valeur >= 10 && valeur < 12) {
+        } else if (valeur >= 10 && valeur < 12) {
             bonus = 0;
-        } else if(valeur >= 12 && valeur < 14) {
+        } else if (valeur >= 12 && valeur < 14) {
             bonus = 1;
         } else if (valeur >= 14 && valeur < 16) {
             bonus = 2;

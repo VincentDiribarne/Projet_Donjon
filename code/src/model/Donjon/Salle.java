@@ -129,4 +129,8 @@ public class Salle {
     public String getNom() {
         return nom;
     }
+
+    public Monstre getMonstre() {
+        return monstre;
+    }
 }

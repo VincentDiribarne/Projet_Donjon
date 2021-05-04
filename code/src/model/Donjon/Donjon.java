@@ -1,5 +1,7 @@
 package model.Donjon;
 
+import model.Personne.Monstre;
+
 public class Donjon {
 
 
@@ -16,7 +18,7 @@ public class Donjon {
         salleDepart = new Salle("salleDepart");
         Salle salle2 = new Salle("Salle2");
         Salle salle3 = new Salle("Salle3");
-        Salle salle4 = new Salle("Salle4");
+        Salle salle4 = new Salle("Salle4",new Monstre("un Gobelin", 4, 1, -1, 0, 8, 1, 15));
         Salle salle5 = new Salle("Salle5");
         Salle salle6 = new Salle("Salle6");
         Salle salle7 = new Salle("Salle7");

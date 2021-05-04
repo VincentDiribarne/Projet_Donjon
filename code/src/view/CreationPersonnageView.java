@@ -1,6 +1,5 @@
 package view;
 
-import controller.Histoire;
 import controller.JoueurController;
 import model.De;
 import model.Metier.*;
@@ -43,8 +42,8 @@ public class CreationPersonnageView {
 
     public void finScript() {
         Console.ecrire("\nLa création de votre personnage est faite !");
-        Console.ecrire("\nVous êtes un " +joueur.getRace().getName()+ " avec comme classe : " +JoueurController.joueur.getClasse().getName()+ ".");
-        Console.ecrire("Vous avez " +joueur.getPV()+ " PV\n");
+        Console.ecrire("\nVous êtes un " +joueur.getRace().getName()+ " avec comme classe : " +JoueurController.joueur.getMetier().getName()+ ".");
+        Console.ecrire("Vous avez " +joueur.getPv()+ " PV\n");
 
         Console.parler("Bonne chance à toi, " +joueur.getNom());
     }

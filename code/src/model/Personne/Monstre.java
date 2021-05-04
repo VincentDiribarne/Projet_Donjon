@@ -1,6 +1,6 @@
 package model.Personne;
 
-import view.Console;
+import model.De;
 
 public class Monstre extends Personne{
 
@@ -10,7 +10,7 @@ public class Monstre extends Personne{
     public Monstre(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure) {
         super();
         this.nom = nom;
-        this.PV = PV;
+        this.pv = PV;
         this.bonusDex = bonusDex;
         this.bonusForce = bonusForce;
         this.bonusInt = bonusInt;
@@ -26,4 +26,42 @@ public class Monstre extends Personne{
     public int getDeAttaque() {
         return deAttaque;
     }
+
+
+    public int getBonusConst() {
+        return bonusConst;
+    }
+
+
+
+    /**
+     * bonusDex
+     *
+     * @return
+     */
+    public int getBonusDex() {
+        return bonusDex;
+    }
+
+    /**
+     * bonusForce
+     *
+     * @return
+     */
+    public int getBonusForce() {
+        return bonusForce;
+    }
+
+    public int getBonusInt() {
+        return bonusInt;
+    }
+
+    //Degat
+
+    public int getDegat(){
+        return De.lancerDes(deAttaque);
+    }
+
+
+
 }
