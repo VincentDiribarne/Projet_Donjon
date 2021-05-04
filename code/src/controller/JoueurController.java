@@ -80,6 +80,7 @@ public class JoueurController {
 
             Monstre monstre = joueur.getSalleActuelle().getMonstre();
             if (monstre != null && monstre.getPv() > 0) {
+                System.out.println("Il y a un monstre");
                 Histoire.combatController.rencontreMonstre(salleActuelle);
             }
             if (joueur.getPv() > 0){

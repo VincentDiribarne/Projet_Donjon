@@ -16,8 +16,6 @@ public class CombatController {
 
     public void rencontreMonstre(Salle sallePrécédente) {
         Monstre monstre = joueur.getSalleActuelle().getMonstre();
-        System.out.println("Il y a un monstre");
-        monstreView.presentation(monstre);
         //Menu demander le choix du joueur
         int choixDuJoueur = 1;
         //Fuire :
@@ -69,18 +67,23 @@ public class CombatController {
         if (jetAttaque == 20){
             degat *= 2;
             cible.estAttaqué(degat);
+            System.out.println("Attaque critique de " + personne.getNom() + " de "+ degat+ " dégats");
             //TODO View personne attaque cible et lui met x dégat
         }
         else{
             jetAttaque += personne.getBonusForce() +personne.getBonusBaseAttaque();
             if (cible.getClasseArmure() <= jetAttaque){
                 cible.estAttaqué(degat);
+                System.out.println("Attaque de " + personne.getNom() + " de "+ degat+ " dégats");
+
                 //TODO View personne attaque cible et lui met x dégat
             }
             else {
+                System.out.println("Attaque échoué");
                 //TODO View attaque échoué
             }
         }
+        System.out.println(cible.getNom() + " a plus que " + cible.getPv());
 
     }
 
