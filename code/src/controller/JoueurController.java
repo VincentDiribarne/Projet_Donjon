@@ -59,7 +59,6 @@ public class JoueurController {
         creationPersoview.finScript();
     }
 
-
     public void DemarrerLaPartie(){
 
         Joueur joueur = JoueurController.joueur;
@@ -71,10 +70,8 @@ public class JoueurController {
             String direction = DonjonController.donjonView.choixSalle(salleActuelle.porteDisponible(), salleActuelle);
             joueur.seDeplacer(direction);
         }
-        System.out.println("victore");
+        System.out.println("Victoire !");
     }
-
-
 
     /**
      * Find bonus from a value

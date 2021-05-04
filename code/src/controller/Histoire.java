@@ -28,19 +28,4 @@ public class Histoire {
         m.Menu2();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
