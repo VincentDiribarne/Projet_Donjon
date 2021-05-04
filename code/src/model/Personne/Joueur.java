@@ -20,7 +20,7 @@ public class Joueur extends Personne {
         super();
     }
 
-    private void seDeplacer(String direction){
+    public void seDeplacer(String direction){
         switch (direction){
             case "N":
                 salleActuelle = salleActuelle.getPorteNord().emprunterPorte(salleActuelle);

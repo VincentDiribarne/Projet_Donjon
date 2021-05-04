@@ -1,5 +1,7 @@
 package model.Donjon;
 
+import model.Personne.Monstre;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,11 +12,16 @@ public class Salle {
     private Porte porteEst = null;
     private Porte porteOuest = null;
     private String nom;
-
+    private Monstre monstre;
 
     public Salle(String nom){
         super();
         this.nom = nom;
+    }
+    public Salle(String nom, Monstre monstre){
+        this(nom);
+        this.monstre = monstre;
+
     }
 
     public ArrayList porteDisponible(){
@@ -78,6 +85,11 @@ public class Salle {
             default:
                 return null;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Vous êtes dans la salle " + nom + ".\n "+ monstre;
     }
 
     //Accesseurs
