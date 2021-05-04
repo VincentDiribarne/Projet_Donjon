@@ -89,7 +89,7 @@ public class Salle {
 
     @Override
     public String toString() {
-        return "Vous êtes dans la salle " + nom + ".\n "+ monstre;
+        return "Vous êtes dans la salle " + nom + ".\n ";
     }
 
     //Accesseurs

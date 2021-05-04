@@ -137,4 +137,20 @@ public class Joueur extends Personne {
     {
         return metier.getBonusBaseAttaque();
     }
+
+
+    @Override
+    public String toString() {
+        return "Joueur{" +
+                "arme=" + arme +
+                ", pv=" + pv +
+                ", bonusConst=" + bonusConst +
+                ", bonusDex=" + bonusDex +
+                ", bonusForce=" + bonusForce +
+                ", bonusInt=" + bonusInt +
+                ", nom='" + nom + '\'' +
+                ", salleActuelle=" + salleActuelle +
+                ", classeArmure=" + classeArmure +
+                '}';
+    }
 }

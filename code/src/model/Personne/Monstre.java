@@ -63,5 +63,19 @@ public class Monstre extends Personne{
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Monstre{" +
+                "deAttaque=" + deAttaque +
+                ", bonusBaseAttaque=" + bonusBaseAttaque +
+                ", pv=" + pv +
+                ", bonusConst=" + bonusConst +
+                ", bonusDex=" + bonusDex +
+                ", bonusForce=" + bonusForce +
+                ", bonusInt=" + bonusInt +
+                ", nom='" + nom + '\'' +
+                ", salleActuelle=" + salleActuelle +
+                ", classeArmure=" + classeArmure +
+                '}';
+    }
 }

@@ -4,10 +4,12 @@ import model.De;
 import model.Donjon.Donjon;
 import model.Donjon.Salle;
 import model.Inventaire.Arme;
+import model.Metier.Barbare;
 import model.Metier.Metier;
 import model.Personne.Joueur;
 import model.Personne.Monstre;
 import model.Personne.Personne;
+import model.Race.Humain;
 import model.Race.Race;
 import view.Console;
 import view.CreationPersonnageView;
@@ -65,6 +67,8 @@ public class JoueurController {
         joueur.setArme(mainNue);
     }
 
+
+    //TODO changer de place
     public void DemarrerLaPartie() {
 
         Joueur joueur = JoueurController.joueur;
@@ -122,6 +126,21 @@ public class JoueurController {
             bonus = 4;
         }
         return bonus;
+    }
+
+    public void creationJoueurDebug() {
+        joueur.setNom("John");
+        joueur.setRace(new Humain());
+        joueur.setMetier(new Barbare());
+        joueur.setBonusForce(3);
+        joueur.setBonusConst(3);
+        joueur.setBonusDex(2);
+        joueur.setBonusInt(0);
+        joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
+        joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
+        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
+        joueur.setArme(mainNue);
+        creationPersoview.finScript();
     }
 }
 

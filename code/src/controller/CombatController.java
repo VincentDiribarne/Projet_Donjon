@@ -23,8 +23,8 @@ public class CombatController {
             case 1:
                 System.out.println("Début du combat");
                 combat(joueur.getSalleActuelle().getMonstre());
-                if (monstre.getPv() > 0 && joueur.getPv() > 0){
-                    rencontreMonstre(sallePrécédente);
+                if (monstre.getPv() > 0){
+                    joueur.setSalleActuelle(sallePrécédente);
                 }
                 break;
             case 2:
@@ -45,6 +45,8 @@ public class CombatController {
         Personne personne1;
         Personne personne2;
 
+        boolean continuerAttaque = true;
+
         if (joueur.getInitiative() > monstre.getInitiative()) {
             personne1 = joueur;
             personne2 = monstre;
@@ -52,10 +54,24 @@ public class CombatController {
             personne1 = monstre;
             personne2 = joueur;
         }
-        attaque(personne1,personne2);
-        if(personne2.getPv() > 0){
-            attaque(personne2, personne1);
+        System.out.println(personne1);
+        System.out.println(personne2);
+
+        while (continuerAttaque == true){
+            attaque(personne1,personne2);
+            if(personne2.getPv() > 0){
+                attaque(personne2, personne1);
+            }
+            if (personne1.getPv() <= 0 || personne2.getPv() <= 0){
+                continuerAttaque = false;
+            }
+            //TODO Demander si on veut fuir.
         }
+
+
+
+
+
 
 
 
@@ -63,6 +79,7 @@ public class CombatController {
 
     public void attaque(Personne personne, Personne cible){
         int jetAttaque = De.lancerDes(20);
+
         int degat = personne.getDegat();
         if (jetAttaque == 20){
             degat *= 2;
@@ -72,6 +89,7 @@ public class CombatController {
         }
         else{
             jetAttaque += personne.getBonusForce() +personne.getBonusBaseAttaque();
+            System.out.println("Jet d'attaque de " + jetAttaque + " de "+personne.getNom());
             if (cible.getClasseArmure() <= jetAttaque){
                 cible.estAttaqué(degat);
                 System.out.println("Attaque de " + personne.getNom() + " de "+ degat+ " dégats");
@@ -83,9 +101,7 @@ public class CombatController {
                 //TODO View attaque échoué
             }
         }
-        System.out.println(cible.getNom() + " a plus que " + cible.getPv());
+        System.out.println(cible.getNom() + " a " + cible.getPv() +" PV. \n");
 
     }
-
-
 }

@@ -21,6 +21,7 @@ public class Menu {
                             "\t| 3 - Éditer la carte          |\n" +
                             "\t| 4 - Afficher les règles      |\n" +
                             "\t| 5 - Quitter                  |\n" +
+                            "\t| 6 - Debug                    |\n" +
                             "\t+------------------------------+\n" +
                             "\n" +
                             "Votre Choix ?"
@@ -45,6 +46,9 @@ public class Menu {
                 break;
             case 5:
                 System.exit(1);
+                break;
+            case 6:
+                joueurController.creationJoueurDebug();
                 break;
             default:
                 Menu();
