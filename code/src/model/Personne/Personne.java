@@ -10,8 +10,6 @@ import model.Metier.Metier;
 import model.Race.Race;
 
 public class Personne {
-
-
     protected int PV;
 
     //Bonus

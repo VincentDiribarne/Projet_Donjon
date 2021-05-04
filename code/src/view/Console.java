@@ -1,6 +1,6 @@
 package view;
 
-import model.Personne.Monstre;
+import model.Personne.Personne;
 
 public class Console {
     public static void ecrire(String texte) {
@@ -11,4 +11,7 @@ public class Console {
         Console.ecrire("(MJ) - " +texte);
     }
 
+    public static void personneParler (String texte, Personne p) {
+        Console.ecrire("(" +p.getNom()+ ") - " +texte);
+    }
 }
