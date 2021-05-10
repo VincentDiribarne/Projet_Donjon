@@ -94,11 +94,10 @@ public class JoueurController {
 
         }
         if (joueur.getPv() <= 0){
-            System.out.println("Le joueur est mort");
-            //TODO Game OVer
+            Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonstre());
         }
         else {
-            System.out.println("Victoire !");
+            Console.parler("Bravo, vous avez gagné !");
         }
 
     }

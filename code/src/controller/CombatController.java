@@ -5,103 +5,99 @@ import model.Donjon.Salle;
 import model.Personne.Joueur;
 import model.Personne.Monstre;
 import model.Personne.Personne;
+import view.CombatView;
 import view.Console;
 import view.MonstreView;
 
 public class CombatController {
 
     private Joueur joueur = JoueurController.joueur;
-    private MonstreView monstreView = new MonstreView();
+    public MonstreView monstreView = new MonstreView();
+    public CombatView combatView = new CombatView();
+    private Monstre monstre;
+    private Salle sallePrécédente;
 
 
     public void rencontreMonstre(Salle sallePrécédente) {
-        Monstre monstre = joueur.getSalleActuelle().getMonstre();
-        //Menu demander le choix du joueur
-        int choixDuJoueur = 1;
-        //Fuire :
+        this.sallePrécédente = sallePrécédente;
+        monstre = joueur.getSalleActuelle().getMonstre();
+        Console.parler("Que le meilleur gagne !\n");
+        Personne p1 = calculInitiative();
+        choixJoueur(p1);
+    }
+
+    public void choixJoueur(Personne p) {
+        int choixDuJoueur = combatView.Menu();
         switch (choixDuJoueur) {
             case 1:
-                System.out.println("Début du combat");
-                combat(joueur.getSalleActuelle().getMonstre());
-                if (monstre.getPv() > 0){
-                    joueur.setSalleActuelle(sallePrécédente);
+                combat(p);
+                if (joueur.getPv() > 0 && monstre.getPv() > 0) {
+                    choixJoueur(p);
+                }
+                if (monstre.getPv() <= 0) {
+                    combatView.Gagne(monstre);
                 }
                 break;
             case 2:
-                //Fuire
-                joueur.setSalleActuelle(sallePrécédente);
+                int choix = combatView.Fuite();
+                if(choix == 3) {
+                    attaque(monstre, joueur);
+                    choixJoueur(p);
+                } else {
+                    joueur.setSalleActuelle(sallePrécédente);
+                }
                 break;
             case 3:
                 //Consommer une potion (option)
                 break;
             default:
                 Console.ecrire("Erreur");
-                rencontreMonstre(sallePrécédente);
+                choixJoueur(p);
         }
-
     }
 
-    public void combat(Monstre monstre) {
+    public Personne calculInitiative() {
         Personne personne1;
-        Personne personne2;
-
-        boolean continuerAttaque = true;
 
         if (joueur.getInitiative() > monstre.getInitiative()) {
             personne1 = joueur;
-            personne2 = monstre;
         } else {
             personne1 = monstre;
-            personne2 = joueur;
         }
-        System.out.println(personne1);
-        System.out.println(personne2);
-
-        while (continuerAttaque == true){
-            attaque(personne1,personne2);
-            if(personne2.getPv() > 0){
-                attaque(personne2, personne1);
-            }
-            if (personne1.getPv() <= 0 || personne2.getPv() <= 0){
-                continuerAttaque = false;
-            }
-            //TODO Demander si on veut fuir.
+        return personne1;
+    }
+    public void combat(Personne p1) {
+        Personne p2;
+        if (p1 instanceof Monstre) {
+            p2 = joueur;
+        } else {
+            p2 = monstre;
         }
-
-
-
-
-
-
-
-
+        if (p1.getPv() > 0) {
+            attaque(p1, p2);
+        }
+        if (p2.getPv() > 0){
+            attaque(p2, p1);
+        }
     }
 
-    public void attaque(Personne personne, Personne cible){
+    public void attaque(Personne personne, Personne cible) {
         int jetAttaque = De.lancerDes(20);
-
         int degat = personne.getDegat();
-        if (jetAttaque == 20){
+
+        if (jetAttaque == 20) {
             degat *= 2;
             cible.estAttaqué(degat);
-            System.out.println("Attaque critique de " + personne.getNom() + " de "+ degat+ " dégats");
-            //TODO View personne attaque cible et lui met x dégat
-        }
-        else{
-            jetAttaque += personne.getBonusForce() +personne.getBonusBaseAttaque();
-            System.out.println("Jet d'attaque de " + jetAttaque + " de "+personne.getNom());
-            if (cible.getClasseArmure() <= jetAttaque){
+            combatView.Critique(degat, personne, cible);
+        } else {
+            jetAttaque += personne.getBonusForce() + personne.getBonusBaseAttaque();
+
+            if (cible.getClasseArmure() <= jetAttaque) {
                 cible.estAttaqué(degat);
-                System.out.println("Attaque de " + personne.getNom() + " de "+ degat+ " dégats");
-
-                //TODO View personne attaque cible et lui met x dégat
-            }
-            else {
-                System.out.println("Attaque échoué");
-                //TODO View attaque échoué
+                combatView.Attaque(jetAttaque, degat, personne, cible);
+            } else {
+                combatView.Raté(personne, cible, jetAttaque);
             }
         }
-        System.out.println(cible.getNom() + " a " + cible.getPv() +" PV. \n");
-
     }
 }
