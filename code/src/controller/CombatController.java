@@ -74,9 +74,11 @@ public class CombatController {
             p2 = monstre;
         }
         if (p1.getPv() > 0) {
+            Console.ecrire("Au tour de " +p1.getNom()+ " d'attaquer");
             attaque(p1, p2);
         }
         if (p2.getPv() > 0){
+            Console.ecrire("Au tour de " +p2.getNom()+ " d'attaquer");
             attaque(p2, p1);
         }
     }

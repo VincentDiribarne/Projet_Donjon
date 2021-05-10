@@ -14,12 +14,13 @@ public class CombatView {
                 "| 3 - Consomme une potion |\n" +
                 "+-------------------------+");
 
+        Console.ecrire("\nVotre choix ?");
         int choix = Clavier.LectureInt();
+
         return choix;
     }
 
     public void Attaque(int jetattaque, int degat, Personne attaquant, Personne defenseur) {
-        Console.ecrire("Au tour de " +attaquant.getNom()+ " d'attaquer");
         Console.ecrire("Le jet d'attaque est de : " +jetattaque+ ", il est superieur à la classe d'armure de " +defenseur.getNom());
         Console.ecrire(attaquant.getNom() + " inflige " +degat+ " dégat à " +defenseur.getNom()+ ". Il lui reste " +defenseur.getPv()+ " PV\n");
     }
