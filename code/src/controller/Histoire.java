@@ -15,6 +15,7 @@ public class Histoire {
     public static DonjonController donjonController = new DonjonController();
     public static JoueurController joueurController = new JoueurController();
     public static CombatController combatController = new CombatController();
+    public static InventaireController inventaireController = new InventaireController();
 
     public static void main(String args[]){
         Menu m = new Menu();

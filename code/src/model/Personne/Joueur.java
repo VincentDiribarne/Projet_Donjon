@@ -7,7 +7,7 @@ import model.Race.Race;
 
 public class Joueur extends Personne {
 
-    protected Inventaire inventaire;
+    protected Inventaire inventaire = new Inventaire();
     private Arme arme;
     private Metier metier;
 
@@ -138,6 +138,9 @@ public class Joueur extends Personne {
         return metier.getBonusBaseAttaque();
     }
 
+    public Inventaire getInventaire() {
+        return inventaire;
+    }
 
     @Override
     public String toString() {

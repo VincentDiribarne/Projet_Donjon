@@ -20,4 +20,14 @@ public class Arme {
     public int getDegats() {
         return De.lancerDes(degats);
     }
+
+    @Override
+    public String toString() {
+        return "Arme{" +
+                "nom='" + nom + '\'' +
+                ", degats=" + degats +
+                ", critique=" + critique +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
