@@ -41,7 +41,7 @@ public class CombatController {
                 break;
             case 2:
                 int choix = combatView.Fuite();
-                if (choix < 3) {
+                if (choix == 3) {
                     attaque(monstre, joueur);
                     choixJoueur(p);
                 } else {

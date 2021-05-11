@@ -18,7 +18,7 @@ public class Donjon {
         salleDepart = new Salle("de Depart");
         Salle salle2 = new Salle("2");
         Salle salle3 = new Salle("3");
-        Salle salle4 = new Salle("4",new Monstre("un Gobelin", 4, 1, -1, 0, 8, 1, 15));
+        Salle salle4 = new Salle("4",new Monstre("Gobelin", 4, 1, -1, 0, 8, 1, 15));
         Salle salle5 = new Salle("5");
         Salle salle6 = new Salle("6");
         Salle salle7 = new Salle("7");
