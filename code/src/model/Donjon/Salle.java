@@ -1,10 +1,7 @@
 package model.Donjon;
 
 import model.Personne.Monstre;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 
 public class Salle {
     private Porte porteNord = null;

@@ -1,6 +1,5 @@
 package controller;
 
-import model.De;
 import model.Donjon.Donjon;
 import model.Donjon.Salle;
 import model.Inventaire.Arme;
@@ -8,10 +7,8 @@ import model.Metier.Barbare;
 import model.Metier.Metier;
 import model.Personne.Joueur;
 import model.Personne.Monstre;
-import model.Personne.Personne;
 import model.Race.Humain;
 import model.Race.Race;
-import view.Clavier;
 import view.Console;
 import view.CreationPersonnageView;
 import view.Temps;
@@ -73,7 +70,6 @@ public class JoueurController {
         joueur.getInventaire().addArme(epeeCourte);
 
     }
-
 
     //TODO changer de place
     public void DemarrerLaPartie() {

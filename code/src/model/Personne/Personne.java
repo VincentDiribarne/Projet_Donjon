@@ -50,7 +50,6 @@ public abstract class Personne {
     public abstract int getBonusBaseAttaque();
 
 
-
     //PV
     public int getPv() {
         return pv;
