@@ -51,7 +51,7 @@ public class CreationPersonnageView {
     public Boolean confirmation() {
         Console.ecrire("Tapez 'Y' pour confirmer ou 'N' pour refuser");
         String confirmChoix = Clavier.LectureString();
-        confirmChoix.toUpperCase();
+        confirmChoix = confirmChoix.toUpperCase();
         switch (confirmChoix) {
             case "Y" :
                 Temps.temps(1000);

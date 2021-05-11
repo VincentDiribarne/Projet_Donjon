@@ -11,6 +11,7 @@ import model.Personne.Monstre;
 import model.Personne.Personne;
 import model.Race.Humain;
 import model.Race.Race;
+import view.Clavier;
 import view.Console;
 import view.CreationPersonnageView;
 import view.Temps;
@@ -48,6 +49,7 @@ public class JoueurController {
 
         Temps.temps(3000);
 
+
         Console.ecrire("\n\tBienvenue dans le choix de vos caractéritiques");
         Temps.temps(1000);
         creationPersoview.tirages();
@@ -63,7 +65,7 @@ public class JoueurController {
 
         Temps.temps(3000);
         creationPersoview.finScript();
-        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
+        Arme mainNue = new Arme("Poing", 2, 20, "Corps à corps");
         joueur.setArme(mainNue);
     }
 
@@ -78,25 +80,24 @@ public class JoueurController {
         while (joueur.getSalleActuelle() != donjon.getSalleFin() && joueur.getPv() > 0) {
             //Inventaire
             //SeReposeer
-            Salle salleActuelle = joueur.getSalleActuelle();
-            String direction = DonjonController.donjonView.choixSalle(salleActuelle.porteDisponible(), salleActuelle);
+            Salle sallePrecedente = joueur.getSalleActuelle();
+            String direction = DonjonController.donjonView.choixSalle(sallePrecedente.porteDisponible(), sallePrecedente);
             joueur.seDeplacer(direction);
 
             Monstre monstre = joueur.getSalleActuelle().getMonstre();
             if (monstre != null && monstre.getPv() > 0) {
-                System.out.println("Il y a un monstre");
-                Histoire.combatController.rencontreMonstre(salleActuelle);
+                DonjonController.donjonView.JetPerceptionMonstre(joueur.getSalleActuelle());
+                Histoire.combatController.rencontreMonstre(sallePrecedente);
             }
-            if (joueur.getPv() > 0){
+            if (joueur.getPv() > 0) {
                 //Continuer ....
                 //Ouvrir coffre
             }
 
         }
-        if (joueur.getPv() <= 0){
+        if (joueur.getPv() <= 0) {
             Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonstre());
-        }
-        else {
+        } else {
             Console.parler("Bravo, vous avez gagné !");
         }
 
@@ -137,7 +138,7 @@ public class JoueurController {
         joueur.setBonusInt(0);
         joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
-        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
+        Arme mainNue = new Arme("Poing", 6, 20, "Corps à corps");
         joueur.setArme(mainNue);
         creationPersoview.finScript();
     }

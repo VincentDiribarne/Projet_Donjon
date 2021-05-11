@@ -8,6 +8,7 @@ import model.Personne.Personne;
 import view.CombatView;
 import view.Console;
 import view.MonstreView;
+import view.Temps;
 
 public class CombatController {
 
@@ -34,13 +35,13 @@ public class CombatController {
                 if (joueur.getPv() > 0 && monstre.getPv() > 0) {
                     choixJoueur(p);
                 }
-                if (monstre.getPv() <= 0) {
+                else if (monstre.getPv() <= 0) {
                     combatView.Gagne(monstre);
                 }
                 break;
             case 2:
                 int choix = combatView.Fuite();
-                if(choix == 3) {
+                if (choix < 3) {
                     attaque(monstre, joueur);
                     choixJoueur(p);
                 } else {
@@ -66,6 +67,7 @@ public class CombatController {
         }
         return personne1;
     }
+
     public void combat(Personne p1) {
         Personne p2;
         if (p1 instanceof Monstre) {
@@ -73,12 +75,14 @@ public class CombatController {
         } else {
             p2 = monstre;
         }
+        Temps.temps(800);
         if (p1.getPv() > 0) {
-            Console.ecrire("Au tour de " +p1.getNom()+ " d'attaquer");
+            Console.ecrire("Au tour de " + p1.getNom() + " d'attaquer");
             attaque(p1, p2);
         }
-        if (p2.getPv() > 0){
-            Console.ecrire("Au tour de " +p2.getNom()+ " d'attaquer");
+        Temps.temps(1000);
+        if (p2.getPv() > 0) {
+            Console.ecrire("Au tour de " + p2.getNom() + " d'attaquer");
             attaque(p2, p1);
         }
     }
