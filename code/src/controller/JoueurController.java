@@ -65,8 +65,13 @@ public class JoueurController {
 
         Temps.temps(3000);
         creationPersoview.finScript();
-        Arme mainNue = new Arme("Poing", 2, 20, "Corps à corps");
+
+        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
+        Arme epeeCourte = new Arme("Epee courte", 6,19,"Arme de guerre");
         joueur.setArme(mainNue);
+        joueur.getInventaire().addArme(mainNue);
+        joueur.getInventaire().addArme(epeeCourte);
+
     }
 
 
@@ -79,6 +84,7 @@ public class JoueurController {
         System.out.println("Debut de la partie");
         while (joueur.getSalleActuelle() != donjon.getSalleFin() && joueur.getPv() > 0) {
             //Inventaire
+            Histoire.inventaireController.gestionInventaire();
             //SeReposeer
             Salle sallePrecedente = joueur.getSalleActuelle();
             String direction = DonjonController.donjonView.choixSalle(sallePrecedente.porteDisponible(), sallePrecedente);
@@ -138,8 +144,11 @@ public class JoueurController {
         joueur.setBonusInt(0);
         joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
-        Arme mainNue = new Arme("Poing", 6, 20, "Corps à corps");
-        joueur.setArme(mainNue);
+        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
+        Arme epeeCourte = new Arme("Epee courte", 6,19,"Arme de guerre");
+        joueur.getInventaire().addArme(mainNue);
+        joueur.getInventaire().addArme(epeeCourte);
+        joueur.setArme(epeeCourte);
         creationPersoview.finScript();
     }
 }
