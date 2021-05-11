@@ -3,7 +3,6 @@ package view;
 import controller.DonjonController;
 import controller.Histoire;
 import controller.JoueurController;
-import model.Personne.Personne;
 
 public class Menu {
 

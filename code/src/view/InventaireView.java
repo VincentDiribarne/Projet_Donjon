@@ -1,7 +1,5 @@
 package view;
 
-import controller.JoueurController;
-import model.Inventaire.Arme;
 import model.Inventaire.Inventaire;
 
 public class InventaireView {

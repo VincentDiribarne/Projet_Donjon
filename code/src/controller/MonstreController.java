@@ -1,7 +1,6 @@
 package controller;
 
 import model.Personne.Monstre;
-
 import java.util.ArrayList;
 
 public class MonstreController {
