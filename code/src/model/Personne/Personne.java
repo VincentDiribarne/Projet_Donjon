@@ -4,13 +4,11 @@
  */
 package model.Personne;
 
+import model.De;
 import model.Donjon.Salle;
-import model.Inventaire.Inventaire;
-import model.Metier.Metier;
-import model.Race.Race;
 
-public class Personne {
-    protected int PV;
+public abstract class Personne {
+    protected int pv;
 
     //Bonus
     protected int bonusConst;
@@ -20,7 +18,6 @@ public class Personne {
 
 
     private int niveau;
-    protected Race race;
     protected String nom;
     protected Salle salleActuelle;
     protected int classeArmure = 10;
@@ -40,24 +37,34 @@ public class Personne {
         this.nom = nom;
     }
 
+    public int getInitiative(){
+        return De.lancerDes(20) + getBonusDex();
+    }
+
+    public abstract int getBonusDex();
+    public abstract int getBonusForce();
+    public abstract int getBonusConst();
+    public abstract int getBonusInt();
+
+    public abstract int getDegat();
+    public abstract int getBonusBaseAttaque();
+
+
 
     //PV
-    public int getPV() {
-        return PV;
+    public int getPv() {
+        return pv;
     }
 
-    public void setPV(int PV) {
-        this.PV = PV;
+    public void setPv(int pv) {
+        this.pv = pv;
     }
 
-    //Race
-    public Race getRace() {
-        return race;
+    public void estAttaqué(int degat){
+        pv-= degat;
     }
 
-    public void setRace(Race race) {
-        this.race = race;
-    }
+
 
 
     //Salle
@@ -87,31 +94,9 @@ public class Personne {
      *
      * @return
      */
-    public int getBonusConst() {
-        return bonusConst + race.getBonusConst();
-    }
 
-    /**
-     * bonusDex + race bonusDex
-     *
-     * @return
-     */
-    public int getBonusDex() {
-        return bonusDex + race.getBonusDex();
-    }
 
-    /**
-     * bonusForce + race bonusForce
-     *
-     * @return
-     */
-    public int getBonusForce() {
-        return bonusForce + race.getBonusForce();
-    }
 
-    public int getBonusInt() {
-        return bonusInt;
-    }
 
 
     public void setBonusConst(int bonusConst) {
@@ -129,4 +114,6 @@ public class Personne {
     public void setBonusInt(int bonusInt) {
         this.bonusInt = bonusInt;
     }
+
+
 }

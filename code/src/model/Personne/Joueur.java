@@ -1,27 +1,29 @@
 package model.Personne;
 
+import model.Inventaire.Arme;
 import model.Inventaire.Inventaire;
 import model.Metier.Metier;
+import model.Race.Race;
 
 public class Joueur extends Personne {
 
     protected Inventaire inventaire;
-    private Metier classe;
+    private Arme arme;
+    private Metier metier;
 
     private int constitution;
     private int dexterité;
     private int force;
     private int intelligence;
-
-
+    protected Race race;
 
 
     public Joueur() {
         super();
     }
 
-    public void seDeplacer(String direction){
-        switch (direction){
+    public void seDeplacer(String direction) {
+        switch (direction) {
             case "N":
                 salleActuelle = salleActuelle.getPorteNord().emprunterPorte(salleActuelle);
                 break;
@@ -38,25 +40,33 @@ public class Joueur extends Personne {
     }
 
     //Classe
-    public Metier getClasse() {
-        return classe;
-    }
-    public void setClasse(Metier classe) {
-        this.classe = classe;
+    public Metier getMetier() {
+        return metier;
     }
 
-    //Metier
+    public void setMetier(Metier metier) {
+        this.metier = metier;
+    }
+
+    //Degat
+
+    public int getDegat(){
+        return arme.getDegats();
+    }
 
 
     public int getForce() {
         return force;
     }
+
     public int getConstitution() {
         return constitution;
     }
+
     public int getDexterité() {
         return dexterité;
     }
+
     public int getIntelligence() {
         return intelligence;
     }
@@ -65,16 +75,82 @@ public class Joueur extends Personne {
     public void setForce(int force) {
         this.force = force;
     }
+
     public void setConstitution(int constitution) {
         this.constitution = constitution;
     }
+
     public void setDexterité(int dexterité) {
         this.dexterité = dexterité;
     }
+
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 
+    //Race
+    public Race getRace() {
+        return race;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
+    }
+
+    public int getBonusConst() {
+        return bonusConst + race.getBonusConst();
+    }
 
 
+    /**
+     * bonusDex + race bonusDex
+     *
+     * @return
+     */
+    public int getBonusDex() {
+        return bonusDex + race.getBonusDex();
+    }
+
+    /**
+     * bonusForce + race bonusForce
+     *
+     * @return
+     */
+    public int getBonusForce() {
+        return bonusForce + race.getBonusForce();
+    }
+
+    public int getBonusInt() {
+        return bonusInt + race.getBonusInt();
+    }
+
+    public void setArme(Arme arme) {
+        this.arme = arme;
+    }
+
+    public Arme getArme() {
+        return arme;
+    }
+
+    //Bonus base Attaque
+    public int getBonusBaseAttaque()
+    {
+        return metier.getBonusBaseAttaque();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Joueur{" +
+                "arme=" + arme +
+                ", pv=" + pv +
+                ", bonusConst=" + bonusConst +
+                ", bonusDex=" + bonusDex +
+                ", bonusForce=" + bonusForce +
+                ", bonusInt=" + bonusInt +
+                ", nom='" + nom + '\'' +
+                ", salleActuelle=" + salleActuelle +
+                ", classeArmure=" + classeArmure +
+                '}';
+    }
 }

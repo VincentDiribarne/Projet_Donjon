@@ -5,6 +5,9 @@ public class Metier {
     protected int PVdeBase;
     protected String name;
 
+    //TODO ajouter les bonus pour chaque metier.
+    protected int bonusBaseAttaque = 0;
+
     public Metier() {
        super();
     }
@@ -23,5 +26,9 @@ public class Metier {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getBonusBaseAttaque() {
+        return bonusBaseAttaque;
     }
 }

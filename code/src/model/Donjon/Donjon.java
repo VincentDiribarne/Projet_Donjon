@@ -1,5 +1,7 @@
 package model.Donjon;
 
+import model.Personne.Monstre;
+
 public class Donjon {
 
 
@@ -13,24 +15,24 @@ public class Donjon {
 
 
     public void creationDesSalles(){
-        salleDepart = new Salle("salleDepart");
-        Salle salle2 = new Salle("Salle2");
-        Salle salle3 = new Salle("Salle3");
-        Salle salle4 = new Salle("Salle4");
-        Salle salle5 = new Salle("Salle5");
-        Salle salle6 = new Salle("Salle6");
-        Salle salle7 = new Salle("Salle7");
-        Salle salle8 = new Salle("Salle8");
-        Salle salle9 = new Salle("Salle9");
-        Salle salle10 = new Salle("Salle10");
-        Salle salle11 = new Salle("Salle11");
-        Salle salle12 = new Salle("Salle12");
-        Salle salle13 = new Salle("Salle13");
-        Salle salle14 = new Salle("Salle14");
-        Salle salle15 = new Salle("Salle15");
-        Salle salle16 = new Salle("Salle16");
-        Salle salle17 = new Salle("Salle17");
-        salleFin = new Salle("Salle final");
+        salleDepart = new Salle("de Depart");
+        Salle salle2 = new Salle("2");
+        Salle salle3 = new Salle("3");
+        Salle salle4 = new Salle("4",new Monstre("un Gobelin", 4, 1, -1, 0, 8, 1, 15));
+        Salle salle5 = new Salle("5");
+        Salle salle6 = new Salle("6");
+        Salle salle7 = new Salle("7");
+        Salle salle8 = new Salle("8");
+        Salle salle9 = new Salle("9");
+        Salle salle10 = new Salle("10");
+        Salle salle11 = new Salle("11");
+        Salle salle12 = new Salle("12");
+        Salle salle13 = new Salle("13");
+        Salle salle14 = new Salle("14");
+        Salle salle15 = new Salle("15");
+        Salle salle16 = new Salle("16");
+        Salle salle17 = new Salle("17");
+        salleFin = new Salle("finale");
 
 
         salleDepart.lierSalle(salle4,"N");
