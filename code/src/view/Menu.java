@@ -3,6 +3,7 @@ package view;
 import controller.DonjonController;
 import controller.Histoire;
 import controller.JoueurController;
+import controller.LibraryController;
 import model.Personne.Personne;
 
 public class Menu {
@@ -10,6 +11,7 @@ public class Menu {
     private Clavier clavier = new Clavier();
     private JoueurController joueurController = Histoire.joueurController;
     private DonjonController donjonController = Histoire.donjonController;
+    private LibraryController libraryController = Histoire.libraryController;
 
     public void Menu() {
         Temps.temps(1000);
@@ -76,6 +78,7 @@ public class Menu {
 
         switch (a){
             case 1:
+                libraryController.createLibrary();
                 donjonController.creationDonjon();
                 joueurController.DemarrerLaPartie();
 

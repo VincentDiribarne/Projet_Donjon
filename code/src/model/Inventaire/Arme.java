@@ -23,11 +23,6 @@ public class Arme {
 
     @Override
     public String toString() {
-        return "Arme{" +
-                "nom='" + nom + '\'' +
-                ", degats=" + degats +
-                ", critique=" + critique +
-                ", type='" + type + '\'' +
-                '}';
+        return nom + " ("+type+") qui inflige " + degats + " dégats, critique : " + critique;
     }
 }

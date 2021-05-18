@@ -1,6 +1,7 @@
 package controller;
 
 import model.De;
+import model.Inventaire.Loot;
 import model.Donjon.Salle;
 import model.Personne.Joueur;
 import model.Personne.Monstre;
@@ -37,6 +38,14 @@ public class CombatController {
                 }
                 else if (monstre.getPv() <= 0) {
                     combatView.Gagne(monstre);
+
+                    //Aleatoire loot d'un monstre
+                    Loot loot = LibraryController.library.getALoot();
+                    if (loot.getProbability() > De.lancerDes(100)){
+                        Console.ecrire("Vous avez obtenu l'arme suivante : ");
+                        Console.ecrire(loot.getArme().toString());
+                        joueur.getInventaire().addArme(loot.getArme());
+                    }
                 }
                 break;
             case 2:

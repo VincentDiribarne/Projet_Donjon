@@ -15,9 +15,9 @@ public class InventaireView {
                 "+---------------------------------------+\n" +
                 "|              Inventaire               |\n" +
                 "+---------------------------------------+\n" +
-                "| 1- Contenu                            |\n" +
-                "| 2- L'arme équipée                     |\n" +
-                "| 0- Quitter la gestion de l'inventaire |\n" +
+                "| 1- Voir l'inventaire                  |\n" +
+                "| 2- Changer l'arme équipée             |\n" +
+                "| 0- Quitter                            |\n" +
                 "+---------------------------------------+\n" +
                 "\n");
 
