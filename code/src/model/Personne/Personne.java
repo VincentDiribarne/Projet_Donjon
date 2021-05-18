@@ -5,7 +5,7 @@
 package model.Personne;
 
 import model.De;
-import model.Donjon.Salle;
+import model.Donjon.Room;
 
 public abstract class Personne {
     protected int pv;
@@ -19,8 +19,8 @@ public abstract class Personne {
 
     private int niveau;
     protected String nom;
-    protected Salle salleActuelle;
     protected int classeArmure = 15;
+    protected Room roomActuelle;
 
 
     public Personne() {
@@ -67,12 +67,12 @@ public abstract class Personne {
 
 
     //Salle
-    public void setSalleActuelle(Salle salleActuelle) {
-        this.salleActuelle = salleActuelle;
+    public void setSalleActuelle(Room roomActuelle) {
+        this.roomActuelle = roomActuelle;
     }
 
-    public Salle getSalleActuelle() {
-        return salleActuelle;
+    public Room getSalleActuelle() {
+        return roomActuelle;
     }
 
 

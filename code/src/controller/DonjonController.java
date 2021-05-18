@@ -12,7 +12,7 @@ public class DonjonController {
 
 
     public void creationDonjon(){
-        donjon.creationDesSalles();
-        joueur.setSalleActuelle(donjon.getSalleDepart());
+        donjon.createRooms();
+        joueur.setSalleActuelle(donjon.getStartRoom());
     }
 }

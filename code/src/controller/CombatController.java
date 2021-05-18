@@ -2,7 +2,8 @@ package controller;
 
 import model.De;
 import model.Inventaire.Loot;
-import model.Donjon.Salle;
+import model.Donjon.Room;
+
 import model.Personne.Joueur;
 import model.Personne.Monstre;
 import model.Personne.Personne;
@@ -17,12 +18,12 @@ public class CombatController {
     public MonstreView monstreView = new MonstreView();
     public CombatView combatView = new CombatView();
     private Monstre monstre;
-    private Salle sallePrécédente;
+    private Room roomPrécédente;
 
 
-    public void rencontreMonstre(Salle sallePrécédente) {
-        this.sallePrécédente = sallePrécédente;
-        monstre = joueur.getSalleActuelle().getMonstre();
+    public void rencontreMonstre(Room roomPrécédente) {
+        this.roomPrécédente = roomPrécédente;
+        monstre = joueur.getSalleActuelle().getMonster();
         Console.parler("Que le meilleur gagne !\n");
         Personne p1 = calculInitiative();
         choixJoueur(p1);
@@ -54,7 +55,7 @@ public class CombatController {
                     attaque(monstre, joueur);
                     choixJoueur(p);
                 } else {
-                    joueur.setSalleActuelle(sallePrécédente);
+                    joueur.setSalleActuelle(roomPrécédente);
                 }
                 break;
             case 3:

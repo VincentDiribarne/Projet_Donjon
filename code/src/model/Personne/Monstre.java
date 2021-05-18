@@ -85,7 +85,7 @@ public class Monstre extends Personne{
                 ", bonusForce=" + bonusForce +
                 ", bonusInt=" + bonusInt +
                 ", nom='" + nom + '\'' +
-                ", salleActuelle=" + salleActuelle +
+                ", salleActuelle=" + roomActuelle +
                 ", classeArmure=" + classeArmure +
                 '}';
     }

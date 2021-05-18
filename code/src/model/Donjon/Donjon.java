@@ -10,68 +10,73 @@ import model.Personne.Monstre;
  */
 public class Donjon {
 
-
-    private Salle salleFin;
-    private Salle salleDepart;
+    private Room finalRoom;
+    private Room startRoom;
 
     public Donjon(){
         super();
     }
 
+    /**
+     * Create 19 rooms for the donjon and link with doors
+     * @author Baptiste Buvron
+     */
+    public void createRooms(){
+        startRoom = new Room("de Depart");
+        Room room2 = new Room("2");
+        Room room3 = new Room("3");
+        Room room4 = new Room("4", new Monstre("Gobelin", 4, 1, -1, 0, 8, 1, 15));
+        Room room5 = new Room("5");
+        Room room6 = new Room("6");
+        Room room7 = new Room("7");
+        Room room8 = new Room("8");
+        Room room9 = new Room("9");
+        Room room10 = new Room("10");
+        Room room11 = new Room("11");
+        Room room12 = new Room("12");
+        Room room13 = new Room("13");
+        Room room14 = new Room("14");
+        Room room15 = new Room("15");
+        Room room16 = new Room("16");
+        Room room17 = new Room("17");
+        finalRoom = new Room("finale");
+
+
+        startRoom.lierSalle(room4,"N");
+        room3.lierSalle(room7,"N");
+        room4.lierSalle(room5,"E");
+        room4.lierSalle(room3,"O");
+        room5.lierSalle(room9,"N");
+        room6.lierSalle(room10,"N");
+        room6.lierSalle(room2,"S");
+        room7.lierSalle(room6,"O");
+        room8.lierSalle(room7,"O");
+        room8.lierSalle(room12,"N");
+        room9.lierSalle(room8,"O");
+        room9.lierSalle(room13,"N");
+        room10.lierSalle(room14,"N");
+        room11.lierSalle(room12,"E");
+        room12.lierSalle(room13,"E");
+        room13.lierSalle(room17,"N");
+        room14.lierSalle(room15,"E");
+        room15.lierSalle(room11,"S");
+        room16.lierSalle(finalRoom,"N");
+        room17.lierSalle(room16,"O");
+    }
 
     /**
-     * @return void
+     * Return the first Room
+     * @return Salle
      */
-    public void creationDesSalles(){
-        salleDepart = new Salle("de Depart");
-        Salle salle2 = new Salle("2");
-        Salle salle3 = new Salle("3");
-        Salle salle4 = new Salle("4", LibraryController.library.getAMonster());
-        Salle salle5 = new Salle("5");
-        Salle salle6 = new Salle("6");
-        Salle salle7 = new Salle("7");
-        Salle salle8 = new Salle("8");
-        Salle salle9 = new Salle("9");
-        Salle salle10 = new Salle("10");
-        Salle salle11 = new Salle("11");
-        Salle salle12 = new Salle("12");
-        Salle salle13 = new Salle("13");
-        Salle salle14 = new Salle("14");
-        Salle salle15 = new Salle("15");
-        Salle salle16 = new Salle("16");
-        Salle salle17 = new Salle("17");
-        salleFin = new Salle("finale");
-
-
-        salleDepart.lierSalle(salle4,"N");
-        salle3.lierSalle(salle7,"N");
-        salle4.lierSalle(salle5,"E");
-        salle4.lierSalle(salle3,"O");
-        salle5.lierSalle(salle9,"N");
-        salle6.lierSalle(salle10,"N");
-        salle6.lierSalle(salle2,"S");
-        salle7.lierSalle(salle6,"O");
-        salle8.lierSalle(salle7,"O");
-        salle8.lierSalle(salle12,"N");
-        salle9.lierSalle(salle8,"O");
-        salle9.lierSalle(salle13,"N");
-        salle10.lierSalle(salle14,"N");
-        salle11.lierSalle(salle12,"E");
-        salle12.lierSalle(salle13,"E");
-        salle13.lierSalle(salle17,"N");
-        salle14.lierSalle(salle15,"E");
-        salle15.lierSalle(salle11,"S");
-        salle16.lierSalle(salleFin,"N");
-        salle17.lierSalle(salle16,"O");
-
-
+    public Room getStartRoom() {
+        return startRoom;
     }
 
-    public Salle getSalleDepart() {
-        return salleDepart;
-    }
-
-    public Salle getSalleFin() {
-        return salleFin;
+    /**
+     * Return the final Room
+     * @return
+     */
+    public Room getFinalRoom() {
+        return finalRoom;
     }
 }

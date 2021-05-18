@@ -29,16 +29,16 @@ public class Joueur extends Personne {
     public void seDeplacer(String direction) {
         switch (direction) {
             case "N":
-                salleActuelle = salleActuelle.getPorteNord().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getNorthDoor().takeDoor(roomActuelle);
                 break;
             case "S":
-                salleActuelle = salleActuelle.getPorteSud().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getSouthDoor().takeDoor(roomActuelle);
                 break;
             case "O":
-                salleActuelle = salleActuelle.getPorteOuest().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getOuestDoor().takeDoor(roomActuelle);
                 break;
             case "E":
-                salleActuelle = salleActuelle.getPorteEst().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getEstDoor().takeDoor(roomActuelle);
                 break;
         }
     }
@@ -160,7 +160,7 @@ public class Joueur extends Personne {
                 ", bonusForce=" + bonusForce +
                 ", bonusInt=" + bonusInt +
                 ", nom='" + nom + '\'' +
-                ", salleActuelle=" + salleActuelle +
+                ", salleActuelle=" + roomActuelle +
                 ", classeArmure=" + classeArmure +
                 '}';
     }

@@ -1,7 +1,7 @@
 package controller;
 
 import model.Donjon.Donjon;
-import model.Donjon.Salle;
+import model.Donjon.Room;
 import model.Inventaire.Arme;
 import model.Metier.Barbare;
 import model.Metier.Metier;
@@ -78,20 +78,22 @@ public class JoueurController {
         Donjon donjon = DonjonController.donjon;
 
         System.out.println("Debut de la partie");
-        while (joueur.getSalleActuelle() != donjon.getSalleFin() && joueur.getPv() > 0) {
 
+        while (joueur.getSalleActuelle() != donjon.getFinalRoom() && joueur.getPv() > 0) {
+            //Inventaire
+            Histoire.inventaireController.gestionInventaire();
             //SeReposeer
-            Salle sallePrecedente = joueur.getSalleActuelle();
-            String direction = DonjonController.donjonView.choixSalle(sallePrecedente.porteDisponible(), sallePrecedente);
+            Room roomPrecedente = joueur.getSalleActuelle();
+            String direction = DonjonController.donjonView.choixSalle(roomPrecedente.availableDoor(), roomPrecedente);
             joueur.seDeplacer(direction);
 
-            Monstre monstre = joueur.getSalleActuelle().getMonstre();
+            Monstre monstre = joueur.getSalleActuelle().getMonster();
             if (monstre != null && monstre.getPv() > 0) {
                 //Inventaire
                 Histoire.inventaireController.gestionInventaire();
 
                 DonjonController.donjonView.JetPerceptionMonstre(joueur.getSalleActuelle());
-                Histoire.combatController.rencontreMonstre(sallePrecedente);
+                Histoire.combatController.rencontreMonstre(roomPrecedente);
             }
             if (joueur.getPv() > 0) {
                 //Continuer ....
@@ -100,7 +102,7 @@ public class JoueurController {
 
         }
         if (joueur.getPv() <= 0) {
-            Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonstre());
+            Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonster());
         } else {
             Console.parler("Bravo, vous avez gagné !");
         }
