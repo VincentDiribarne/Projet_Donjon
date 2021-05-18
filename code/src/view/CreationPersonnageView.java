@@ -2,7 +2,7 @@ package view;
 
 import controller.JoueurController;
 import model.De;
-import model.Metier.*;
+import model.Jobs_Class.*;
 import model.Personne.Joueur;
 import model.Race.Halfelin;
 import model.Race.*;
@@ -256,7 +256,7 @@ public class CreationPersonnageView {
         return reponseClasse;
     }
 
-    public Metier choixClasse() {
+    public Jobs choixClasse() {
         String reponseClasse = nomClasse();
         Console.ecrire("\nVous avez choisi un " +reponseClasse);
         String choix = reponseClasse.toUpperCase();
@@ -279,7 +279,7 @@ public class CreationPersonnageView {
 
                 if (confirmation()) {
                     Console.ecrire("Vous venez de choisir un Barbare");
-                    return new Barbare();
+                    return new Barbarian();
                 }
                 break;
 
@@ -298,7 +298,7 @@ public class CreationPersonnageView {
 
                 if (confirmation()) {
                     Console.ecrire("Vous venez de choisir Pretre");
-                    return new Pretre();
+                    return new Clerk();
                 }
                 break;
 
@@ -316,7 +316,7 @@ public class CreationPersonnageView {
 
                 if (confirmation()) {
                     Console.ecrire("Vous venez de choisir un Guerrier");
-                    return new Guerrier();
+                    return new Warrior();
                 }
                 break;
 
@@ -334,7 +334,7 @@ public class CreationPersonnageView {
 
                 if (confirmation()) {
                     Console.ecrire("Vous venez de choisir un Magicien");
-                    return new Magicien();
+                    return new Wizard();
                 }
                 break;
 
@@ -353,7 +353,7 @@ public class CreationPersonnageView {
 
                 if (confirmation()) {
                     Console.ecrire("Vous venez de choisir un Rodeur");
-                    return new Rodeur();
+                    return new Ranger();
                 }
                 break;
 
@@ -371,7 +371,7 @@ public class CreationPersonnageView {
 
                 if (confirmation()) {
                     Console.ecrire("\nVous venez de choisir un Roublard");
-                    return new Roublard();
+                    return new Rogue();
                 }
                 break;
 

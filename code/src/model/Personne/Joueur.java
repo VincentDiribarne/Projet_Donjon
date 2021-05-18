@@ -2,14 +2,14 @@ package model.Personne;
 
 import model.Inventory.Weapon;
 import model.Inventory.Inventory;
-import model.Metier.Metier;
+import model.Jobs_Class.Jobs;
 import model.Race.Race;
 
 public class Joueur extends Personne {
 
     protected Inventory inventory = new Inventory();
     private Weapon weapon;
-    private Metier metier;
+    private Jobs jobs;
 
     private int constitution;
     private int dexterité;
@@ -44,12 +44,12 @@ public class Joueur extends Personne {
     }
 
     //Classe
-    public Metier getMetier() {
-        return metier;
+    public Jobs getMetier() {
+        return jobs;
     }
 
-    public void setMetier(Metier metier) {
-        this.metier = metier;
+    public void setMetier(Jobs jobs) {
+        this.jobs = jobs;
     }
 
     //Degat
@@ -143,7 +143,7 @@ public class Joueur extends Personne {
     //Bonus base Attaque
     public int getBonusBaseAttaque()
     {
-        return metier.getBonusBaseAttaque();
+        return jobs.getAttackBonus();
     }
 
     public Inventory getInventaire() {

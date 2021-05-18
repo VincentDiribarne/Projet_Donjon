@@ -3,8 +3,8 @@ package controller;
 import model.Donjon.Donjon;
 import model.Donjon.Room;
 import model.Inventory.Weapon;
-import model.Metier.Barbare;
-import model.Metier.Metier;
+import model.Jobs_Class.Barbarian;
+import model.Jobs_Class.Jobs;
 import model.Personne.Joueur;
 import model.Personne.Monstre;
 import model.Race.Humain;
@@ -41,8 +41,8 @@ public class JoueurController {
         Console.ecrire("\n\tBienvenue dans le choix des classes");
         Temps.temps(1000);
         creationPersoview.affichage();
-        Metier metier = creationPersoview.choixClasse();
-        joueur.setMetier(metier);
+        Jobs jobs = creationPersoview.choixClasse();
+        joueur.setMetier(jobs);
 
         Temps.temps(3000);
 
@@ -56,7 +56,7 @@ public class JoueurController {
         joueur.setBonusDex(bonus(joueur.getDexterité()));
         joueur.setBonusForce(bonus(joueur.getForce()));
         joueur.setBonusInt(bonus(joueur.getIntelligence()));
-        joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
+        joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
 
 
@@ -137,12 +137,12 @@ public class JoueurController {
     public void creationJoueurDebug() {
         joueur.setNom("John");
         joueur.setRace(new Humain());
-        joueur.setMetier(new Barbare());
+        joueur.setMetier(new Barbarian());
         joueur.setBonusForce(3);
         joueur.setBonusConst(3);
         joueur.setBonusDex(2);
         joueur.setBonusInt(0);
-        joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
+        joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
         Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
         Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
