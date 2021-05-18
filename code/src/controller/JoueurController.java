@@ -2,7 +2,7 @@ package controller;
 
 import model.Donjon.Donjon;
 import model.Donjon.Room;
-import model.Inventaire.Arme;
+import model.Inventory.Weapon;
 import model.Metier.Barbare;
 import model.Metier.Metier;
 import model.Personne.Joueur;
@@ -63,8 +63,8 @@ public class JoueurController {
         Temps.temps(3000);
         creationPersoview.finScript();
 
-        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
-        Arme epeeCourte = new Arme("Epee courte", 6,19,"Arme de guerre");
+        Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
+        Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
         joueur.setArme(mainNue);
         joueur.getInventaire().addArme(mainNue);
         joueur.getInventaire().addArme(epeeCourte);
@@ -144,8 +144,8 @@ public class JoueurController {
         joueur.setBonusInt(0);
         joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
-        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
-        Arme epeeCourte = new Arme("Epee courte", 6,19,"Arme de guerre");
+        Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
+        Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
         joueur.getInventaire().addArme(mainNue);
         joueur.getInventaire().addArme(epeeCourte);
         joueur.setArme(epeeCourte);

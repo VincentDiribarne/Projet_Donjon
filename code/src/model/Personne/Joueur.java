@@ -1,14 +1,14 @@
 package model.Personne;
 
-import model.Inventaire.Arme;
-import model.Inventaire.Inventaire;
+import model.Inventory.Weapon;
+import model.Inventory.Inventory;
 import model.Metier.Metier;
 import model.Race.Race;
 
 public class Joueur extends Personne {
 
-    protected Inventaire inventaire = new Inventaire();
-    private Arme arme;
+    protected Inventory inventory = new Inventory();
+    private Weapon weapon;
     private Metier metier;
 
     private int constitution;
@@ -55,7 +55,7 @@ public class Joueur extends Personne {
     //Degat
 
     public int getDegat(){
-        return arme.getDegats();
+        return weapon.getDamage();
     }
 
 
@@ -132,12 +132,12 @@ public class Joueur extends Personne {
         return bonusInt + race.getBonusInt();
     }
 
-    public void setArme(Arme arme) {
-        this.arme = arme;
+    public void setArme(Weapon weapon) {
+        this.weapon = weapon;
     }
 
-    public Arme getArme() {
-        return arme;
+    public Weapon getArme() {
+        return weapon;
     }
 
     //Bonus base Attaque
@@ -146,14 +146,14 @@ public class Joueur extends Personne {
         return metier.getBonusBaseAttaque();
     }
 
-    public Inventaire getInventaire() {
-        return inventaire;
+    public Inventory getInventaire() {
+        return inventory;
     }
 
     @Override
     public String toString() {
         return "Joueur{" +
-                "arme=" + arme +
+                "arme=" + weapon +
                 ", pv=" + pv +
                 ", bonusConst=" + bonusConst +
                 ", bonusDex=" + bonusDex +
