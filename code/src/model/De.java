@@ -4,8 +4,6 @@ import java.util.Random;
 
 public class De {
 
-
-
     public static int genererInt(int borneInf, int borneSup){
         Random random = new Random();
         return borneInf+random.nextInt((borneSup-borneInf) +1);

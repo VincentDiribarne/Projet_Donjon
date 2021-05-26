@@ -1,15 +1,15 @@
 package model.Personne;
 
-import model.Inventaire.Arme;
-import model.Inventaire.Inventaire;
-import model.Metier.Metier;
+import model.Inventory.Weapon;
+import model.Inventory.Inventory;
+import model.Jobs_Class.Jobs;
 import model.Race.Race;
 
 public class Joueur extends Personne {
 
-    protected Inventaire inventaire = new Inventaire();
-    private Arme arme;
-    private Metier metier;
+    protected Inventory inventory = new Inventory();
+    private Weapon weapon;
+    private Jobs jobs;
 
     private int constitution;
     private int dexterité;
@@ -29,33 +29,33 @@ public class Joueur extends Personne {
     public void seDeplacer(String direction) {
         switch (direction) {
             case "N":
-                salleActuelle = salleActuelle.getPorteNord().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getNorthDoor().takeDoor(roomActuelle);
                 break;
             case "S":
-                salleActuelle = salleActuelle.getPorteSud().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getSouthDoor().takeDoor(roomActuelle);
                 break;
             case "O":
-                salleActuelle = salleActuelle.getPorteOuest().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getOuestDoor().takeDoor(roomActuelle);
                 break;
             case "E":
-                salleActuelle = salleActuelle.getPorteEst().emprunterPorte(salleActuelle);
+                roomActuelle = roomActuelle.getEstDoor().takeDoor(roomActuelle);
                 break;
         }
     }
 
     //Classe
-    public Metier getMetier() {
-        return metier;
+    public Jobs getMetier() {
+        return jobs;
     }
 
-    public void setMetier(Metier metier) {
-        this.metier = metier;
+    public void setMetier(Jobs jobs) {
+        this.jobs = jobs;
     }
 
     //Degat
 
     public int getDegat(){
-        return arme.getDegats();
+        return weapon.getDamage();
     }
 
 
@@ -132,35 +132,35 @@ public class Joueur extends Personne {
         return bonusInt + race.getBonusInt();
     }
 
-    public void setArme(Arme arme) {
-        this.arme = arme;
+    public void setArme(Weapon weapon) {
+        this.weapon = weapon;
     }
 
-    public Arme getArme() {
-        return arme;
+    public Weapon getArme() {
+        return weapon;
     }
 
     //Bonus base Attaque
     public int getBonusBaseAttaque()
     {
-        return metier.getBonusBaseAttaque();
+        return jobs.getAttackBonus();
     }
 
-    public Inventaire getInventaire() {
-        return inventaire;
+    public Inventory getInventaire() {
+        return inventory;
     }
 
     @Override
     public String toString() {
         return "Joueur{" +
-                "arme=" + arme +
+                "arme=" + weapon +
                 ", pv=" + pv +
                 ", bonusConst=" + bonusConst +
                 ", bonusDex=" + bonusDex +
                 ", bonusForce=" + bonusForce +
                 ", bonusInt=" + bonusInt +
                 ", nom='" + nom + '\'' +
-                ", salleActuelle=" + salleActuelle +
+                ", salleActuelle=" + roomActuelle +
                 ", classeArmure=" + classeArmure +
                 '}';
     }

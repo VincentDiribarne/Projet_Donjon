@@ -4,7 +4,7 @@ import controller.DonjonController;
 import controller.Histoire;
 import controller.JoueurController;
 import controller.LibraryController;
-import model.Personne.Personne;
+
 
 public class Menu {
 

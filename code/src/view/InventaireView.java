@@ -1,13 +1,11 @@
 package view;
 
-import controller.JoueurController;
-import model.Inventaire.Arme;
-import model.Inventaire.Inventaire;
+import model.Inventory.Inventory;
 
 public class InventaireView {
     
-    public void afficherInventaire(Inventaire inventaire){
-        Console.ecrire(inventaire.toString());
+    public void afficherInventaire(Inventory inventory){
+        Console.ecrire(inventory.toString());
     }
 
     public int menuInventaire(){

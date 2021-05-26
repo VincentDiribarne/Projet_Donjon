@@ -1,14 +1,7 @@
 package controller;
 
-import model.Donjon.Salle;
-import model.Personne.Joueur;
-import model.Personne.Personne;
-import model.Race.DemiOrque;
-import view.Clavier;
 import view.Console;
 import view.Menu;
-import model.Donjon.Donjon;
-import view.Temps;
 
 public class Histoire {
 

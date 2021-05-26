@@ -1,17 +1,14 @@
 package controller;
 
-import model.De;
 import model.Donjon.Donjon;
-import model.Donjon.Salle;
-import model.Inventaire.Arme;
-import model.Metier.Barbare;
-import model.Metier.Metier;
+import model.Donjon.Room;
+import model.Inventory.Weapon;
+import model.Jobs_Class.Barbarian;
+import model.Jobs_Class.Jobs;
 import model.Personne.Joueur;
 import model.Personne.Monstre;
-import model.Personne.Personne;
 import model.Race.Humain;
 import model.Race.Race;
-import view.Clavier;
 import view.Console;
 import view.CreationPersonnageView;
 import view.Temps;
@@ -44,8 +41,8 @@ public class JoueurController {
         Console.ecrire("\n\tBienvenue dans le choix des classes");
         Temps.temps(1000);
         creationPersoview.affichage();
-        Metier metier = creationPersoview.choixClasse();
-        joueur.setMetier(metier);
+        Jobs jobs = creationPersoview.choixClasse();
+        joueur.setMetier(jobs);
 
         Temps.temps(3000);
 
@@ -59,21 +56,20 @@ public class JoueurController {
         joueur.setBonusDex(bonus(joueur.getDexterité()));
         joueur.setBonusForce(bonus(joueur.getForce()));
         joueur.setBonusInt(bonus(joueur.getIntelligence()));
-        joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
+        joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
 
 
         Temps.temps(3000);
         creationPersoview.finScript();
 
-        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
-        Arme epeeCourte = new Arme("Epee courte", 6,19,"Arme de guerre");
+        Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
+        Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
         joueur.setArme(mainNue);
         joueur.getInventaire().addArme(mainNue);
         joueur.getInventaire().addArme(epeeCourte);
 
     }
-
 
     //TODO changer de place
     public void DemarrerLaPartie() {
@@ -82,20 +78,22 @@ public class JoueurController {
         Donjon donjon = DonjonController.donjon;
 
         System.out.println("Debut de la partie");
-        while (joueur.getSalleActuelle() != donjon.getSalleFin() && joueur.getPv() > 0) {
 
+        while (joueur.getSalleActuelle() != donjon.getFinalRoom() && joueur.getPv() > 0) {
+            //Inventaire
+            Histoire.inventaireController.gestionInventaire();
             //SeReposeer
-            Salle sallePrecedente = joueur.getSalleActuelle();
-            String direction = DonjonController.donjonView.choixSalle(sallePrecedente.porteDisponible(), sallePrecedente);
+            Room roomPrecedente = joueur.getSalleActuelle();
+            String direction = DonjonController.donjonView.choixSalle(roomPrecedente.availableDoor(), roomPrecedente);
             joueur.seDeplacer(direction);
 
-            Monstre monstre = joueur.getSalleActuelle().getMonstre();
+            Monstre monstre = joueur.getSalleActuelle().getMonster();
             if (monstre != null && monstre.getPv() > 0) {
                 //Inventaire
                 Histoire.inventaireController.gestionInventaire();
 
                 DonjonController.donjonView.JetPerceptionMonstre(joueur.getSalleActuelle());
-                Histoire.combatController.rencontreMonstre(sallePrecedente);
+                Histoire.combatController.rencontreMonstre(roomPrecedente);
             }
             if (joueur.getPv() > 0) {
                 //Continuer ....
@@ -104,7 +102,7 @@ public class JoueurController {
 
         }
         if (joueur.getPv() <= 0) {
-            Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonstre());
+            Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonster());
         } else {
             Console.parler("Bravo, vous avez gagné !");
         }
@@ -139,15 +137,15 @@ public class JoueurController {
     public void creationJoueurDebug() {
         joueur.setNom("John");
         joueur.setRace(new Humain());
-        joueur.setMetier(new Barbare());
+        joueur.setMetier(new Barbarian());
         joueur.setBonusForce(3);
         joueur.setBonusConst(3);
         joueur.setBonusDex(2);
         joueur.setBonusInt(0);
-        joueur.setPv(joueur.getMetier().getPVdeBase() + joueur.getBonusConst());
+        joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
-        Arme mainNue = new Arme("Poing", 2, 20,"Corps à corps");
-        Arme epeeCourte = new Arme("Epee courte", 6,19,"Arme de guerre");
+        Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
+        Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
         joueur.getInventaire().addArme(mainNue);
         joueur.getInventaire().addArme(epeeCourte);
         joueur.setArme(epeeCourte);

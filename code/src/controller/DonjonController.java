@@ -1,9 +1,7 @@
 package controller;
 
 import model.Donjon.Donjon;
-import model.Donjon.Salle;
 import model.Personne.Joueur;
-import view.Console;
 import view.DonjonView;
 
 public class DonjonController {
@@ -14,7 +12,7 @@ public class DonjonController {
 
 
     public void creationDonjon(){
-        donjon.creationDesSalles();
-        joueur.setSalleActuelle(donjon.getSalleDepart());
+        donjon.createRooms();
+        joueur.setSalleActuelle(donjon.getStartRoom());
     }
 }
