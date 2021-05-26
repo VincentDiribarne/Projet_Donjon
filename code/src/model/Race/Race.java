@@ -3,48 +3,65 @@ package model.Race;
 public class Race {
     protected String name;
 
-    //Attaque corps a corps
+    /**
+     * Bonus for the damage
+     */
     protected int bonusForce = 0;
 
 
-    //Initiative, qui commence le combat enter le monstre et le joueur ....
+    /**
+     * Bonus for who start fight
+     */
     protected int bonusDex = 0;
 
-    //Sert pour les sorts
+
+    /**
+     * Bonus for knowlegde
+     */
     protected int bonusInt = 0;
 
-    //Point de vie
+
+    /**
+     * Bonus for PV
+     */
     protected int bonusConst = 0;
+
+    /**
+     * Prefered Jobs obtains with the breed
+     */
     protected String classePrédi;
+
+    /**
+     * Return the final predilection jobs
+     */
     public final String CLASSE_PREDI_DEFAUT = "Aucune";
 
+    /**
+     * Constructor of the breed
+     */
     public Race() {
         super();
         classePrédi = CLASSE_PREDI_DEFAUT;
     }
 
-    //Getters (pour les bonus / malus)
+    //Bonus / Malus
     public int getBonusConst() {
         return bonusConst;
     }
-
     public int getBonusDex() {
         return bonusDex;
     }
-
     public int getBonusInt() {
         return bonusInt;
     }
-
     public int getBonusForce() {
         return bonusForce;
     }
 
-    //Autres
+    //Other
     public String getName() {
         return name;
     }
-
     public String getClassePrédi() {
         return classePrédi;
     }

@@ -23,7 +23,7 @@ public class Joueur extends Personne {
     private Jobs jobs;
 
     /**
-     * It's for the race of our player, it's for damage, pv bonus, etc too
+     * It's for the breed of our player, it's for damage, pv bonus, etc too
      */
     protected Race race;
 
@@ -118,7 +118,7 @@ public class Joueur extends Personne {
         this.intelligence = intelligence;
     }
 
-    //Race
+    //Breed
     public Race getRace() {
         return race;
     }
