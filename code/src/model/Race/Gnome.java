@@ -1,6 +1,10 @@
 package model.Race;
 
 public class Gnome extends Race {
+
+    /**
+     * Constructor of Gnom, never redifined
+     */
     public Gnome() {
         super();
         name = "Gnome";

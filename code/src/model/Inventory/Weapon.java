@@ -33,11 +33,6 @@ public class Weapon {
 
     @Override
     public String toString() {
-        return "Arme{" +
-                "nom='" + name + '\'' +
-                ", degats=" + damage +
-                ", critique=" + critical +
-                ", type='" + type + '\'' +
-                '}';
+        return name + " ("+type+") qui inflige " + damage + " dégats, critique : " + critical;
     }
 }
