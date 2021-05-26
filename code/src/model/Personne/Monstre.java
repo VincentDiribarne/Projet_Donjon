@@ -1,11 +1,14 @@
 package model.Personne;
 
 import model.De;
+import model.Inventaire.Loot;
 
 public class Monstre extends Personne{
 
     private int deAttaque;
     private int bonusBaseAttaque;
+
+    private Loot loot;
 
     public Monstre(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure) {
         super();
@@ -17,6 +20,11 @@ public class Monstre extends Personne{
         this.bonusBaseAttaque = bonusBaseAttaque;
         this.deAttaque = deAttaque;
         this.classeArmure = classeArmure;
+    }
+
+    public Monstre(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure,Loot loot) {
+        this(nom, PV, bonusDex, bonusForce, bonusInt, deAttaque, bonusBaseAttaque, classeArmure);
+        this.loot = loot;
     }
 
     //Getters
@@ -62,6 +70,9 @@ public class Monstre extends Personne{
         return De.lancerDes(deAttaque);
     }
 
+    public Loot getLoot() {
+        return loot;
+    }
 
     @Override
     public String toString() {

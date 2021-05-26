@@ -20,7 +20,7 @@ public abstract class Personne {
     private int niveau;
     protected String nom;
     protected Salle salleActuelle;
-    protected int classeArmure = 10;
+    protected int classeArmure = 15;
 
 
     public Personne() {

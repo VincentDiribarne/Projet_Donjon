@@ -22,6 +22,10 @@ public class Joueur extends Personne {
         super();
     }
 
+    /**
+     *
+     * @param direction
+     */
     public void seDeplacer(String direction) {
         switch (direction) {
             case "N":
@@ -55,6 +59,10 @@ public class Joueur extends Personne {
     }
 
 
+    /**
+     *
+     * @return int
+     */
     public int getForce() {
         return force;
     }

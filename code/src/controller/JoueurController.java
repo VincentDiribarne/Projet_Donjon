@@ -83,8 +83,7 @@ public class JoueurController {
 
         System.out.println("Debut de la partie");
         while (joueur.getSalleActuelle() != donjon.getSalleFin() && joueur.getPv() > 0) {
-            //Inventaire
-            Histoire.inventaireController.gestionInventaire();
+
             //SeReposeer
             Salle sallePrecedente = joueur.getSalleActuelle();
             String direction = DonjonController.donjonView.choixSalle(sallePrecedente.porteDisponible(), sallePrecedente);
@@ -92,6 +91,9 @@ public class JoueurController {
 
             Monstre monstre = joueur.getSalleActuelle().getMonstre();
             if (monstre != null && monstre.getPv() > 0) {
+                //Inventaire
+                Histoire.inventaireController.gestionInventaire();
+
                 DonjonController.donjonView.JetPerceptionMonstre(joueur.getSalleActuelle());
                 Histoire.combatController.rencontreMonstre(sallePrecedente);
             }
