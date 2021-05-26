@@ -11,7 +11,6 @@ public class CombatView {
                 "+-------------------------+\n" +
                 "| 1 - Attaque             |\n" +
                 "| 2 - Fuire               |\n" +
-                "| 3 - Consomme une potion |\n" +
                 "+-------------------------+");
 
         Console.ecrire("\nVotre choix ?");

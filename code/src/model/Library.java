@@ -1,7 +1,7 @@
 package model;
 
-import model.Inventaire.Loot;
-import model.Inventaire.Arme;
+import model.Inventory.Loot;
+import model.Inventory.Weapon;
 import model.Personne.Monstre;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class Library {
 
     private ArrayList<Loot> loots = new ArrayList<>();
 
-    private ArrayList<Arme> weapons = new ArrayList<>();
+    private ArrayList<Weapon> weapons = new ArrayList<>();
 
 
 
@@ -25,7 +25,7 @@ public class Library {
         monsters.add(monster);
     }
 
-    public void addWeapon(Arme weapon){
+    public void addWeapon(Weapon weapon){
         weapons.add(weapon);
     }
 
@@ -38,7 +38,7 @@ public class Library {
         return loots.get(new Random().nextInt(loots.size()));
     }
 
-    public Arme getAWeapon(){
+    public Weapon getAWeapon(){
         return weapons.get(new Random().nextInt(weapons.size()));
     }
 

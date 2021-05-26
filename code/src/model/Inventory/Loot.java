@@ -1,12 +1,12 @@
-package model.Inventaire;
+package model.Inventory;
 
-import model.Inventaire.Arme;
+
 
 public class Loot {
-    private Arme arme;
+    private Weapon arme;
     private int probability;
 
-    public Loot(Arme arme, int probability){
+    public Loot(Weapon arme, int probability){
         super();
         this.arme = arme;
         this.probability = probability;
@@ -16,7 +16,7 @@ public class Loot {
         return probability;
     }
 
-    public Arme getArme() {
+    public Weapon getArme() {
         return arme;
     }
 }
