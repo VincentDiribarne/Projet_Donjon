@@ -19,11 +19,9 @@ public class Menu {
                             "\t|        Donjon Textuel        |\n" +
                             "\t+------------------------------+\n" +
                             "\t| 1 - Création d'un personnage |\n" +
-                            "\t| 2 - Charger un personnage    |\n" +
-                            "\t| 3 - Éditer la carte          |\n" +
-                            "\t| 4 - Afficher les règles      |\n" +
-                            "\t| 5 - Quitter                  |\n" +
-                            "\t| 6 - Debug                    |\n" +
+                            "\t| 2 - Afficher les règles      |\n" +
+                            "\t| 3 - Personnage tout fait     |\n" +
+                            "\t| 4 - Quitter                  |\n" +
                             "\t+------------------------------+\n" +
                             "\n" +
                             "Votre Choix ?"
@@ -38,19 +36,13 @@ public class Menu {
                 joueurController.creationPersonnage();
                 break;
             case 2:
-                //chargerunPerso();
-                break;
-            case 3:
-                //changerlaCarte()
-                break;
-            case 4:
                 r.Regles();
                 break;
-            case 5:
-                System.exit(1);
-                break;
-            case 6:
+            case 3:
                 joueurController.creationJoueurDebug();
+                break;
+            case 4:
+                System.exit(1);
                 break;
             default:
                 Menu();
@@ -63,9 +55,8 @@ public class Menu {
                 "\t|        Donjon Textuel        |\n" +
                 "\t+------------------------------+\n" +
                 "\t| 1 - Lancer la partie         |\n" +
-                "\t| 2 - Éditer la carte          |\n" +
-                "\t| 3 - Afficher les règles      |\n" +
-                "\t| 4 - Quitter                  |\n" +
+                "\t| 2 - Afficher les règles      |\n" +
+                "\t| 3 - Quitter                  |\n" +
                 "\t+------------------------------+\n" +
                 "\n" +
                 "Votre Choix ?"
@@ -81,15 +72,11 @@ public class Menu {
                 libraryController.createLibrary();
                 donjonController.creationDonjon();
                 joueurController.DemarrerLaPartie();
-
                 break;
             case 2:
-                //editter la carte();
-                break;
-            case 3:
                 r.Regles();
                 break;
-            case 4:
+            case 3:
                 System.exit(1);
                 break;
             default:

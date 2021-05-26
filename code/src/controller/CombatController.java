@@ -1,7 +1,7 @@
 package controller;
 
 import model.De;
-import model.Inventaire.Loot;
+import model.Inventory.Loot;
 import model.Donjon.Room;
 
 import model.Personne.Joueur;
@@ -57,9 +57,6 @@ public class CombatController {
                 } else {
                     joueur.setSalleActuelle(roomPrécédente);
                 }
-                break;
-            case 3:
-                //Consommer une potion (option)
                 break;
             default:
                 Console.ecrire("Erreur");

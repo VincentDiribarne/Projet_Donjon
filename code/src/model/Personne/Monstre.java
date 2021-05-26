@@ -1,7 +1,7 @@
 package model.Personne;
 
 import model.De;
-import model.Inventaire.Loot;
+import model.Inventory.Loot;
 
 public class Monstre extends Personne{
 

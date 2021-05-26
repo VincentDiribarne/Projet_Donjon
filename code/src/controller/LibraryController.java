@@ -1,7 +1,7 @@
 package controller;
 
-import model.Inventaire.Loot;
-import model.Inventaire.Arme;
+import model.Inventory.Loot;
+import model.Inventory.Weapon;
 import model.Library;
 import model.Personne.Monstre;
 
@@ -13,11 +13,11 @@ public class LibraryController {
         library.addMonster(new Monstre("Orque", 4, 0, 3, -1, 6, 3, 14));
         library.addMonster(new Monstre("Donotkesh Primeblood", 12, 0, 3, -1, 12, 3, 18));
 
-        Arme epee = new Arme("Epee courte", 6,19,"Arme de guerre");
-        Arme arc = new Arme("Arc court", 4,20,"Arme de guerre");
-        Arme hache = new Arme("Grande hache", 10,20,"Arme de guerre");
-        Arme lance = new Arme("Lance", 6,20,"Arme courrante");
-        Arme epeeM = new Arme("Epée courte de maître", 8,19,"Arme de guerre de maître");
+        Weapon epee = new Weapon("Epee courte", 6,19,"Arme de guerre");
+        Weapon arc = new Weapon("Arc court", 4,20,"Arme de guerre");
+        Weapon hache = new Weapon("Grande hache", 10,20,"Arme de guerre");
+        Weapon lance = new Weapon("Lance", 6,20,"Arme courrante");
+        Weapon epeeM = new Weapon("Epée courte de maître", 8,19,"Arme de guerre de maître");
 
         library.addWeapon(epee);
         library.addWeapon(arc);
