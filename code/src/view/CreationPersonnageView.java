@@ -2,7 +2,7 @@ package view;
 
 import controller.JoueurController;
 import model.De;
-import model.Jobs_Class.*;
+import model.JobsClass.*;
 import model.Personne.Joueur;
 import model.Race.Halfelin;
 import model.Race.*;

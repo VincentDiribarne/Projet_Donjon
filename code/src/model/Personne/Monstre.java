@@ -5,11 +5,33 @@ import model.Inventory.Loot;
 
 public class Monstre extends Personne{
 
+    /**
+     * It's a dice for attack, it's an random attack between 1 and the max dice
+     */
     private int deAttaque;
+
+    /**
+     * It's a bonus for attack
+     */
     private int bonusBaseAttaque;
 
+    /**
+     * It's for the loot of the monster, it's a random drop.
+     */
     private Loot loot;
 
+
+    /**
+     * Constructor of the monster
+     * @param nom
+     * @param PV
+     * @param bonusDex
+     * @param bonusForce
+     * @param bonusInt
+     * @param deAttaque
+     * @param bonusBaseAttaque
+     * @param classeArmure
+     */
     public Monstre(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure) {
         super();
         this.nom = nom;
@@ -22,6 +44,19 @@ public class Monstre extends Personne{
         this.classeArmure = classeArmure;
     }
 
+
+    /**
+     * Another constructor but with the loot, the monster has a chance to drop a weapon
+     * @param nom
+     * @param PV
+     * @param bonusDex
+     * @param bonusForce
+     * @param bonusInt
+     * @param deAttaque
+     * @param bonusBaseAttaque
+     * @param classeArmure
+     * @param loot
+     */
     public Monstre(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure,Loot loot) {
         this(nom, PV, bonusDex, bonusForce, bonusInt, deAttaque, bonusBaseAttaque, classeArmure);
         this.loot = loot;
@@ -35,43 +70,23 @@ public class Monstre extends Personne{
         return deAttaque;
     }
 
-
+    //Bonus
     public int getBonusConst() {
         return bonusConst;
     }
-
-
-
-    /**
-     * bonusDex
-     *
-     * @return
-     */
     public int getBonusDex() {
         return bonusDex;
     }
-
-    /**
-     * bonusForce
-     *
-     * @return
-     */
     public int getBonusForce() {
         return bonusForce;
     }
-
     public int getBonusInt() {
         return bonusInt;
     }
 
     //Degat
-
     public int getDegat(){
         return De.lancerDes(deAttaque);
-    }
-
-    public Loot getLoot() {
-        return loot;
     }
 
     @Override

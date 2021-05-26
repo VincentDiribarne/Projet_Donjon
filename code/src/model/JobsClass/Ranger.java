@@ -1,4 +1,4 @@
-package model.Jobs_Class;
+package model.JobsClass;
 
 public class Ranger extends Jobs {
 

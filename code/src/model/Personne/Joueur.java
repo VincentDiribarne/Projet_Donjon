@@ -2,28 +2,62 @@ package model.Personne;
 
 import model.Inventory.Weapon;
 import model.Inventory.Inventory;
-import model.Jobs_Class.Jobs;
+import model.JobsClass.Jobs;
 import model.Race.Race;
 
 public class Joueur extends Personne {
 
+    /**
+     * Instantiates the inventory of the player
+     */
     protected Inventory inventory = new Inventory();
+
+    /**
+     * It's the actual weapon in his hand
+     */
     private Weapon weapon;
+
+    /**
+     * It's for the jobs of our player, it's for damage, pv bonus, etc
+     */
     private Jobs jobs;
 
-    private int constitution;
-    private int dexterité;
-    private int force;
-    private int intelligence;
+    /**
+     * It's for the race of our player, it's for damage, pv bonus, etc too
+     */
     protected Race race;
 
 
+    /**
+     * Determine the points of the player's life
+     */
+    private int constitution;
+
+    /**
+     * Determine the ability of the player
+     */
+    private int dexterité;
+
+    /**
+     * Determine the strenght of the player. It's use for the damage.
+     */
+    private int force;
+
+    /**
+     * Determine the intelligence of the player. Useful for knowledge.
+     */
+    private int intelligence;
+
+
+    /**
+     * Constructor of the player
+     */
     public Joueur() {
         super();
     }
 
     /**
-     *
+     * Gives the existing directions of the current room
      * @param direction
      */
     public void seDeplacer(String direction) {
@@ -43,38 +77,29 @@ public class Joueur extends Personne {
         }
     }
 
-    //Classe
+    //Jobs
     public Jobs getMetier() {
         return jobs;
     }
-
     public void setMetier(Jobs jobs) {
         this.jobs = jobs;
     }
 
-    //Degat
-
+    //Damages
     public int getDegat(){
         return weapon.getDamage();
     }
 
-
-    /**
-     *
-     * @return int
-     */
+    //Attributs
     public int getForce() {
         return force;
     }
-
     public int getConstitution() {
         return constitution;
     }
-
     public int getDexterité() {
         return dexterité;
     }
-
     public int getIntelligence() {
         return intelligence;
     }
@@ -83,15 +108,12 @@ public class Joueur extends Personne {
     public void setForce(int force) {
         this.force = force;
     }
-
     public void setConstitution(int constitution) {
         this.constitution = constitution;
     }
-
     public void setDexterité(int dexterité) {
         this.dexterité = dexterité;
     }
-
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
@@ -100,52 +122,39 @@ public class Joueur extends Personne {
     public Race getRace() {
         return race;
     }
-
     public void setRace(Race race) {
         this.race = race;
     }
 
+    //Bonus
     public int getBonusConst() {
         return bonusConst + race.getBonusConst();
     }
-
-
-    /**
-     * bonusDex + race bonusDex
-     *
-     * @return
-     */
     public int getBonusDex() {
         return bonusDex + race.getBonusDex();
     }
-
-    /**
-     * bonusForce + race bonusForce
-     *
-     * @return
-     */
     public int getBonusForce() {
         return bonusForce + race.getBonusForce();
     }
-
     public int getBonusInt() {
         return bonusInt + race.getBonusInt();
     }
 
+    //Weapon
     public void setArme(Weapon weapon) {
         this.weapon = weapon;
     }
-
     public Weapon getArme() {
         return weapon;
     }
 
-    //Bonus base Attaque
+    //Attack
     public int getBonusBaseAttaque()
     {
         return jobs.getAttackBonus();
     }
 
+    //Inventory
     public Inventory getInventaire() {
         return inventory;
     }

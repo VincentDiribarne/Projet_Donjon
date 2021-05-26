@@ -88,7 +88,6 @@ public class Room {
     }
 
     //Accesseurs
-
     public Door getNorthDoor() {
         return northDoor;
     }
