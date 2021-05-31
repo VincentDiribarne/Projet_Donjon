@@ -11,9 +11,15 @@ import java.util.ArrayList;
 
 public class CreationPersonnageView {
 
+    /**
+     * Instanciates the player
+     */
     private Joueur joueur = JoueurController.joueur;
 
-    //Autres
+    /**
+     * Print the start text
+     * @return
+     */
     public String Debutscript() {
         Console.ecrire("\nBienvenue dans la création de personnages.");
         Console.ecrire("Dans un premier temps, choisissez votre nom de joueur. Suite à cela, vous allez choisir votre race. De plus, vous devrait choisir votre classe (l'équivalent d'un metier dans un jeu de role).");
@@ -24,12 +30,18 @@ public class CreationPersonnageView {
         return Clavier.LectureString();
     }
 
+    /**
+     * Print the MJ text
+     */
     public void Mj() {
         Console.parler("Bonjour à toi " + joueur.getNom() + " bienvenue dans le jeu, je te souhaite bonne chance... Pour ce qui va t'arriver ensuite, MOUAH AH AH AH !!");
         Console.parler("Ouais, je suis horrible et alors !");
     }
 
 
+    /**
+     * Print some text for the jobs and breed
+     */
     public void affichage() {
         Temps.temps(1000);
         Console.ecrire("\nEcrivez le nom complet tel qu'il est écrit plus tard, sinon cela va engendrer une erreur !");
@@ -40,6 +52,9 @@ public class CreationPersonnageView {
         Temps.temps(1000);
     }
 
+    /**
+     * Last part of the text
+     */
     public void finScript() {
         Console.ecrire("\nLa création de votre personnage est faite !");
         Console.ecrire("\nVous êtes un " +joueur.getRace().getName()+ " avec comme classe : " +JoueurController.joueur.getMetier().getName()+ ".");
@@ -48,6 +63,10 @@ public class CreationPersonnageView {
         Console.parler("Bonne chance à toi, " +joueur.getNom());
     }
 
+    /**
+     * Confirm the choise
+     * @return
+     */
     public Boolean confirmation() {
         Console.ecrire("Tapez 'Y' pour confirmer ou 'N' pour refuser");
         String confirmChoix = Clavier.LectureString();
@@ -67,7 +86,10 @@ public class CreationPersonnageView {
         return false;
     }
 
-    //Race
+    /**
+     * Print all name's breed
+     * @return
+     */
     public String nomRace() {
         String reponseRace;
         Console.ecrire("\nChoisissez votre Race parmi les suivantes : ");
@@ -91,6 +113,10 @@ public class CreationPersonnageView {
         return reponseRace;
     }
 
+    /**
+     * Text for choose breed
+     * @return
+     */
     public Race choixRace() {
         String reponseRace = nomRace();
         Console.ecrire("\nVous avez choisi un " +reponseRace+ "\n");
@@ -235,7 +261,11 @@ public class CreationPersonnageView {
         return choixRace();
     }
 
-    //Classes
+
+    /**
+     * Print the name of all jobs
+     * @return
+     */
     public String nomClasse() {
         String reponseClasse;
         Console.ecrire("\nVous avez choisi un " +JoueurController.joueur.getRace().getName()+ ", votre classe de predilection est " +JoueurController.joueur.getRace().getClassePrédi());
@@ -256,6 +286,10 @@ public class CreationPersonnageView {
         return reponseClasse;
     }
 
+    /**
+     * Text for choose jobs
+     * @return
+     */
     public Jobs choixClasse() {
         String reponseClasse = nomClasse();
         Console.ecrire("\nVous avez choisi un " +reponseClasse);
@@ -382,8 +416,9 @@ public class CreationPersonnageView {
         return choixClasse();
     }
 
-
-    //Tirages
+    /**
+     * Text for attributes
+     */
     public void tirages() {
     ArrayList<Integer> tirages = new ArrayList<>();
 
@@ -432,6 +467,11 @@ public class CreationPersonnageView {
         Console.ecrire("\t - Intelligence : " + joueur.getIntelligence());
     }
 
+    /**
+     * Put number in attribute
+     * @param tirages
+     * @return
+     */
     public int attributionAttribut(ArrayList<Integer> tirages) {
         int attribut;
         int reponse;
@@ -445,6 +485,10 @@ public class CreationPersonnageView {
         return attribut;
     }
 
+    /**
+     * Print all the number for attributes
+     * @param tirages
+     */
     public void afficheTirage(ArrayList<Integer> tirages) {
         Temps.temps(1500);
         Console.ecrire("\nVoici les statistiques que vous pouvez attribuer");

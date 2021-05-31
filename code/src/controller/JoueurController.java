@@ -15,13 +15,30 @@ import view.Temps;
 
 public class JoueurController {
 
+    /**
+     * Instanciates CreationPersonnageView
+     * @see CreationPersonnageView
+     */
     private CreationPersonnageView creationPersoview;
+
+    /**
+     * Instanciates the player
+     */
     public static Joueur joueur = new Joueur();
 
+    /**
+     * Constructor of JoueurController
+     * @see CreationPersonnageView
+     */
     public JoueurController() {
         creationPersoview = new CreationPersonnageView();
     }
 
+    /**
+     *Create the player
+     * @see CreationPersonnageView
+     * @see model.Personne.Personne
+     */
     public void creationPersonnage() {
         joueur.setNom(creationPersoview.Debutscript());
         Temps.temps(2000);
@@ -71,7 +88,9 @@ public class JoueurController {
 
     }
 
-    //TODO changer de place
+    /**
+     * Start Game
+     */
     public void DemarrerLaPartie() {
 
         Joueur joueur = JoueurController.joueur;
@@ -109,10 +128,9 @@ public class JoueurController {
 
     }
 
-
     /**
      * Find bonus from a value
-     *
+     * @see model.Personne.Personne
      * @param valeur
      * @return int
      */
@@ -134,6 +152,10 @@ public class JoueurController {
         return bonus;
     }
 
+    /**
+     * Create a default Player
+     * @see Joueur
+     */
     public void creationJoueurDebug() {
         joueur.setNom("John");
         joueur.setRace(new Humain());

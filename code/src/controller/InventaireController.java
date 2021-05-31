@@ -8,11 +8,23 @@ import view.Temps;
 
 public class InventaireController {
 
+    /**
+     * Instanciates the inventaireView
+     * @see InventaireView
+     */
     private InventaireView inventaireView = new InventaireView();
+
+    /**
+     * Instanciates the Joueur
+     * @see Joueur
+     */
     private Joueur joueur = JoueurController.joueur;
 
     /**
      * Gestion de l'inventaire.
+     * @see InventaireView
+     * @see model.Inventory.Inventory
+     * @see InventaireController
      */
     public void gestionInventaire(){
         int choix = inventaireView.menuInventaire();

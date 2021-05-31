@@ -9,18 +9,39 @@ import model.Personne.Monstre;
 import model.Personne.Personne;
 import view.CombatView;
 import view.Console;
-import view.MonstreView;
 import view.Temps;
 
 public class CombatController {
 
+    /**
+     * Instanciates the player
+     * @see Joueur
+     */
     private Joueur joueur = JoueurController.joueur;
-    public MonstreView monstreView = new MonstreView();
+
+    /**
+     * Instanciates the view
+     * @see CombatView
+     */
     public CombatView combatView = new CombatView();
+
+    /**
+     * Instanciates the monster
+     * @see Monstre
+     */
     private Monstre monstre;
+
+    /**
+     * Instanciates a Room call "roomPrecedente"
+     * @see Room
+     */
     private Room roomPrécédente;
 
 
+    /**
+     * If a player meet a monster, this method is call
+     * @param roomPrécédente
+     */
     public void rencontreMonstre(Room roomPrécédente) {
         this.roomPrécédente = roomPrécédente;
         monstre = joueur.getSalleActuelle().getMonster();
@@ -29,6 +50,10 @@ public class CombatController {
         choixJoueur(p1);
     }
 
+    /**
+     * When a turn start, the player can choose in a menu
+     * @param p
+     */
     public void choixJoueur(Personne p) {
         int choixDuJoueur = combatView.Menu();
         switch (choixDuJoueur) {
@@ -64,6 +89,11 @@ public class CombatController {
         }
     }
 
+    /**
+     * It's a calcul for know who start a fight
+     * @return Personne
+     * @see Personne
+     */
     public Personne calculInitiative() {
         Personne personne1;
 
@@ -94,6 +124,13 @@ public class CombatController {
         }
     }
 
+    /**
+     * It's for an attack
+     * @param personne
+     * @param cible
+     * @see De
+     * @see Personne
+     */
     public void attaque(Personne personne, Personne cible) {
         int jetAttaque = De.lancerDes(20);
         int degat = personne.getDegat();

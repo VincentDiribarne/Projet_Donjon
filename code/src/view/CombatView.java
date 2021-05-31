@@ -5,6 +5,10 @@ import model.Personne.Personne;
 
 public class CombatView {
 
+    /**
+     * Print the Menu
+     * @return
+     */
     public int Menu() {
         Console.ecrire("+-------------------------+\n" +
                 "|     Choix du Joueur     |\n" +
@@ -19,11 +23,24 @@ public class CombatView {
         return choix;
     }
 
+    /**
+     * Print the text's attack
+     * @param jetattaque
+     * @param degat
+     * @param attaquant
+     * @param defenseur
+     */
     public void Attaque(int jetattaque, int degat, Personne attaquant, Personne defenseur) {
         Console.ecrire("Le jet d'attaque est de : " +jetattaque+ ", il est superieur à la classe d'armure de " +defenseur.getNom());
         Console.ecrire(attaquant.getNom() + " inflige " +degat+ " dégat à " +defenseur.getNom()+ ". Il lui reste " +defenseur.getPv()+ " PV\n");
     }
 
+    /**
+     * Print the miss text
+     * @param attaquant
+     * @param defenseur
+     * @param jet
+     */
     public void Raté(Personne attaquant, Personne defenseur, int jet) {
         int choix = De.genererInt(1, 5);
         String nom = "Vous";
@@ -53,11 +70,21 @@ public class CombatView {
         Console.ecrire("L'attaque a donc échoué \n");
     }
 
+    /**
+     * Print the critical text
+     * @param degat
+     * @param attaquant
+     * @param defenseur
+     */
     public void Critique(int degat, Personne attaquant, Personne defenseur) {
         Console.ecrire(attaquant.getNom()+ " a eu un super tirage, il fait un critique");
         Console.ecrire("Il inflige "+degat+ " dégat à "  +defenseur.getNom()+ ", il reste " + defenseur.getPv()+ " PV\n");
     }
 
+    /**
+     * Print the won text for the fight
+     * @param monstre
+     */
     public void Gagne(Personne monstre) {
         Console.personneParler("AHHHHHH", monstre);
         Console.ecrire("Vous avez gagné le combat !");
@@ -65,6 +92,10 @@ public class CombatView {
         Console.ecrire("Vous pouvez passer à la salle suivante");
     }
 
+    /**
+     * Print the loose text for the fight
+     * @param monstre
+     */
     public void Perdu(Personne monstre) {
         Console.personneParler("Ahahaha je t'ai eu", monstre);
         Console.parler("Vous êtes mort, enfin il me semble\n");
@@ -74,6 +105,10 @@ public class CombatView {
         Console.ecrire("\t - Quitter (3) \n");
     }
 
+    /**
+     * Print the leak text
+     * @return
+     */
     public int Fuite() {
         int chancedeFuite = De.genererInt(1, 3);
         if (chancedeFuite == 3) {

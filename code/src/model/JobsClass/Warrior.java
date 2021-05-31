@@ -4,6 +4,7 @@ public class Warrior extends Jobs {
 
     /**
      * Constructor of Warrior, never redifined
+     * @see Jobs
      */
     public Warrior() {
         name = "Guerrier";

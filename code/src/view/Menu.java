@@ -8,11 +8,22 @@ import controller.LibraryController;
 
 public class Menu {
 
+    /**
+     * Instanciates keyboard
+     */
     private Clavier clavier = new Clavier();
+
+    /**
+     * Instanciates joueurController
+     * @see JoueurController
+     */
     private JoueurController joueurController = Histoire.joueurController;
     private DonjonController donjonController = Histoire.donjonController;
     private LibraryController libraryController = Histoire.libraryController;
 
+    /**
+     * Print Menu
+     */
     public void Menu() {
         Temps.temps(1000);
         System.out.println("\t+------------------------------+\n" +
@@ -29,6 +40,10 @@ public class Menu {
         choixMenu(clavier.LectureInt());
     }
 
+    /**
+     * Choise for the menu
+     * @param a
+     */
     public void choixMenu(int a) {
         Regles r = new Regles();
         switch (a){
@@ -50,6 +65,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Second Menu
+     */
     public void Menu2() {
         System.out.println("\t+------------------------------+\n" +
                 "\t|        Donjon Textuel        |\n" +
@@ -64,6 +82,10 @@ public class Menu {
         choixMenu2(clavier.LectureInt());
     }
 
+    /**
+     * Choise for the menu
+     * @param a
+     */
     public void choixMenu2(int a) {
         Regles r = new Regles();
 

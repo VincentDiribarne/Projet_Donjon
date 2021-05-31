@@ -13,8 +13,6 @@ public class Jobs {
        super();
     }
 
-    //PV
-
     /**
      * Return PV of the player when he's create
      * @return int
@@ -24,14 +22,11 @@ public class Jobs {
     }
 
     /**
-     *
      * @param firstPv
      */
     public void setFirstPV(int firstPv) {
         this.firstPV = firstPv;
     }
-
-    //Name
 
     /**
      * Return the job's name
