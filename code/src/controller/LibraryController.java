@@ -8,6 +8,9 @@ import model.Personne.Monstre;
 public class LibraryController {
     public static Library library = new Library();
 
+    /**
+     * Create the library of weapon and monster
+     */
     public void createLibrary(){
         library.addMonster(new Monstre("Gobelin", 4, 1, -1, 0, 8, 1, 15));
         library.addMonster(new Monstre("Orque", 4, 0, 3, -1, 6, 3, 14));

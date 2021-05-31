@@ -3,11 +3,19 @@ package view;
 import model.Inventory.Inventory;
 
 public class InventaireView {
-    
+
+    /**
+     * Print Inventory
+     * @param inventory
+     */
     public void afficherInventaire(Inventory inventory){
         Console.ecrire(inventory.toString());
     }
 
+    /**
+     * Print menu for inventory
+     * @return
+     */
     public int menuInventaire(){
         Console.ecrire("\n" +
                 "+---------------------------------------+\n" +
