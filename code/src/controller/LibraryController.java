@@ -6,6 +6,10 @@ import model.Library;
 import model.Personne.Monstre;
 
 public class LibraryController {
+    /**
+     * Instanciate the Library
+     * @see Library
+     */
     public static Library library = new Library();
 
     /**

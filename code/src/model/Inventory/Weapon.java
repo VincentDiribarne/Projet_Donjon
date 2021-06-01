@@ -4,9 +4,24 @@ import model.De;
 
 public class Weapon {
 
+    /**
+     * Name of the weapon
+     */
     private String name;
+
+    /**
+     * Damage of the weapon
+     */
     private int damage;
+
+    /*
+     * Critical for the Weapon
+     */
     private int critical;
+
+    /**
+     * Type of the Weapon
+     */
     private String type;
 
     /**
@@ -23,10 +38,9 @@ public class Weapon {
         this.type = type;
     }
 
-    /**
-     * Return a random damage with a dice roll
-     * @return int
-     */
+
+
+    //Getters
     public int getDamage() {
         return De.lancerDes(damage);
     }

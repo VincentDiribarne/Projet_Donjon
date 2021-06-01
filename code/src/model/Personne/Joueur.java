@@ -9,21 +9,25 @@ public class Joueur extends Personne {
 
     /**
      * Instantiates the inventory of the player
+     * @see Inventory
      */
     protected Inventory inventory = new Inventory();
 
     /**
      * It's the actual weapon in his hand
+     * @see Weapon
      */
     private Weapon weapon;
 
     /**
      * It's for the jobs of our player, it's for damage, pv bonus, etc
+     * @see Jobs
      */
     private Jobs jobs;
 
     /**
      * It's for the breed of our player, it's for damage, pv bonus, etc too
+     * @see Race
      */
     protected Race race;
 

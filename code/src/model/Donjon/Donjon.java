@@ -1,18 +1,24 @@
 package model.Donjon;
 
-import controller.Histoire;
-import controller.LibraryController;
-import model.Library;
 import model.Personne.Monstre;
 
-/**
- *
- */
 public class Donjon {
 
+    /**
+     * First Room
+     * @see Room
+     */
     private Room finalRoom;
+
+    /**
+     * Final Room
+     * @see Room
+     */
     private Room startRoom;
 
+    /*
+     * Constructor of Donjon
+     */
     public Donjon(){
         super();
     }
@@ -20,6 +26,7 @@ public class Donjon {
     /**
      * Create 19 rooms for the donjon and link with doors
      * @author Baptiste Buvron
+     * @see Room
      */
     public void createRooms(){
         startRoom = new Room("de Depart");

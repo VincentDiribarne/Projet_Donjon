@@ -65,7 +65,7 @@ public class CreationPersonnageView {
 
     /**
      * Confirm the choise
-     * @return
+     * @return boolean
      */
     public Boolean confirmation() {
         Console.ecrire("Tapez 'Y' pour confirmer ou 'N' pour refuser");
@@ -88,7 +88,7 @@ public class CreationPersonnageView {
 
     /**
      * Print all name's breed
-     * @return
+     * @return string
      */
     public String nomRace() {
         String reponseRace;

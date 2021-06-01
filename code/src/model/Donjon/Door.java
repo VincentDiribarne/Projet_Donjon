@@ -1,9 +1,23 @@
 package model.Donjon;
 
 public class Door {
-    //private boolean locked= false;
+
+    /**
+     * Create a Room
+     * @see Room
+     */
     private Room room1;
+
+    /**
+     * Create a Room 2
+     * @see Room
+     */
     private Room room2;
+
+    /**
+     * Create a way
+     * @see Room
+     */
     private String way;
 
     /**
@@ -22,7 +36,7 @@ public class Door {
     /**
      * Cross a door and go to a another room
      * @param currentRoom
-     * @return Salle
+     * @return Room
      */
     public Room takeDoor(Room currentRoom){
         if (currentRoom == room1){
@@ -35,7 +49,7 @@ public class Door {
     /**
      * Get the direction of the player
      * @param room
-     * @return
+     * @return way
      */
     public String getDirection(Room room) {
         if (room== room1){
