@@ -65,7 +65,7 @@ public class CreationPersonnageView {
 
     /**
      * Confirm the choise
-     * @return
+     * @return boolean
      */
     public Boolean confirmation() {
         Console.ecrire("Tapez 'Y' pour confirmer ou 'N' pour refuser");
@@ -88,7 +88,7 @@ public class CreationPersonnageView {
 
     /**
      * Print all name's breed
-     * @return
+     * @return string
      */
     public String nomRace() {
         String reponseRace;
@@ -115,7 +115,7 @@ public class CreationPersonnageView {
 
     /**
      * Text for choose breed
-     * @return
+     * @return Race
      */
     public Race choixRace() {
         String reponseRace = nomRace();
@@ -264,7 +264,7 @@ public class CreationPersonnageView {
 
     /**
      * Print the name of all jobs
-     * @return
+     * @return String
      */
     public String nomClasse() {
         String reponseClasse;
@@ -288,7 +288,7 @@ public class CreationPersonnageView {
 
     /**
      * Text for choose jobs
-     * @return
+     * @return Jobs
      */
     public Jobs choixClasse() {
         String reponseClasse = nomClasse();
@@ -470,7 +470,7 @@ public class CreationPersonnageView {
     /**
      * Put number in attribute
      * @param tirages
-     * @return
+     * @return int
      */
     public int attributionAttribut(ArrayList<Integer> tirages) {
         int attribut;

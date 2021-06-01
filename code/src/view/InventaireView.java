@@ -14,7 +14,7 @@ public class InventaireView {
 
     /**
      * Print menu for inventory
-     * @return
+     * @return int
      */
     public int menuInventaire(){
         Console.ecrire("\n" +
@@ -30,6 +30,5 @@ public class InventaireView {
         System.out.println("Votre choix : ");
         int choix;
         return choix = Clavier.LectureInt();
-
     }
 }

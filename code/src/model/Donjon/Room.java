@@ -4,9 +4,28 @@ import model.Personne.Monstre;
 import java.util.ArrayList;
 
 public class Room {
+    /**
+     * Create a northDoor
+     * @see Door
+     */
     private Door northDoor = null;
+
+    /**
+     * Create a southDoor
+     * @see Door
+     */
     private Door southDoor = null;
+
+    /**
+     * Create a estDoor
+     * @see Door
+     */
     private Door estDoor = null;
+
+    /**
+     * Create a ouestDoor
+     * @see Door
+     */
     private Door ouestDoor = null;
     private String name;
     private Monstre monster;
@@ -24,6 +43,7 @@ public class Room {
      * Constructor of Room with a monster
      * @param name
      * @param monster
+     * @see Monstre
      */
     public Room(String name, Monstre monster){
         this(name);
@@ -32,6 +52,7 @@ public class Room {
 
     /**
      * Give the list of door in a room
+     * @see Door
      * @return ArrayList
      */
     public ArrayList availableDoor(){
@@ -54,6 +75,7 @@ public class Room {
 
     /**
      * Link Room with doors
+     * @see Room
      * @param room2
      * @param way
      */

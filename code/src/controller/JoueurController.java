@@ -85,7 +85,6 @@ public class JoueurController {
         joueur.setArme(mainNue);
         joueur.getInventaire().addArme(mainNue);
         joueur.getInventaire().addArme(epeeCourte);
-
     }
 
     /**
@@ -99,9 +98,7 @@ public class JoueurController {
         System.out.println("Debut de la partie");
 
         while (joueur.getSalleActuelle() != donjon.getFinalRoom() && joueur.getPv() > 0) {
-            //Inventaire
             Histoire.inventaireController.gestionInventaire();
-            //SeReposeer
             Room roomPrecedente = joueur.getSalleActuelle();
             String direction = DonjonController.donjonView.choixSalle(roomPrecedente.availableDoor(), roomPrecedente);
             joueur.seDeplacer(direction);
@@ -123,7 +120,8 @@ public class JoueurController {
         if (joueur.getPv() <= 0) {
             Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonster());
         } else {
-            Console.parler("Bravo, vous avez gagné !");
+            Console.parler("Felicitation, vous avez réussi à terminer le donjon, je vous offre donc cet anneau pour la suite de votre quête");
+            Console.ecrire("Affaire à suivre \uD83D\uDC40");
         }
 
     }

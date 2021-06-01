@@ -11,16 +11,19 @@ public class Library {
 
     /**
      * Array List for all the Monster
+     * @see Monstre
      */
     private ArrayList<Monstre> monsters = new ArrayList<>();
 
     /**
      * Array List for all the Monster
+     * @see Loot
      */
     private ArrayList<Loot> loots = new ArrayList<>();
 
     /**
      * Array List for all the Monster
+     * @see Weapon
      */
     private ArrayList<Weapon> weapons = new ArrayList<>();
 
@@ -28,6 +31,7 @@ public class Library {
     /**
      * Add loot in the Array
      * @param loot
+     * @see Loot
      */
     public void addLoot(Loot loot){
         loots.add(loot);
@@ -36,6 +40,7 @@ public class Library {
     /**
      * Add monster in the Array
      * @param monster
+     * @see Monstre
      */
     public void addMonster(Monstre monster){
         monsters.add(monster);
@@ -44,33 +49,22 @@ public class Library {
     /**
      * Add weapon in the Array
      * @param weapon
+     * @see Weapon
      */
     public void addWeapon(Weapon weapon){
         weapons.add(weapon);
     }
 
-    /**
-     * Return a random monster
-     * @return
-     */
+    //Getters
     public Monstre getAMonster(){
         System.out.println(monsters.size());
         return monsters.get(new Random().nextInt(monsters.size()));
     }
 
-    /**
-     * Return a random loot
-     * @return
-     */
     public Loot getALoot(){
         return loots.get(new Random().nextInt(loots.size()));
     }
 
-
-    /**
-     * Return a random weapon 
-     * @return
-     */
     public Weapon getAWeapon(){
         return weapons.get(new Random().nextInt(weapons.size()));
     }

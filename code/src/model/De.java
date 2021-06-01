@@ -9,6 +9,7 @@ public class De {
      * @param borneInf
      * @param borneSup
      * @return int
+     * @see Random
      */
     public static int genererInt(int borneInf, int borneSup){
         Random random = new Random();
@@ -19,6 +20,7 @@ public class De {
      * Generate a number like a dice
      * @param n
      * @return int
+     * @see Random
      */
     public static int lancerDes(int n){
         Random random = new Random();

@@ -105,6 +105,12 @@ public class CombatController {
         return personne1;
     }
 
+    /**
+     * The method for attack
+     * @see Monstre
+     * @see Joueur
+     * @param p1
+     */
     public void combat(Personne p1) {
         Personne p2;
         if (p1 instanceof Monstre) {

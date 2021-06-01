@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Clavier {
     /**
      * Read a int
-     * @return
+     * @return int
      */
     public static int LectureInt() {
         Scanner clavier = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Clavier {
 
     /**
      * Read a String
-     * @return
+     * @return string
      */
     public static String LectureString() {
         Scanner clavier = new Scanner(System.in);

@@ -7,7 +7,7 @@ public class CombatView {
 
     /**
      * Print the Menu
-     * @return
+     * @return choix
      */
     public int Menu() {
         Console.ecrire("+-------------------------+\n" +
