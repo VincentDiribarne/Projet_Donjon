@@ -25,7 +25,6 @@ public class Donjon {
 
     /**
      * Create 19 rooms for the donjon and link with doors
-     * @author Baptiste Buvron
      * @see Room
      */
     public void createRooms(){
@@ -73,7 +72,7 @@ public class Donjon {
 
     /**
      * Return the first Room
-     * @return Salle
+     * @return Room
      */
     public Room getStartRoom() {
         return startRoom;
@@ -81,7 +80,7 @@ public class Donjon {
 
     /**
      * Return the final Room
-     * @return
+     * @return Room
      */
     public Room getFinalRoom() {
         return finalRoom;

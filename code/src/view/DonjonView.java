@@ -44,7 +44,7 @@ public class DonjonView {
     /**
      * Text for the door choose
      * @param choixDisponible
-     * @return
+     * @return String
      */
     public String choixSalleJoueur(ArrayList<String> choixDisponible){
         Console.ecrire("\nVotre choix : ");

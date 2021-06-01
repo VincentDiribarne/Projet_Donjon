@@ -55,31 +55,16 @@ public class Library {
         weapons.add(weapon);
     }
 
-    /**
-     * Return a random monster
-     * @see Monstre
-     * @return int
-     */
+    //Getters
     public Monstre getAMonster(){
         System.out.println(monsters.size());
         return monsters.get(new Random().nextInt(monsters.size()));
     }
 
-    /**
-     * Return a random loot
-     * @see Loot
-     * @return int
-     */
     public Loot getALoot(){
         return loots.get(new Random().nextInt(loots.size()));
     }
 
-
-    /**
-     * Return a random weapon
-     * @see Weapon
-     * @return int
-     */
     public Weapon getAWeapon(){
         return weapons.get(new Random().nextInt(weapons.size()));
     }

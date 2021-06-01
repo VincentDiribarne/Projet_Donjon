@@ -120,7 +120,8 @@ public class JoueurController {
         if (joueur.getPv() <= 0) {
             Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonster());
         } else {
-            Console.parler("Bravo, vous avez gagné !");
+            Console.parler("Felicitation, vous avez réussi à terminer le donjon, je vous offre donc cet anneau pour la suite de votre quête");
+            Console.ecrire("Affaire à suivre \uD83D\uDC40");
         }
 
     }
