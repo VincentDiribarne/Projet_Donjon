@@ -18,7 +18,6 @@ public class LibraryController {
     public void createLibrary(){
         library.addMonster(new Monstre("Gobelin", 4, 1, -1, 0, 8, 1, 15));
         library.addMonster(new Monstre("Orque", 4, 0, 3, -1, 6, 3, 14));
-        library.addMonster(new Monstre("Donotkesh Primeblood", 12, 0, 3, -1, 12, 3, 18));
 
         Weapon epee = new Weapon("Epee courte", 6,19,"Arme de guerre");
         Weapon arc = new Weapon("Arc court", 4,20,"Arme de guerre");

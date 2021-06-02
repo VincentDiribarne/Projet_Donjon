@@ -12,13 +12,13 @@ public class InventaireController {
      * Instanciates the inventaireView
      * @see InventaireView
      */
-    private InventaireView inventaireView = new InventaireView();
+    private final InventaireView inventaireView = new InventaireView();
 
     /**
      * Instanciates the Joueur
      * @see Joueur
      */
-    private Joueur joueur = JoueurController.joueur;
+    private final Joueur joueur = JoueurController.joueur;
 
     /**
      * Gestion de l'inventaire.

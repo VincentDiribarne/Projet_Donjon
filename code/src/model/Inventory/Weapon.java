@@ -7,22 +7,22 @@ public class Weapon {
     /**
      * Name of the weapon
      */
-    private String name;
+    private final String name;
 
     /**
      * Damage of the weapon
      */
-    private int damage;
+    private final int damage;
 
     /*
      * Critical for the Weapon
      */
-    private int critical;
+    private final int critical;
 
     /**
      * Type of the Weapon
      */
-    private String type;
+    private final String type;
 
     /**
      * Constructor of Weapon

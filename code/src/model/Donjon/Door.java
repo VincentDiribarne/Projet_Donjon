@@ -6,19 +6,19 @@ public class Door {
      * Create a Room
      * @see Room
      */
-    private Room room1;
+    private final Room room1;
 
     /**
      * Create a Room 2
      * @see Room
      */
-    private Room room2;
+    private final Room room2;
 
     /**
      * Create a way
      * @see Room
      */
-    private String way;
+    private final String way;
 
     /**
      * Constructor of Door

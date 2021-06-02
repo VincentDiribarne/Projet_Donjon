@@ -29,7 +29,7 @@ public class Race {
     /**
      * Prefered Jobs obtains with the breed
      */
-    protected String classePrédi;
+    protected String classePredi;
 
     /**
      * Return the final predilection jobs
@@ -41,7 +41,7 @@ public class Race {
      */
     public Race() {
         super();
-        classePrédi = CLASSE_PREDI_DEFAUT;
+        classePredi = CLASSE_PREDI_DEFAUT;
     }
 
     //Bonus / Malus
@@ -62,8 +62,8 @@ public class Race {
     public String getName() {
         return name;
     }
-    public String getClassePrédi() {
-        return classePrédi;
+    public String getClassePredi() {
+        return classePredi;
     }
 
 

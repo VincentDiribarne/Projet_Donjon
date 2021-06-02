@@ -8,7 +8,7 @@ public class Nain extends Race{
     public Nain() {
         super();
         name = "Nain";
-        classePrédi = "Guerrier";
+        classePredi = "Guerrier";
         bonusConst = 2;
     }
 }

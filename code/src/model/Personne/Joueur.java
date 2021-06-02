@@ -40,7 +40,7 @@ public class Joueur extends Personne {
     /**
      * Determine the ability of the player
      */
-    private int dexterité;
+    private int dexterite;
 
     /**
      * Determine the strenght of the player. It's use for the damage.
@@ -51,6 +51,11 @@ public class Joueur extends Personne {
      * Determine the intelligence of the player. Useful for knowledge.
      */
     private int intelligence;
+
+    /**
+     * Determine the number max of PV of the player
+     */
+    private int maxPv;
 
 
     /**
@@ -101,8 +106,8 @@ public class Joueur extends Personne {
     public int getConstitution() {
         return constitution;
     }
-    public int getDexterité() {
-        return dexterité;
+    public int getDexterite() {
+        return dexterite;
     }
     public int getIntelligence() {
         return intelligence;
@@ -115,8 +120,8 @@ public class Joueur extends Personne {
     public void setConstitution(int constitution) {
         this.constitution = constitution;
     }
-    public void setDexterité(int dexterité) {
-        this.dexterité = dexterité;
+    public void setDexterite(int dexterite) {
+        this.dexterite = dexterite;
     }
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
@@ -161,6 +166,14 @@ public class Joueur extends Personne {
     //Inventory
     public Inventory getInventaire() {
         return inventory;
+    }
+
+    public void setMaxPv(int maxPv) {
+        this.maxPv = maxPv;
+    }
+
+    public int getMaxPv() {
+        return maxPv;
     }
 
     @Override

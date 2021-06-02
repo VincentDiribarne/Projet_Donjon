@@ -29,10 +29,6 @@ public class Jobs {
         return firstPV;
     }
 
-    public void setFirstPV(int firstPv) {
-        this.firstPV = firstPv;
-    }
-
     public String getName() {
         return name;
     }

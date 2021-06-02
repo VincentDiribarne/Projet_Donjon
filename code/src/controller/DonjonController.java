@@ -22,7 +22,7 @@ public class DonjonController {
      * Instanciates the player
      * @see Joueur
      */
-    private Joueur joueur = JoueurController.joueur;
+    private final Joueur joueur = JoueurController.joueur;
 
 
     /**
