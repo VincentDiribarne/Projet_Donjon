@@ -1,8 +1,8 @@
 package model;
 
-import model.Inventory.Loot;
-import model.Inventory.Weapon;
-import model.Personne.Monstre;
+import model.inventory.Loot;
+import model.inventory.Weapon;
+import model.person.Monster;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,9 +11,9 @@ public class Library {
 
     /**
      * Array List for all the Monster
-     * @see Monstre
+     * @see Monster
      */
-    private final ArrayList<Monstre> monsters = new ArrayList<>();
+    private final ArrayList<Monster> monsters = new ArrayList<>();
 
     /**
      * Array List for all the Monster
@@ -40,9 +40,9 @@ public class Library {
     /**
      * Add monster in the Array
      * @param monster
-     * @see Monstre
+     * @see Monster
      */
-    public void addMonster(Monstre monster){
+    public void addMonster(Monster monster){
         monsters.add(monster);
     }
 
@@ -56,7 +56,7 @@ public class Library {
     }
 
     //Getters
-    public Monstre getAMonster(){
+    public Monster getAMonster(){
         return monsters.get(new Random().nextInt(monsters.size()));
     }
 

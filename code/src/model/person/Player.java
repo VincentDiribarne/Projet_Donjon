@@ -1,11 +1,11 @@
-package model.Personne;
+package model.person;
 
-import model.Inventory.Weapon;
-import model.Inventory.Inventory;
-import model.JobsClass.Jobs;
-import model.Race.Race;
+import model.inventory.Weapon;
+import model.inventory.Inventory;
+import model.job.Job;
+import model.race.Race;
 
-public class Joueur extends Personne {
+public class Player extends Person {
 
     /**
      * Instantiates the inventory of the player
@@ -20,10 +20,10 @@ public class Joueur extends Personne {
     private Weapon weapon;
 
     /**
-     * It's for the jobs of our player, it's for damage, pv bonus, etc
-     * @see Jobs
+     * It's for the job of our player, it's for damage, pv bonus, etc
+     * @see Job
      */
-    private Jobs jobs;
+    private Job job;
 
     /**
      * It's for the breed of our player, it's for damage, pv bonus, etc too
@@ -61,7 +61,7 @@ public class Joueur extends Personne {
     /**
      * Constructor of the player
      */
-    public Joueur() {
+    public Player() {
         super();
     }
 
@@ -86,12 +86,12 @@ public class Joueur extends Personne {
         }
     }
 
-    //Jobs
-    public Jobs getMetier() {
-        return jobs;
+    //Job
+    public Job getMetier() {
+        return job;
     }
-    public void setMetier(Jobs jobs) {
-        this.jobs = jobs;
+    public void setMetier(Job job) {
+        this.job = job;
     }
 
     //Damages
@@ -160,7 +160,7 @@ public class Joueur extends Personne {
     //Attack
     public int getBonusBaseAttaque()
     {
-        return jobs.getAttackBonus();
+        return job.getAttackBonus();
     }
 
     //Inventory
@@ -178,7 +178,7 @@ public class Joueur extends Personne {
 
     @Override
     public String toString() {
-        return "Joueur{" +
+        return "Player{" +
                 "arme=" + weapon +
                 ", pv=" + pv +
                 ", bonusConst=" + bonusConst +

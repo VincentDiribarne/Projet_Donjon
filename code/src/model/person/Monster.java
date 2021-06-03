@@ -1,8 +1,8 @@
-package model.Personne;
+package model.person;
 
 import model.De;
 
-public class Monstre extends Personne{
+public class Monster extends Person {
 
     /**
      * It's a dice for attack, it's an random attack between 1 and the max dice
@@ -28,7 +28,7 @@ public class Monstre extends Personne{
      * @param bonusBaseAttaque
      * @param classeArmure
      */
-    public Monstre(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure) {
+    public Monster(String nom, int PV, int bonusDex, int bonusForce, int bonusInt, int deAttaque, int bonusBaseAttaque, int classeArmure) {
         super();
         this.nom = nom;
         this.pv = PV;
@@ -67,7 +67,7 @@ public class Monstre extends Personne{
 
     @Override
     public String toString() {
-        return "Monstre{" +
+        return "Monster{" +
                 "deAttaque=" + deAttaque +
                 ", bonusBaseAttaque=" + bonusBaseAttaque +
                 ", pv=" + pv +

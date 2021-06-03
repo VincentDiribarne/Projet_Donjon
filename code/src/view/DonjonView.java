@@ -2,8 +2,8 @@ package view;
 
 import controller.JoueurController;
 import model.De;
-import model.Donjon.Door;
-import model.Donjon.Room;
+import model.donjon.Door;
+import model.donjon.Room;
 
 import java.util.ArrayList;
 
@@ -65,7 +65,7 @@ public class DonjonView {
         Console.ecrire("Vous apercevez un mouvement dans cette salle");
         Console.ecrire("Vous faites un lancer de dé pour essayer de reconnaitre cette forme\n");
         Temps.temps(1000);
-        if (De.lancerDes(20) + JoueurController.joueur.getBonusInt() > 13) {
+        if (De.lancerDes(20) + JoueurController.player.getBonusInt() > 13) {
             Console.ecrire("Il vous semble qu'il s'agit d'un " + roomActuelle.getMonster().getNom()+ "\n");
         } else {
             Console.ecrire("Vous n'avez pas assez de connaissance pour decouvrir le monstre\n");

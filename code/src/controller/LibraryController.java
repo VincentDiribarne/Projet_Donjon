@@ -1,9 +1,9 @@
 package controller;
 
-import model.Inventory.Loot;
-import model.Inventory.Weapon;
+import model.inventory.Loot;
+import model.inventory.Weapon;
 import model.Library;
-import model.Personne.Monstre;
+import model.person.Monster;
 
 public class LibraryController {
     /**
@@ -16,8 +16,8 @@ public class LibraryController {
      * Create the library of weapon and monster
      */
     public void createLibrary(){
-        library.addMonster(new Monstre("Gobelin", 4, 1, -1, 0, 8, 1, 15));
-        library.addMonster(new Monstre("Orque", 4, 0, 3, -1, 6, 3, 14));
+        library.addMonster(new Monster("Gobelin", 4, 1, -1, 0, 8, 1, 15));
+        library.addMonster(new Monster("Orque", 4, 0, 3, -1, 6, 3, 14));
 
         Weapon epee = new Weapon("Epee courte", 6,19,"Arme de guerre");
         Weapon arc = new Weapon("Arc court", 4,20,"Arme de guerre");

@@ -52,6 +52,7 @@ public class Menu {
                 break;
             case 2:
                 r.Regles();
+                Menu();
                 break;
             case 3:
                 joueurController.creationJoueurDebug();

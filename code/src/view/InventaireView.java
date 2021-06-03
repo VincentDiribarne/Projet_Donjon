@@ -1,6 +1,6 @@
 package view;
 
-import model.Inventory.Inventory;
+import model.inventory.Inventory;
 
 public class InventaireView {
 

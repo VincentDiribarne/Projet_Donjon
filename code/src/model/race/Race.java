@@ -1,4 +1,4 @@
-package model.Race;
+package model.race;
 
 public class Race {
     protected String name;
@@ -27,7 +27,7 @@ public class Race {
     protected int bonusConst = 0;
 
     /**
-     * Prefered Jobs obtains with the breed
+     * Prefered Job obtains with the breed
      */
     protected String classePredi;
 

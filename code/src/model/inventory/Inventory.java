@@ -1,4 +1,4 @@
-package model.Inventory;
+package model.inventory;
 
 import java.util.ArrayList;
 

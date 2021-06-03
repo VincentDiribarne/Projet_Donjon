@@ -1,11 +1,11 @@
 package controller;
 
 import model.De;
-import model.Inventory.Loot;
-import model.Donjon.Room;
-import model.Personne.Joueur;
-import model.Personne.Monstre;
-import model.Personne.Personne;
+import model.inventory.Loot;
+import model.donjon.Room;
+import model.person.Person;
+import model.person.Player;
+import model.person.Monster;
 import view.CombatView;
 import view.Console;
 import view.Temps;
@@ -14,9 +14,9 @@ public class CombatController {
 
     /**
      * Instanciates the player
-     * @see Joueur
+     * @see Player
      */
-    private final Joueur joueur = JoueurController.joueur;
+    private final Player player = JoueurController.player;
 
     /**
      * Instanciates the view
@@ -26,9 +26,9 @@ public class CombatController {
 
     /**
      * Instanciates the monster
-     * @see Monstre
+     * @see Monster
      */
-    private Monstre monstre;
+    private Monster monster;
 
     /**
      * Instanciates a Room call "roomPrecedente"
@@ -43,9 +43,9 @@ public class CombatController {
      */
     public void rencontreMonstre(Room roomPrecedente) {
         this.roomPrecedente = roomPrecedente;
-        monstre = joueur.getSalleActuelle().getMonster();
+        monster = player.getSalleActuelle().getMonster();
         Console.parler("Que le meilleur gagne !\n");
-        Personne p1 = calculInitiative();
+        Person p1 = calculInitiative();
         choixJoueur(p1);
     }
 
@@ -53,42 +53,42 @@ public class CombatController {
      * When a turn start, the player can choose in a menu
      * @param p
      */
-    public void choixJoueur(Personne p) {
+    public void choixJoueur(Person p) {
         int choixDuJoueur = combatView.Menu();
         switch (choixDuJoueur) {
             case 1:
                 combat(p);
-                if (joueur.getPv() > 0 && monstre.getPv() > 0) {
+                if (player.getPv() > 0 && monster.getPv() > 0) {
                     choixJoueur(p);
                 }
-                else if (monstre.getPv() <= 0) {
-                    combatView.Gagne(monstre);
-                    if (joueur.getPv() < joueur.getMaxPv()) {
-                        joueur.setPv(joueur.getPv() + 3);
+                else if (monster.getPv() <= 0) {
+                    combatView.Gagne(monster);
+                    if (player.getPv() < player.getMaxPv()) {
+                        player.setPv(player.getPv() + 3);
                     }
-                    if (joueur.getPv() > joueur.getMaxPv()) {
-                        joueur.setPv(joueur.getMaxPv());
+                    if (player.getPv() > player.getMaxPv()) {
+                        player.setPv(player.getMaxPv());
                     }
                     Console.ecrire("Vous avez regénérer votre vie.");
-                    Console.ecrire("Vous avez " + joueur.getPv() +" PV.");
+                    Console.ecrire("Vous avez " + player.getPv() +" PV.");
 
 
-                    //Aleatoire loot d'un monstre
+                    //Aleatoire loot d'un monster
                     Loot loot = LibraryController.library.getALoot();
                     if (loot.getProbability() > De.lancerDes(100)){
                         Console.ecrire("Vous avez obtenu l'arme suivante : ");
                         Console.ecrire(loot.getArme().toString());
-                        joueur.getInventaire().addArme(loot.getArme());
+                        player.getInventaire().addArme(loot.getArme());
                     }
                 }
                 break;
             case 2:
                 int choix = combatView.Fuite();
                 if (choix == 3) {
-                    attaque(monstre, joueur);
+                    attaque(monster, player);
                     choixJoueur(p);
                 } else {
-                    joueur.setSalleActuelle(roomPrecedente);
+                    player.setSalleActuelle(roomPrecedente);
                 }
                 break;
             default:
@@ -99,32 +99,32 @@ public class CombatController {
 
     /**
      * It's a calcul for know who start a fight
-     * @return Personne
-     * @see Personne
+     * @return Person
+     * @see Person
      */
-    public Personne calculInitiative() {
-        Personne personne1;
+    public Person calculInitiative() {
+        Person person1;
 
-        if (joueur.getInitiative() > monstre.getInitiative()) {
-            personne1 = joueur;
+        if (player.getInitiative() > monster.getInitiative()) {
+            person1 = player;
         } else {
-            personne1 = monstre;
+            person1 = monster;
         }
-        return personne1;
+        return person1;
     }
 
     /**
      * The method for attack
-     * @see Monstre
-     * @see Joueur
+     * @see Monster
+     * @see Player
      * @param p1
      */
-    public void combat(Personne p1) {
-        Personne p2;
-        if (p1 instanceof Monstre) {
-            p2 = joueur;
+    public void combat(Person p1) {
+        Person p2;
+        if (p1 instanceof Monster) {
+            p2 = player;
         } else {
-            p2 = monstre;
+            p2 = monster;
         }
         Temps.temps(800);
         if (p1.getPv() > 0) {
@@ -140,27 +140,27 @@ public class CombatController {
 
     /**
      * It's for an attack
-     * @param personne
+     * @param person
      * @param cible
      * @see De
-     * @see Personne
+     * @see Person
      */
-    public void attaque(Personne personne, Personne cible) {
+    public void attaque(Person person, Person cible) {
         int jetAttaque = De.lancerDes(20);
-        int degat = personne.getDegat();
+        int degat = person.getDegat();
 
         if (jetAttaque == 20) {
             degat *= 2;
             cible.estAttaque(degat);
-            combatView.Critique(degat, personne, cible);
+            combatView.Critique(degat, person, cible);
         } else {
-            jetAttaque += personne.getBonusForce() + personne.getBonusBaseAttaque();
+            jetAttaque += person.getBonusForce() + person.getBonusBaseAttaque();
 
             if (cible.getClasseArmure() <= jetAttaque) {
                 cible.estAttaque(degat);
-                combatView.Attaque(jetAttaque, degat, personne, cible);
+                combatView.Attaque(jetAttaque, degat, person, cible);
             } else {
-                combatView.Raté(personne, cible, jetAttaque);
+                combatView.missed(person, cible, jetAttaque);
             }
         }
     }

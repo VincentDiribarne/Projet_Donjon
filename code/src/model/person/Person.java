@@ -2,12 +2,12 @@
  *Created By Vincent
  *
  */
-package model.Personne;
+package model.person;
 
 import model.De;
-import model.Donjon.Room;
+import model.donjon.Room;
 
-public abstract class Personne {
+public abstract class Person {
 
     /**
      * It's for the PV of a personne
@@ -54,7 +54,7 @@ public abstract class Personne {
     /**
      * Constructor of personne
      */
-    public Personne() {
+    public Person() {
         super();
     }
 
