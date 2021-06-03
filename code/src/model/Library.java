@@ -13,19 +13,19 @@ public class Library {
      * Array List for all the Monster
      * @see Monstre
      */
-    private ArrayList<Monstre> monsters = new ArrayList<>();
+    private final ArrayList<Monstre> monsters = new ArrayList<>();
 
     /**
      * Array List for all the Monster
      * @see Loot
      */
-    private ArrayList<Loot> loots = new ArrayList<>();
+    private final ArrayList<Loot> loots = new ArrayList<>();
 
     /**
      * Array List for all the Monster
      * @see Weapon
      */
-    private ArrayList<Weapon> weapons = new ArrayList<>();
+    private final ArrayList<Weapon> weapons = new ArrayList<>();
 
 
     /**
@@ -57,7 +57,6 @@ public class Library {
 
     //Getters
     public Monstre getAMonster(){
-        System.out.println(monsters.size());
         return monsters.get(new Random().nextInt(monsters.size()));
     }
 

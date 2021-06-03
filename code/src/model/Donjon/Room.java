@@ -27,7 +27,7 @@ public class Room {
      * @see Door
      */
     private Door ouestDoor = null;
-    private String name;
+    private final String name;
     private Monstre monster;
 
     /**

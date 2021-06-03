@@ -1,5 +1,6 @@
 package model.Donjon;
 
+import controller.LibraryController;
 import model.Personne.Monstre;
 
 public class Donjon {
@@ -29,23 +30,23 @@ public class Donjon {
      */
     public void createRooms(){
         startRoom = new Room("de Depart");
-        Room room2 = new Room("2");
+        Room room2 = new Room("2", LibraryController.library.getAMonster());
         Room room3 = new Room("3");
-        Room room4 = new Room("4", new Monstre("Gobelin", 4, 1, -1, 0, 8, 1, 15));
+        Room room4 = new Room("4", LibraryController.library.getAMonster());
         Room room5 = new Room("5");
         Room room6 = new Room("6");
         Room room7 = new Room("7");
-        Room room8 = new Room("8");
+        Room room8 = new Room("8", LibraryController.library.getAMonster());
         Room room9 = new Room("9");
         Room room10 = new Room("10");
-        Room room11 = new Room("11");
+        Room room11 = new Room("11", LibraryController.library.getAMonster());
         Room room12 = new Room("12");
         Room room13 = new Room("13");
         Room room14 = new Room("14");
-        Room room15 = new Room("15");
+        Room room15 = new Room("15", LibraryController.library.getAMonster());
         Room room16 = new Room("16");
-        Room room17 = new Room("17");
-        finalRoom = new Room("finale");
+        Room room17 = new Room("17", LibraryController.library.getAMonster());
+        finalRoom = new Room("finale", new Monstre("Donotkesh Primeblood", 12, 0, 3, -1, 12, 3, 18));
 
 
         startRoom.lierSalle(room4,"N");

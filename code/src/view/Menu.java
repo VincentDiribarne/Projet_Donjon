@@ -79,7 +79,7 @@ public class Menu {
                 "\n" +
                 "Votre Choix ?"
         );
-        choixMenu2(clavier.LectureInt());
+        choixMenu2(Clavier.LectureInt());
     }
 
     /**
@@ -94,6 +94,7 @@ public class Menu {
                 libraryController.createLibrary();
                 donjonController.creationDonjon();
                 joueurController.DemarrerLaPartie();
+
                 break;
             case 2:
                 r.Regles();

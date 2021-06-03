@@ -110,7 +110,7 @@ public abstract class Personne {
      * Returns the current life points of the player after attack
      * @param degat
      */
-    public void estAttaqué(int degat){
+    public void estAttaque(int degat){
         pv-= degat;
     }
 

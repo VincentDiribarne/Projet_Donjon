@@ -7,12 +7,12 @@ public class Loot {
      * Create a weapon
      * @see Weapon
      */
-    private Weapon arme;
+    private final Weapon arme;
 
     /**
      * Create a probability for a monster's loot
      */
-    private int probability;
+    private final int probability;
 
     /**
      * Constructor of Loot

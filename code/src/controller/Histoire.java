@@ -1,6 +1,5 @@
 package controller;
 
-import model.Personne.Joueur;
 import view.Console;
 import view.Menu;
 
@@ -40,7 +39,7 @@ public class Histoire {
      * Start the game
      * @see Menu
      */
-    public static void main(String args[]){
+    public static void main(String[] args){
         Menu m = new Menu();
 
         Console.parler("Bonjour et bienvenue dans notre Donjon Textuel.");

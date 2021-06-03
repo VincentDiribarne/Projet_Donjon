@@ -8,7 +8,7 @@ public class Inventory {
      * Create an ArrayList for all the weapon
      * @see Weapon
      */
-    private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
+    private final ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
     /**
      * Add a weapon in the ArrayList

@@ -8,7 +8,7 @@ public class Elfe extends Race {
     public Elfe() {
         super();
         name = "Elfe";
-        classePrédi = "Magicien";
+        classePredi = "Magicien";
         bonusDex = 2;
         bonusConst = -2;
     }

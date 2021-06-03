@@ -19,7 +19,7 @@ public class JoueurController {
      * Instanciates CreationPersonnageView
      * @see CreationPersonnageView
      */
-    private CreationPersonnageView creationPersoview;
+    private final CreationPersonnageView creationPersoview;
 
     /**
      * Instanciates the player
@@ -70,10 +70,11 @@ public class JoueurController {
 
 
         joueur.setBonusConst(bonus(joueur.getConstitution()));
-        joueur.setBonusDex(bonus(joueur.getDexterité()));
+        joueur.setBonusDex(bonus(joueur.getDexterite()));
         joueur.setBonusForce(bonus(joueur.getForce()));
         joueur.setBonusInt(bonus(joueur.getIntelligence()));
         joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
+        joueur.setMaxPv(joueur.getPv());
         joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
 
 
@@ -111,10 +112,7 @@ public class JoueurController {
                 DonjonController.donjonView.JetPerceptionMonstre(joueur.getSalleActuelle());
                 Histoire.combatController.rencontreMonstre(roomPrecedente);
             }
-            if (joueur.getPv() > 0) {
-                //Continuer ....
-                //Ouvrir coffre
-            }
+            //Possibilité d'action après le combat
 
         }
         if (joueur.getPv() <= 0) {

@@ -3,7 +3,6 @@ package controller;
 import model.De;
 import model.Inventory.Loot;
 import model.Donjon.Room;
-
 import model.Personne.Joueur;
 import model.Personne.Monstre;
 import model.Personne.Personne;
@@ -17,7 +16,7 @@ public class CombatController {
      * Instanciates the player
      * @see Joueur
      */
-    private Joueur joueur = JoueurController.joueur;
+    private final Joueur joueur = JoueurController.joueur;
 
     /**
      * Instanciates the view
@@ -35,15 +34,15 @@ public class CombatController {
      * Instanciates a Room call "roomPrecedente"
      * @see Room
      */
-    private Room roomPrécédente;
+    private Room roomPrecedente;
 
 
     /**
      * If a player meet a monster, this method is call
-     * @param roomPrécédente
+     * @param roomPrecedente
      */
-    public void rencontreMonstre(Room roomPrécédente) {
-        this.roomPrécédente = roomPrécédente;
+    public void rencontreMonstre(Room roomPrecedente) {
+        this.roomPrecedente = roomPrecedente;
         monstre = joueur.getSalleActuelle().getMonster();
         Console.parler("Que le meilleur gagne !\n");
         Personne p1 = calculInitiative();
@@ -64,6 +63,15 @@ public class CombatController {
                 }
                 else if (monstre.getPv() <= 0) {
                     combatView.Gagne(monstre);
+                    if (joueur.getPv() < joueur.getMaxPv()) {
+                        joueur.setPv(joueur.getPv() + 3);
+                    }
+                    if (joueur.getPv() > joueur.getMaxPv()) {
+                        joueur.setPv(joueur.getMaxPv());
+                    }
+                    Console.ecrire("Vous avez regénérer votre vie.");
+                    Console.ecrire("Vous avez " + joueur.getPv() +" PV.");
+
 
                     //Aleatoire loot d'un monstre
                     Loot loot = LibraryController.library.getALoot();
@@ -80,7 +88,7 @@ public class CombatController {
                     attaque(monstre, joueur);
                     choixJoueur(p);
                 } else {
-                    joueur.setSalleActuelle(roomPrécédente);
+                    joueur.setSalleActuelle(roomPrecedente);
                 }
                 break;
             default:
@@ -143,13 +151,13 @@ public class CombatController {
 
         if (jetAttaque == 20) {
             degat *= 2;
-            cible.estAttaqué(degat);
+            cible.estAttaque(degat);
             combatView.Critique(degat, personne, cible);
         } else {
             jetAttaque += personne.getBonusForce() + personne.getBonusBaseAttaque();
 
             if (cible.getClasseArmure() <= jetAttaque) {
-                cible.estAttaqué(degat);
+                cible.estAttaque(degat);
                 combatView.Attaque(jetAttaque, degat, personne, cible);
             } else {
                 combatView.Raté(personne, cible, jetAttaque);

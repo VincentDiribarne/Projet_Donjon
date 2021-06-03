@@ -268,7 +268,7 @@ public class CreationPersonnageView {
      */
     public String nomClasse() {
         String reponseClasse;
-        Console.ecrire("\nVous avez choisi un " +JoueurController.joueur.getRace().getName()+ ", votre classe de predilection est " +JoueurController.joueur.getRace().getClassePrédi());
+        Console.ecrire("\nVous avez choisi un " +JoueurController.joueur.getRace().getName()+ ", votre classe de predilection est " +JoueurController.joueur.getRace().getClassePredi());
         Console.ecrire("Vous n'êtes pas obligé de prendre cette classe");
         Console.ecrire("\nChoisissez votre classe parmi les suivantes :\n");
         Temps.temps(1000);
@@ -452,8 +452,8 @@ public class CreationPersonnageView {
 
         Temps.temps(2000);
         Console.ecrire("\nAttribuez un tirage pour la Dextérité : ");
-        joueur.setDexterité(attributionAttribut(tirages));
-        Console.ecrire("Vous attribuer donc " + joueur.getDexterité() + " pour la Dextérité.\n");
+        joueur.setDexterite(attributionAttribut(tirages));
+        Console.ecrire("Vous attribuer donc " + joueur.getDexterite() + " pour la Dextérité.\n");
         Temps.temps(2000);
 
         joueur.setIntelligence(tirages.get(0));
@@ -463,7 +463,7 @@ public class CreationPersonnageView {
         Console.ecrire("\nVoici le récapitulatif de vos attributs : ");
         Console.ecrire("\t - Force : " + joueur.getForce());
         Console.ecrire("\t - Constitution : " + joueur.getConstitution());
-        Console.ecrire("\t - Dexterité : " + joueur.getDexterité());
+        Console.ecrire("\t - Dexterité : " + joueur.getDexterite());
         Console.ecrire("\t - Intelligence : " + joueur.getIntelligence());
     }
 
