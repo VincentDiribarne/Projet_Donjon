@@ -100,7 +100,6 @@ public class JoueurController {
         System.out.println("Debut de la partie");
 
         while (player.getSalleActuelle() != donjon.getFinalRoom() && player.getPv() > 0) {
-            Histoire.inventaireController.gestionInventaire();
             Room roomPrecedente = player.getSalleActuelle();
             String direction = DonjonController.donjonView.choixSalle(roomPrecedente.availableDoor(), roomPrecedente);
             player.seDeplacer(direction);
