@@ -1,4 +1,4 @@
-package model.Donjon;
+package model.donjon;
 
 public class Door {
 

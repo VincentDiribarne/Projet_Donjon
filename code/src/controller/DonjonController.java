@@ -1,7 +1,7 @@
 package controller;
 
-import model.Donjon.Donjon;
-import model.Personne.Joueur;
+import model.donjon.Donjon;
+import model.person.Player;
 import view.DonjonView;
 
 public class DonjonController {
@@ -20,18 +20,18 @@ public class DonjonController {
 
     /**
      * Instanciates the player
-     * @see Joueur
+     * @see Player
      */
-    private final Joueur joueur = JoueurController.joueur;
+    private final Player player = JoueurController.player;
 
 
     /**
      * Create the dongon
-     * @see model.Donjon.Room
+     * @see model.donjon.Room
      * @see Donjon
      */
     public void creationDonjon(){
         donjon.createRooms();
-        joueur.setSalleActuelle(donjon.getStartRoom());
+        player.setSalleActuelle(donjon.getStartRoom());
     }
 }

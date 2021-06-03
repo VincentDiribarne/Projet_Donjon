@@ -1,6 +1,6 @@
 package view;
 
-import model.Personne.Personne;
+import model.person.Person;
 
 public class Console {
     /**
@@ -24,7 +24,7 @@ public class Console {
      * @param texte
      * @param p
      */
-    public static void personneParler (String texte, Personne p) {
+    public static void personneParler (String texte, Person p) {
         Console.ecrire("(" +p.getNom()+ ") - " +texte);
     }
 }

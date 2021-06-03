@@ -2,10 +2,10 @@ package view;
 
 import controller.JoueurController;
 import model.De;
-import model.JobsClass.*;
-import model.Personne.Joueur;
-import model.Race.Halfelin;
-import model.Race.*;
+import model.job.*;
+import model.person.Player;
+import model.race.Halfelin;
+import model.race.*;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ public class CreationPersonnageView {
     /**
      * Instanciates the player
      */
-    private Joueur joueur = JoueurController.joueur;
+    private Player player = JoueurController.player;
 
     /**
      * Print the start text
@@ -22,7 +22,7 @@ public class CreationPersonnageView {
      */
     public String Debutscript() {
         Console.ecrire("\nBienvenue dans la création de personnages.");
-        Console.ecrire("Dans un premier temps, choisissez votre nom de joueur. Suite à cela, vous allez choisir votre race. De plus, vous devrait choisir votre classe (l'équivalent d'un metier dans un jeu de role).");
+        Console.ecrire("Dans un premier temps, choisissez votre nom de player. Suite à cela, vous allez choisir votre race. De plus, vous devrait choisir votre classe (l'équivalent d'un metier dans un jeu de role).");
         Console.ecrire("Enfin, vous allez attribuer des tirages à votre personnage afin qu'il possède une force, des points vie, etc\n");
         Temps.temps(1000);
 
@@ -34,7 +34,7 @@ public class CreationPersonnageView {
      * Print the MJ text
      */
     public void Mj() {
-        Console.parler("Bonjour à toi " + joueur.getNom() + " bienvenue dans le jeu, je te souhaite bonne chance... Pour ce qui va t'arriver ensuite, MOUAH AH AH AH !!");
+        Console.parler("Bonjour à toi " + player.getNom() + " bienvenue dans le jeu, je te souhaite bonne chance... Pour ce qui va t'arriver ensuite, MOUAH AH AH AH !!");
         Console.parler("Ouais, je suis horrible et alors !");
     }
 
@@ -57,10 +57,10 @@ public class CreationPersonnageView {
      */
     public void finScript() {
         Console.ecrire("\nLa création de votre personnage est faite !");
-        Console.ecrire("\nVous êtes un " +joueur.getRace().getName()+ " avec comme classe : " +JoueurController.joueur.getMetier().getName()+ ".");
-        Console.ecrire("Vous avez " +joueur.getPv()+ " PV\n");
+        Console.ecrire("\nVous êtes un " + player.getRace().getName()+ " avec comme classe : " +JoueurController.player.getMetier().getName()+ ".");
+        Console.ecrire("Vous avez " + player.getPv()+ " PV\n");
 
-        Console.parler("Bonne chance à toi, " +joueur.getNom());
+        Console.parler("Bonne chance à toi, " + player.getNom());
     }
 
     /**
@@ -268,7 +268,7 @@ public class CreationPersonnageView {
      */
     public String nomClasse() {
         String reponseClasse;
-        Console.ecrire("\nVous avez choisi un " +JoueurController.joueur.getRace().getName()+ ", votre classe de predilection est " +JoueurController.joueur.getRace().getClassePredi());
+        Console.ecrire("\nVous avez choisi un " +JoueurController.player.getRace().getName()+ ", votre classe de predilection est " +JoueurController.player.getRace().getClassePredi());
         Console.ecrire("Vous n'êtes pas obligé de prendre cette classe");
         Console.ecrire("\nChoisissez votre classe parmi les suivantes :\n");
         Temps.temps(1000);
@@ -288,9 +288,9 @@ public class CreationPersonnageView {
 
     /**
      * Text for choose jobs
-     * @return Jobs
+     * @return Job
      */
-    public Jobs choixClasse() {
+    public Job choixClasse() {
         String reponseClasse = nomClasse();
         Console.ecrire("\nVous avez choisi un " +reponseClasse);
         String choix = reponseClasse.toUpperCase();
@@ -440,31 +440,31 @@ public class CreationPersonnageView {
 
         Temps.temps(2000);
         Console.ecrire("\nAttribuez un tirage pour la Force : ");
-        joueur.setForce(attributionAttribut(tirages));
-        Console.ecrire("Vous attribuer donc " + joueur.getForce() + " pour la Force.\n");
+        player.setForce(attributionAttribut(tirages));
+        Console.ecrire("Vous attribuer donc " + player.getForce() + " pour la Force.\n");
         afficheTirage(tirages);
 
         Temps.temps(2000);
         Console.ecrire("\nAttribuez un tirage pour la Constitution : ");
-        joueur.setConstitution(attributionAttribut(tirages));
-        Console.ecrire("Vous attribuer donc " + joueur.getConstitution() + " pour la Constitution.\n");
+        player.setConstitution(attributionAttribut(tirages));
+        Console.ecrire("Vous attribuer donc " + player.getConstitution() + " pour la Constitution.\n");
         afficheTirage(tirages);
 
         Temps.temps(2000);
         Console.ecrire("\nAttribuez un tirage pour la Dextérité : ");
-        joueur.setDexterite(attributionAttribut(tirages));
-        Console.ecrire("Vous attribuer donc " + joueur.getDexterite() + " pour la Dextérité.\n");
+        player.setDexterite(attributionAttribut(tirages));
+        Console.ecrire("Vous attribuer donc " + player.getDexterite() + " pour la Dextérité.\n");
         Temps.temps(2000);
 
-        joueur.setIntelligence(tirages.get(0));
-        Console.ecrire("\nVous attribuer donc " + joueur.getIntelligence() + " pour l'intelligence.");
+        player.setIntelligence(tirages.get(0));
+        Console.ecrire("\nVous attribuer donc " + player.getIntelligence() + " pour l'intelligence.");
 
         Temps.temps(2000);
         Console.ecrire("\nVoici le récapitulatif de vos attributs : ");
-        Console.ecrire("\t - Force : " + joueur.getForce());
-        Console.ecrire("\t - Constitution : " + joueur.getConstitution());
-        Console.ecrire("\t - Dexterité : " + joueur.getDexterite());
-        Console.ecrire("\t - Intelligence : " + joueur.getIntelligence());
+        Console.ecrire("\t - Force : " + player.getForce());
+        Console.ecrire("\t - Constitution : " + player.getConstitution());
+        Console.ecrire("\t - Dexterité : " + player.getDexterite());
+        Console.ecrire("\t - Intelligence : " + player.getIntelligence());
     }
 
     /**

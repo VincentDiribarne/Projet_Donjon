@@ -1,6 +1,6 @@
-package model.JobsClass;
+package model.job;
 
-public class Jobs {
+public class Job {
 
     /**
      * Create int for PV
@@ -18,9 +18,9 @@ public class Jobs {
     protected int attackBonus = 0;
 
     /**
-     * Constructor of Jobs
+     * Constructor of Job
      */
-    public Jobs() {
+    public Job() {
        super();
     }
 

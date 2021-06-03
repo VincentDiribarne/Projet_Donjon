@@ -1,7 +1,7 @@
 package view;
 
 import model.De;
-import model.Personne.Personne;
+import model.person.Person;
 
 public class CombatView {
 
@@ -11,7 +11,7 @@ public class CombatView {
      */
     public int Menu() {
         Console.ecrire("+-------------------------+\n" +
-                "|     Choix du Joueur     |\n" +
+                "|     Choix du Player     |\n" +
                 "+-------------------------+\n" +
                 "| 1 - Attaque             |\n" +
                 "| 2 - Fuire               |\n" +
@@ -30,7 +30,7 @@ public class CombatView {
      * @param attaquant
      * @param defenseur
      */
-    public void Attaque(int jetattaque, int degat, Personne attaquant, Personne defenseur) {
+    public void Attaque(int jetattaque, int degat, Person attaquant, Person defenseur) {
         Console.ecrire("Le jet d'attaque est de : " +jetattaque+ ", il est superieur à la classe d'armure de " +defenseur.getNom());
         Console.ecrire(attaquant.getNom() + " inflige " +degat+ " dégat à " +defenseur.getNom()+ ". Il lui reste " +defenseur.getPv()+ " PV\n");
     }
@@ -41,7 +41,7 @@ public class CombatView {
      * @param defenseur
      * @param jet
      */
-    public void Raté(Personne attaquant, Personne defenseur, int jet) {
+    public void missed(Person attaquant, Person defenseur, int jet) {
         int choix = De.genererInt(1, 5);
         String nom = "Vous";
         Console.ecrire("Le jet d'attaque est de : " +jet+ ", il est inferieur à la classe d'armure de " +defenseur.getNom());
@@ -59,7 +59,7 @@ public class CombatView {
                 Console.ecrire("Une mouche vole et distrait " +attaquant.getNom());
                 break;
             case 5:
-                if(attaquant instanceof Personne) {
+                if(attaquant instanceof Person) {
                     Console.ecrire("Vous avez réussi a parer l'attaque");
                 } else {
                     Console.ecrire(defenseur.getNom()+ "a réussi a parer l'attaque");
@@ -76,7 +76,7 @@ public class CombatView {
      * @param attaquant
      * @param defenseur
      */
-    public void Critique(int degat, Personne attaquant, Personne defenseur) {
+    public void Critique(int degat, Person attaquant, Person defenseur) {
         Console.ecrire(attaquant.getNom()+ " a eu un super tirage, il fait un critique");
         Console.ecrire("Il inflige "+degat+ " dégat à "  +defenseur.getNom()+ ", il reste " + defenseur.getPv()+ " PV\n");
     }
@@ -85,7 +85,7 @@ public class CombatView {
      * Print the won text for the fight
      * @param monstre
      */
-    public void Gagne(Personne monstre) {
+    public void Gagne(Person monstre) {
         Console.personneParler("AHHHHHH", monstre);
         Console.ecrire("Vous avez gagné le combat !");
         Console.parler("Felicitation\n");
@@ -96,7 +96,7 @@ public class CombatView {
      * Print the loose text for the fight
      * @param monstre
      */
-    public void Perdu(Personne monstre) {
+    public void Perdu(Person monstre) {
         Console.personneParler("Ahahaha je t'ai eu", monstre);
         Console.parler("Vous êtes mort, enfin il me semble\n");
         Console.ecrire("Que voulez-vous faire ?");
@@ -113,7 +113,7 @@ public class CombatView {
         int chancedeFuite = De.genererInt(1, 3);
         if (chancedeFuite == 3) {
             Console.ecrire("Vous avez raté votre fuite");
-            Console.ecrire("Le Monstre vous attaque\n");
+            Console.ecrire("Le Monster vous attaque\n");
         }
         return chancedeFuite;
     }

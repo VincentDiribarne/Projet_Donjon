@@ -1,14 +1,15 @@
 package controller;
 
-import model.Donjon.Donjon;
-import model.Donjon.Room;
-import model.Inventory.Weapon;
-import model.JobsClass.Barbarian;
-import model.JobsClass.Jobs;
-import model.Personne.Joueur;
-import model.Personne.Monstre;
-import model.Race.Humain;
-import model.Race.Race;
+import model.donjon.Donjon;
+import model.donjon.Room;
+import model.inventory.Weapon;
+import model.job.Barbarian;
+import model.job.Job;
+import model.person.Monster;
+import model.person.Person;
+import model.person.Player;
+import model.race.Humain;
+import model.race.Race;
 import view.Console;
 import view.CreationPersonnageView;
 import view.Temps;
@@ -24,7 +25,7 @@ public class JoueurController {
     /**
      * Instanciates the player
      */
-    public static Joueur joueur = new Joueur();
+    public static Player player = new Player();
 
     /**
      * Constructor of JoueurController
@@ -37,10 +38,10 @@ public class JoueurController {
     /**
      *Create the player
      * @see CreationPersonnageView
-     * @see model.Personne.Personne
+     * @see Person
      */
     public void creationPersonnage() {
-        joueur.setNom(creationPersoview.Debutscript());
+        player.setNom(creationPersoview.Debutscript());
         Temps.temps(2000);
 
         creationPersoview.Mj();
@@ -51,15 +52,15 @@ public class JoueurController {
 
         creationPersoview.affichage();
         Race choixRace = creationPersoview.choixRace();
-        joueur.setRace(choixRace);
+        player.setRace(choixRace);
 
         Temps.temps(3000);
 
         Console.ecrire("\n\tBienvenue dans le choix des classes");
         Temps.temps(1000);
         creationPersoview.affichage();
-        Jobs jobs = creationPersoview.choixClasse();
-        joueur.setMetier(jobs);
+        Job job = creationPersoview.choixClasse();
+        player.setMetier(job);
 
         Temps.temps(3000);
 
@@ -69,13 +70,13 @@ public class JoueurController {
         creationPersoview.tirages();
 
 
-        joueur.setBonusConst(bonus(joueur.getConstitution()));
-        joueur.setBonusDex(bonus(joueur.getDexterite()));
-        joueur.setBonusForce(bonus(joueur.getForce()));
-        joueur.setBonusInt(bonus(joueur.getIntelligence()));
-        joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
-        joueur.setMaxPv(joueur.getPv());
-        joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
+        player.setBonusConst(bonus(player.getConstitution()));
+        player.setBonusDex(bonus(player.getDexterite()));
+        player.setBonusForce(bonus(player.getForce()));
+        player.setBonusInt(bonus(player.getIntelligence()));
+        player.setPv(player.getMetier().getfirstPV() + player.getBonusConst());
+        player.setMaxPv(player.getPv());
+        player.setClasseArmure(player.getClasseArmure() + player.getBonusDex());
 
 
         Temps.temps(3000);
@@ -83,9 +84,9 @@ public class JoueurController {
 
         Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
         Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
-        joueur.setArme(mainNue);
-        joueur.getInventaire().addArme(mainNue);
-        joueur.getInventaire().addArme(epeeCourte);
+        player.setArme(mainNue);
+        player.getInventaire().addArme(mainNue);
+        player.getInventaire().addArme(epeeCourte);
     }
 
     /**
@@ -93,30 +94,30 @@ public class JoueurController {
      */
     public void DemarrerLaPartie() {
 
-        Joueur joueur = JoueurController.joueur;
+        Player player = JoueurController.player;
         Donjon donjon = DonjonController.donjon;
 
         System.out.println("Debut de la partie");
 
-        while (joueur.getSalleActuelle() != donjon.getFinalRoom() && joueur.getPv() > 0) {
+        while (player.getSalleActuelle() != donjon.getFinalRoom() && player.getPv() > 0) {
             Histoire.inventaireController.gestionInventaire();
-            Room roomPrecedente = joueur.getSalleActuelle();
+            Room roomPrecedente = player.getSalleActuelle();
             String direction = DonjonController.donjonView.choixSalle(roomPrecedente.availableDoor(), roomPrecedente);
-            joueur.seDeplacer(direction);
+            player.seDeplacer(direction);
 
-            Monstre monstre = joueur.getSalleActuelle().getMonster();
-            if (monstre != null && monstre.getPv() > 0) {
+            Monster monster = player.getSalleActuelle().getMonster();
+            if (monster != null && monster.getPv() > 0) {
                 //Inventaire
                 Histoire.inventaireController.gestionInventaire();
 
-                DonjonController.donjonView.JetPerceptionMonstre(joueur.getSalleActuelle());
+                DonjonController.donjonView.JetPerceptionMonstre(player.getSalleActuelle());
                 Histoire.combatController.rencontreMonstre(roomPrecedente);
             }
             //Possibilité d'action après le combat
 
         }
-        if (joueur.getPv() <= 0) {
-            Histoire.combatController.combatView.Perdu(joueur.getSalleActuelle().getMonster());
+        if (player.getPv() <= 0) {
+            Histoire.combatController.combatView.Perdu(player.getSalleActuelle().getMonster());
         } else {
             Console.parler("Felicitation, vous avez réussi à terminer le donjon, je vous offre donc cet anneau pour la suite de votre quête");
             Console.ecrire("Affaire à suivre \uD83D\uDC40");
@@ -126,7 +127,7 @@ public class JoueurController {
 
     /**
      * Find bonus from a value
-     * @see model.Personne.Personne
+     * @see Person
      * @param valeur
      * @return int
      */
@@ -150,23 +151,23 @@ public class JoueurController {
 
     /**
      * Create a default Player
-     * @see Joueur
+     * @see Player
      */
     public void creationJoueurDebug() {
-        joueur.setNom("John");
-        joueur.setRace(new Humain());
-        joueur.setMetier(new Barbarian());
-        joueur.setBonusForce(3);
-        joueur.setBonusConst(3);
-        joueur.setBonusDex(2);
-        joueur.setBonusInt(0);
-        joueur.setPv(joueur.getMetier().getfirstPV() + joueur.getBonusConst());
-        joueur.setClasseArmure(joueur.getClasseArmure() + joueur.getBonusDex());
+        player.setNom("John");
+        player.setRace(new Humain());
+        player.setMetier(new Barbarian());
+        player.setBonusForce(3);
+        player.setBonusConst(3);
+        player.setBonusDex(2);
+        player.setBonusInt(0);
+        player.setPv(player.getMetier().getfirstPV() + player.getBonusConst());
+        player.setClasseArmure(player.getClasseArmure() + player.getBonusDex());
         Weapon mainNue = new Weapon("Poing", 2, 20,"Corps à corps");
         Weapon epeeCourte = new Weapon("Epee courte", 6,19,"Arme de guerre");
-        joueur.getInventaire().addArme(mainNue);
-        joueur.getInventaire().addArme(epeeCourte);
-        joueur.setArme(epeeCourte);
+        player.getInventaire().addArme(mainNue);
+        player.getInventaire().addArme(epeeCourte);
+        player.setArme(epeeCourte);
         creationPersoview.finScript();
     }
 }

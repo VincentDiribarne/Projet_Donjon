@@ -1,10 +1,10 @@
-package model.JobsClass;
+package model.job;
 
-public class Clerk extends Jobs {
+public class Clerk extends Job {
 
     /**
      * Constructor of Clerk, never redifined
-     * @see Jobs
+     * @see Job
      */
     public Clerk() {
         name = "Pretre";

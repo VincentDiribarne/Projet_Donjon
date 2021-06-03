@@ -1,4 +1,4 @@
-package model.Race;
+package model.race;
 
 public class Nain extends Race{
 

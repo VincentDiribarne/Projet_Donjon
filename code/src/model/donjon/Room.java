@@ -1,6 +1,7 @@
-package model.Donjon;
+package model.donjon;
 
-import model.Personne.Monstre;
+import model.person.Monster;
+
 import java.util.ArrayList;
 
 public class Room {
@@ -28,7 +29,7 @@ public class Room {
      */
     private Door ouestDoor = null;
     private final String name;
-    private Monstre monster;
+    private Monster monster;
 
     /**
      * Constructor of Room
@@ -43,9 +44,9 @@ public class Room {
      * Constructor of Room with a monster
      * @param name
      * @param monster
-     * @see Monstre
+     * @see Monster
      */
-    public Room(String name, Monstre monster){
+    public Room(String name, Monster monster){
         this(name);
         this.monster = monster;
     }
@@ -140,7 +141,7 @@ public class Room {
         return name;
     }
 
-    public Monstre getMonster() {
+    public Monster getMonster() {
         return monster;
     }
 }
