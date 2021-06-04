@@ -70,15 +70,16 @@ public class Menu {
      * Second Menu
      */
     public void Menu2() {
-        System.out.println("\t+------------------------------+\n" +
-                "\t|        Donjon Textuel        |\n" +
-                "\t+------------------------------+\n" +
-                "\t| 1 - Lancer la partie         |\n" +
-                "\t| 2 - Afficher les règles      |\n" +
-                "\t| 3 - Quitter                  |\n" +
-                "\t+------------------------------+\n" +
-                "\n" +
-                "Votre Choix ?"
+        System.out.println("""
+                \t+------------------------------+
+                \t|        Donjon Textuel        |
+                \t+------------------------------+
+                \t| 1 - Lancer la partie         |
+                \t| 2 - Afficher les règles      |
+                \t| 3 - Quitter                  |
+                \t+------------------------------+
+
+                Votre Choix ?"""
         );
         choixMenu2(Clavier.LectureInt());
     }
@@ -89,16 +90,16 @@ public class Menu {
      */
     public void choixMenu2(int a) {
         Regles r = new Regles();
-
         switch (a){
             case 1:
                 libraryController.createLibrary();
                 donjonController.creationDonjon();
                 joueurController.DemarrerLaPartie();
-
                 break;
             case 2:
                 r.Regles();
+                a = 0;
+                choixMenu2(a);
                 break;
             case 3:
                 System.exit(1);

@@ -57,10 +57,8 @@ public class CreationPersonnageView {
      */
     public void finScript() {
         Console.ecrire("\nLa création de votre personnage est faite !");
-        Console.ecrire("\nVous êtes un " + player.getRace().getName()+ " avec comme classe : " +JoueurController.player.getMetier().getName()+ ".");
-        Console.ecrire("Vous avez " + player.getPv()+ " PV\n");
-
-        Console.parler("Bonne chance à toi, " + player.getNom());
+        Console.ecrire("\nVous êtes un " +joueur.getRace().getName()+ " avec comme classe : " +JoueurController.joueur.getMetier().getName()+ ".");
+        Console.ecrire("Vous avez " +joueur.getPv()+ " PV \n");
     }
 
     /**
