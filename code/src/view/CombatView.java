@@ -10,17 +10,16 @@ public class CombatView {
      * @return choix
      */
     public int Menu() {
-        Console.ecrire("+-------------------------+\n" +
-                "|     Choix du Player     |\n" +
-                "+-------------------------+\n" +
-                "| 1 - Attaque             |\n" +
-                "| 2 - Fuire               |\n" +
-                "+-------------------------+");
+        Console.ecrire("""
+                +-------------------------+
+                |     Choix du Player     |
+                +-------------------------+
+                | 1 - Attaque             |
+                | 2 - Fuire               |
+                +-------------------------+""");
 
         Console.ecrire("\nVotre choix ?");
-        int choix = Clavier.LectureInt();
-
-        return choix;
+        return Clavier.LectureInt();
     }
 
     /**
@@ -43,7 +42,6 @@ public class CombatView {
      */
     public void missed(Person attaquant, Person defenseur, int jet) {
         int choix = De.genererInt(1, 5);
-        String nom = "Vous";
         Console.ecrire("Le jet d'attaque est de : " +jet+ ", il est inferieur à la classe d'armure de " +defenseur.getNom());
         switch (choix) {
             case 1:

@@ -64,10 +64,4 @@ public class Library {
         return loots.get(new Random().nextInt(loots.size()));
     }
 
-    public Weapon getAWeapon(){
-        return weapons.get(new Random().nextInt(weapons.size()));
-    }
-
-
-
 }
