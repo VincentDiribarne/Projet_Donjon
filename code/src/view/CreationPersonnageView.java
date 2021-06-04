@@ -14,7 +14,7 @@ public class CreationPersonnageView {
     /**
      * Instanciates the player
      */
-    private Player player = JoueurController.player;
+    private final Player player = JoueurController.player;
 
     /**
      * Print the start text
@@ -57,8 +57,8 @@ public class CreationPersonnageView {
      */
     public void finScript() {
         Console.ecrire("\nLa création de votre personnage est faite !");
-        Console.ecrire("\nVous êtes un " +joueur.getRace().getName()+ " avec comme classe : " +JoueurController.joueur.getMetier().getName()+ ".");
-        Console.ecrire("Vous avez " +joueur.getPv()+ " PV \n");
+        Console.ecrire("\nVous êtes un " +player.getRace().getName()+ " avec comme classe : " +JoueurController.player.getMetier().getName()+ ".");
+        Console.ecrire("Vous avez " +player.getPv()+ " PV \n");
     }
 
     /**
@@ -92,18 +92,22 @@ public class CreationPersonnageView {
         String reponseRace;
         Console.ecrire("\nChoisissez votre Race parmi les suivantes : ");
         Temps.temps(1000);
-        Console.ecrire("Races Pur Sang : \n" +
-                        "\t - Humain \n" +
-                        "\t - Elfe \n" +
-                        "\t - Gnome \n" +
-                        "\t - Halfelin \n" +
-                        "\t - Nain \n"
+        Console.ecrire("""
+                Races Pur Sang :\s
+                \t - Humain\s
+                \t - Elfe\s
+                \t - Gnome\s
+                \t - Halfelin\s
+                \t - Nain\s
+                """
         );
         Temps.temps(1000);
         Console.ecrire(
-                        "Races Sang-Melées : \n" +
-                        "\t - Demi-Elfe\n" +
-                        "\t - Demi-Orque \n"
+                """
+                        Races Sang-Melées :\s
+                        \t - Demi-Elfe
+                        \t - Demi-Orque\s
+                        """
         );
         Temps.temps(2000);
         Console.ecrire("Votre Choix ?");

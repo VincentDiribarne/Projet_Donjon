@@ -17,18 +17,17 @@ public class InventaireView {
      * @return int
      */
     public int menuInventaire(){
-        Console.ecrire("\n" +
-                "+---------------------------------------+\n" +
-                "|              Inventaire               |\n" +
-                "+---------------------------------------+\n" +
-                "| 1- Voir l'inventaire                  |\n" +
-                "| 2- Changer l'arme équipée             |\n" +
-                "| 0- Quitter                            |\n" +
-                "+---------------------------------------+\n" +
-                "\n");
+        Console.ecrire("""
+                +---------------------------------------+
+                |              Inventaire               |
+                +---------------------------------------+
+                | 1- Voir l'inventaire                  |
+                | 2- Changer l'arme équipée             |
+                | 0- Quitter                            |
+                +---------------------------------------+
+                """);
 
-        System.out.println("Votre choix : ");
-        int choix;
-        return choix = Clavier.LectureInt();
+        Console.ecrire("Votre choix : ");
+        return Clavier.LectureInt();
     }
 }

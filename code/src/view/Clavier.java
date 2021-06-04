@@ -9,8 +9,7 @@ public class Clavier {
      */
     public static int LectureInt() {
         Scanner clavier = new Scanner(System.in);
-        int reponse = clavier.nextInt();
-        return reponse;
+        return clavier.nextInt();
     }
 
     /**
@@ -19,7 +18,6 @@ public class Clavier {
      */
     public static String LectureString() {
         Scanner clavier = new Scanner(System.in);
-        String reponse = clavier.nextLine();
-        return reponse;
+        return clavier.nextLine();
     }
 }

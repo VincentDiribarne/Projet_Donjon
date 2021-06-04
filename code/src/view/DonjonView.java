@@ -16,7 +16,7 @@ public class DonjonView {
      * @return
      */
     public String choixSalle(ArrayList<Door> sallesDisponibles, Room roomJoueur){
-        ArrayList<String> choixDisponibles = new ArrayList<String>();
+        ArrayList<String> choixDisponibles = new ArrayList<>();
         Console.ecrire("Vous êtes dans la salle "+ roomJoueur.getName());
         Console.ecrire("Vous pouvez maintenant vous déplacer : ");
         for (Door p: sallesDisponibles) {
@@ -37,7 +37,7 @@ public class DonjonView {
      */
     public void voirSallePorte(Door porte, Room room){
         if (porte != null){
-            System.out.println("\t - Porte " +porte.getDirection(room)+ " vers la salle " + porte.takeDoor(room).getName());;
+            System.out.println("\t - Porte " +porte.getDirection(room)+ " vers la salle " + porte.takeDoor(room).getName());
         }
     }
 

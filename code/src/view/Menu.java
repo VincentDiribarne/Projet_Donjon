@@ -9,35 +9,31 @@ import controller.LibraryController;
 public class Menu {
 
     /**
-     * Instanciates keyboard
-     */
-    private Clavier clavier = new Clavier();
-
-    /**
      * Instanciates joueurController
      * @see JoueurController
      */
-    private JoueurController joueurController = Histoire.joueurController;
-    private DonjonController donjonController = Histoire.donjonController;
-    private LibraryController libraryController = Histoire.libraryController;
+    private final JoueurController joueurController = Histoire.joueurController;
+    private final DonjonController donjonController = Histoire.donjonController;
+    private final LibraryController libraryController = Histoire.libraryController;
 
     /**
      * Print Menu
      */
     public void Menu() {
         Temps.temps(1000);
-        System.out.println("\t+------------------------------+\n" +
-                            "\t|        Donjon Textuel        |\n" +
-                            "\t+------------------------------+\n" +
-                            "\t| 1 - Création d'un personnage |\n" +
-                            "\t| 2 - Afficher les règles      |\n" +
-                            "\t| 3 - Personnage tout fait     |\n" +
-                            "\t| 4 - Quitter                  |\n" +
-                            "\t+------------------------------+\n" +
-                            "\n" +
-                            "Votre Choix ?"
+        System.out.println("""
+                \t+------------------------------+
+                \t|        Donjon Textuel        |
+                \t+------------------------------+
+                \t| 1 - Création d'un personnage |
+                \t| 2 - Afficher les règles      |
+                \t| 3 - Personnage tout fait     |
+                \t| 4 - Quitter                  |
+                \t+------------------------------+
+
+                Votre Choix ?"""
         );
-        choixMenu(clavier.LectureInt());
+        choixMenu(Clavier.LectureInt());
     }
 
     /**
